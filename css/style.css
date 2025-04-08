@@ -1,9 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wdth,wght@0,18..144,87..112,700;1,18..144,87..112,700&family=Source+Sans+3&display=swap');
 @import "header.css";
+@import "hero.css";
 
 :root {
     --red: #FF2400;
     --black: #4F4C4C;
+    --grey: #2C2C2C;
     --maxwidth: 1280px; 
 
     /* --bp-sm: 480px;
@@ -19,4 +21,9 @@ body {
     font-size: 16px;
     padding-top: 60px;
 }
-
+h1 {
+    font-family: "Merriweather", serif;
+    font-weight: 300;
+    font-variation-settings: "wdth" 100;
+    line-height: 1.4;
+}
