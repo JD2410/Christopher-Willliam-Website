@@ -1,5 +1,7 @@
 .hero {
     background-color: var(--grey);
+    display: flex;
+    justify-content: center;
 }
 .hero-container {
     padding: 20px;
@@ -12,7 +14,9 @@
     background-image: url(../images/schematic-white.svg);
     background-repeat: no-repeat;
     background-position: bottom left;
-background-size: cover;
+    background-size: cover;
+    max-width: var(--maxwidth);
+    box-sizing: border-box;
 }
 .hero h1 span {
     color: var(--red);
@@ -29,4 +33,21 @@ background-size: cover;
     display: block;
     text-align: center;
     border-radius: 6px;
+}
+
+@media (min-width: 768px) {
+    .hero-container {
+        height: 600px;
+        align-items: flex-start;
+    }
+    .hero-container::after {
+        content: "";
+        display: block;
+        height: 600px;
+        width: 50%;
+        background-image: url(../images/header.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        position: absolute;
+    }
 }
