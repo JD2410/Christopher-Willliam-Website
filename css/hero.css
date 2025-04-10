@@ -36,18 +36,22 @@
 }
 
 @media (min-width: 768px) {
+    .hero h1, .hero p {
+        max-width: 58%;
+    }
     .hero-container {
         height: 600px;
         align-items: flex-start;
+        background-size: unset;
     }
     .hero-container::after {
         content: "";
         display: block;
         height: 600px;
-        width: 50%;
+        width: 48%;
         background-image: url(../images/header.png);
-        background-size: contain;
         background-repeat: no-repeat;
         position: absolute;
+        right: 0;
     }
 }
