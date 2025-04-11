@@ -69,7 +69,7 @@
     color: #fff;
     background-color: var(--red);
     border-radius: 30px;
-    text-align: center;
+    text-align: left;
     margin: 0 20px;
     padding: 16px;
 }
@@ -95,6 +95,11 @@
 .services-listed .card p {
     margin: 0 0 8px;
 }
+.check-out-work {
+    color: var(--red);
+    text-decoration: none;
+    margin-bottom: 20px;
+}
 
 
 @media (min-width: 768px) {
@@ -114,8 +119,7 @@
         border-right: 1px solid #00000021;
     }
     .services {
-        padding-top: 70px;
-        height: 830px;
+        padding: 100px 20px 0 20px;
     }
     .services-opening::after {
         content: "";
@@ -126,28 +130,36 @@
         position: absolute;
         top: 30px;
         right: 0;
-        background-size: contain;
+        background-size: cover;
         background-repeat: no-repeat;
         background-position: top right;
+        border-radius: 12px;
     }
     .services-opening--container {
         width: 75%;
         margin: 0;
-        padding: 8px 11% 250px 24px;
+        padding: 22px 11% 250px 24px;
         box-sizing: border-box;
         text-align: left;
     }
     .services-listed {
         position: absolute;
         z-index: 10;
-        display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        top: 240px;
-        padding: 0 20px;
+        top: 320px;
         box-sizing: border-box;
     }
     .card.card--empty {
         background-color: transparent;
         display: unset;
+    }
+    .check-out-work {
+        margin-top: 420px;
+    }
+}
+@media (min-width: 768px) and (max-width: 1310px) {
+    .services-listed {
+        padding-left: 40px;
+        padding-right: 40px;
     }
 }

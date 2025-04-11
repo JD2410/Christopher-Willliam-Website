@@ -2,6 +2,7 @@
 @import "header.css";
 @import "hero.css";
 @import "services.css";
+@import "profile.css";
 
 
 :root {
@@ -35,4 +36,8 @@ h2, h3, h4 {
 }
 p {
     line-height: 1.4;
+}
+.section-introduction {
+    border-left: 8px solid var(--red);
+    padding-left: 12px;
 }
