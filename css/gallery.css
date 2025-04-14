@@ -7,6 +7,7 @@
 .projects-container #gallery img {
     width: 100%;
     height: auto;
+    cursor: pointer;
 }
 
 .gallery-open {
@@ -14,7 +15,6 @@
 }
 #modal {
     position: fixed;
-    /* display: grid; */
     align-items: center;
     justify-content: center;
     width: 100%;
@@ -34,18 +34,102 @@
     padding: 20px;
     box-sizing: border-box;
     gap: 20px;
+    max-height: calc(100vh - 40px);
+    grid-template-rows: calc(100% - 100px) 100px;
+    position: relative;
 }
 #modal .wrapper img {
     width: 100%;
-    height: auto;
-    object-fit: cover;
+    height: 100%;
+    object-fit: contain;
+}
+.image-holder {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.image-description p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+#closeGallery {
+    position: absolute;
+    width: 100%;
+    height: 120px;
+    display: grid;
+    justify-content: right;
+}
+
+#closeGallery::after {
+    content: "";
+    display: block;
+    height: 40px;
+    width: 40px;
+    background-color: var(--red);
+    border: #fff solid 3px;
+    background-image: url(../images/icon-close.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    margin: -15px;
+}
+.image-holder #previous, .image-holder #next {
+    width: 40%;
+    display: flex;
+    height: 100%;
+    position: absolute;
+    align-items: center;
+    padding: 10px;
+}
+.image-holder #next {
+    right: 0;
+    justify-content: right;
+}
+.image-holder #previous::after {
+    content: "";
+    display: block;
+    height: 40px;
+    width: 40px;
+    background-color: var(--red);
+    border: #fff solid 3px;
+    background-image: url(../images/icon-previous.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    position: absolute;
+}
+.image-holder #next::after {
+    content: "";
+    display: block;
+    height: 40px;
+    width: 40px;
+    background-color: var(--red);
+    border: #fff solid 3px;
+    background-image: url(../images/icon-next.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    position: absolute;
 }
 @media (min-width: 1000px) {
     #modal .wrapper {
         grid-template-columns: auto 300px;
+        grid-template-rows: unset;
     }
 }
 @media (min-width: 768px) {
+    .image-description p {
+        overflow: visible;
+        display: unset;
+    }
+    #modal .wrapper img {
+        max-height: 700px;
+    }
     .projects-container #gallery {
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
