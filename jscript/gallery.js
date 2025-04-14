@@ -15,12 +15,33 @@ let galleries = [
         'gallery/gallery-01/gallery-02.jpg',
         'gallery/gallery-01/gallery-01.jpg',
         'gallery/gallery-01/gallery-03.jpg',
+        'gallery/gallery-01/gallery-01.jpg',
+        'gallery/gallery-01/gallery-03.jpg',
     ]),
     new Gallery(null, 'lorem ipsum donor', 'images/proj-03.png', [
         'gallery/gallery-01/gallery-03.jpg',
         'gallery/gallery-01/gallery-02.jpg',
         'gallery/gallery-01/gallery-01.jpg',
-    ])
+        'gallery/gallery-01/gallery-02.jpg',
+        'gallery/gallery-01/gallery-01.jpg',
+        'gallery/gallery-01/gallery-02.jpg',
+        'gallery/gallery-01/gallery-01.jpg',
+    ]),
+    new Gallery(null, null, 'images/proj-04.png', [
+        'gallery/gallery-01/gallery-01.jpg',
+        'gallery/gallery-01/gallery-02.jpg',
+        'gallery/gallery-01/gallery-03.jpg',
+    ]),
+    new Gallery(null, null, 'images/proj-05.png', [
+        'gallery/gallery-01/gallery-01.jpg',
+        'gallery/gallery-01/gallery-02.jpg',
+        'gallery/gallery-01/gallery-03.jpg',
+    ]),
+    new Gallery(null, null, 'images/proj-06.png', [
+        'gallery/gallery-01/gallery-01.jpg',
+        'gallery/gallery-01/gallery-02.jpg',
+        'gallery/gallery-01/gallery-03.jpg',
+    ]),
 ];
 
 
@@ -29,14 +50,14 @@ let scr = {
         document.addEventListener('keydown', function(event) {
             if(event.key === 'Escape') { scr.hideGallery(); }
         })
-        document.getElementById("modal").addEventListener("click", function() {
-            scr.hideGallery();
-        })
         document.getElementById("closeGallery").addEventListener("click", function() {
             scr.hideGallery();
         })
         document.getElementById("next").addEventListener("click", function() {
-            scr.nextImage();
+            scr.findNextImage(true);
+        })
+        document.getElementById("previous").addEventListener("click", function() {
+            scr.findNextImage(false);
         })
         this.createGalleryThumbnails()
     },
@@ -70,7 +91,7 @@ let scr = {
             }
         })()
 
-        scr.changeGalleryImage(galleries[whichGallery].images[0])
+        scr.initalLoadGalleryImage(galleries[whichGallery].images[0])
     },
     hideGallery: function() {
         let ele = document.getElementById("modal");
@@ -86,11 +107,49 @@ let scr = {
             }
         })()
     },
-    changeGalleryImage: function(image) {
-        document.getElementById('galleryImage').src = image;
+    initalLoadGalleryImage: function(imageSource) {
+        var galleryImage =  document.getElementById('galleryImage');
+        if (galleryImage == null) {
+            let image = document.createElement('img')
+            image.src = imageSource;
+            image.id = "galleryImage";
+            document.getElementById("galleryImageContainer").appendChild(image);
+        } else {
+            galleryImage.src = imageSource;
+        }
     },
-    nextImage: function() {
-        
+    findNextImage: function(nextImage) {
+        let galleryDetails = document.getElementById("modal")
+        const whatGallery = galleryDetails.dataset.gallery;
+        const currentImageIndex = galleryDetails.dataset.indexCount;
+        const howManyImages = galleries[whatGallery].images.length;
+
+        let newImage;
+
+        if (newImage) {
+            newImage = parseInt(currentImageIndex) + 1;
+
+            if(newImage <= (howManyImages - 1)) {
+                galleryDetails.dataset.indexCount = newImage;
+            } else {
+                galleryDetails.dataset.indexCount = 0;
+                newImage = 0;
+            }
+        } else {
+            newImage = parseInt(currentImageIndex) - 1;
+
+            if(newImage > 0) {
+                galleryDetails.dataset.indexCount = newImage;
+            } else {
+                galleryDetails.dataset.indexCount = howManyImages - 1;
+                newImage = howManyImages - 1;
+            }
+        }
+
+        this.swapGalleryImage(galleries[whatGallery].images[newImage])
+    },
+    swapGalleryImage: function(imageSource) {
+        document.getElementById("galleryImage").src = imageSource;
     }
 }
 
