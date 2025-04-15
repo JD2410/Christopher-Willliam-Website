@@ -42,6 +42,49 @@ let galleries = [
         'gallery/gallery-01/gallery-02.jpg',
         'gallery/gallery-01/gallery-03.jpg',
     ]),
+    new Gallery(null, 'lorem ipsum donor', 'images/proj-07.png', [
+        'gallery/gallery-01/gallery-03.jpg',
+        'gallery/gallery-01/gallery-02.jpg',
+        'gallery/gallery-01/gallery-01.jpg',
+        'gallery/gallery-01/gallery-02.jpg',
+        'gallery/gallery-01/gallery-01.jpg',
+        'gallery/gallery-01/gallery-02.jpg',
+        'gallery/gallery-01/gallery-01.jpg',
+    ]),
+    new Gallery(null, null, 'images/proj-08.png', [
+        'gallery/gallery-01/gallery-01.jpg',
+        'gallery/gallery-01/gallery-02.jpg',
+        'gallery/gallery-01/gallery-03.jpg',
+    ]),
+    new Gallery(null, null, 'images/proj-09.png', [
+        'gallery/gallery-01/gallery-01.jpg',
+        'gallery/gallery-01/gallery-02.jpg',
+        'gallery/gallery-01/gallery-03.jpg',
+    ]),
+    new Gallery(null, null, 'images/proj-10.png', [
+        'gallery/gallery-01/gallery-01.jpg',
+        'gallery/gallery-01/gallery-02.jpg',
+        'gallery/gallery-01/gallery-03.jpg',
+    ]),
+    new Gallery(null, 'lorem ipsum donor', 'images/proj-11.png', [
+        'gallery/gallery-01/gallery-03.jpg',
+        'gallery/gallery-01/gallery-02.jpg',
+        'gallery/gallery-01/gallery-01.jpg',
+        'gallery/gallery-01/gallery-02.jpg',
+        'gallery/gallery-01/gallery-01.jpg',
+        'gallery/gallery-01/gallery-02.jpg',
+        'gallery/gallery-01/gallery-01.jpg',
+    ]),
+    new Gallery(null, null, 'images/proj-12.png', [
+        'gallery/gallery-01/gallery-01.jpg',
+        'gallery/gallery-01/gallery-02.jpg',
+        'gallery/gallery-01/gallery-03.jpg',
+    ]),
+    new Gallery(null, null, 'images/proj-13.png', [
+        'gallery/gallery-01/gallery-01.jpg',
+        'gallery/gallery-01/gallery-02.jpg',
+        'gallery/gallery-01/gallery-03.jpg',
+    ]),
 ];
 
 

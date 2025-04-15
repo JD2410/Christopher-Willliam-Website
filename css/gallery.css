@@ -63,6 +63,7 @@
     height: 120px;
     display: grid;
     justify-content: right;
+    cursor: pointer;
 }
 
 #closeGallery::after {
@@ -85,6 +86,7 @@
     position: absolute;
     align-items: center;
     padding: 10px;
+    cursor: pointer;
 }
 .image-holder #next {
     right: 0;
