@@ -4,9 +4,10 @@ let cwbs = {
             document.getElementById("navigation").classList.toggle('open')
         })
         this.formScript();
+        this.inputs();
     },
     formScript: function() {
-        
+
         const form = document.getElementById('form');
         const result = document.getElementById('result');
         form.addEventListener('submit', function(e) {
@@ -44,7 +45,49 @@ let cwbs = {
                       }, 3000);
                   });
           });
-    }
+    },
+    inputs: function() {
+        let inputs = document.querySelectorAll(".uhr-input")
+        for(let input of inputs) {
+
+            if(!input.classList.contains('nf')) {
+
+                const $input = input.getElementsByTagName('input')[0];
+                input.addEventListener("click", function() {
+                    let $this = this;
+                    $this.classList.add("selected");
+                    $this.classList.add("selected-colour");
+                    $input.select();
+                })
+
+                $input.addEventListener("focus", function() {
+                    let $this = this;
+                    let $outer = $this.closest(".uhr-input")
+                    $outer.classList.add("selected");
+                    $outer.classList.add("selected-colour");
+                    $input.select();
+                })
+
+                $input.addEventListener("blur", function() {
+                    let $this = this;
+                    input.classList.remove("selected-colour")
+                    if($this.value == "") {
+                        input.classList.remove("selected")
+                    }
+                })
+
+                $input.addEventListener("keyup", function() {
+                    let $this = this;
+                    if($this.value.toUpperCase() == "ERROR") {
+                        input.classList.add("error")
+                    } else {
+                        input.classList.remove("error")
+                    }
+                })
+            }
+            
+        }
+    },
 }
 
 window.onload = function(){
