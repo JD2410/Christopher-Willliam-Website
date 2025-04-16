@@ -118,6 +118,11 @@
     border-radius: 50%;
     position: absolute;
 }
+#galleryImageContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 @media (min-width: 1000px) {
     #modal .wrapper {
         grid-template-columns: auto 300px;
@@ -131,6 +136,7 @@
     }
     #modal .wrapper img {
         max-height: 700px;
+        width: unset;
     }
     .projects-container #gallery {
         grid-template-columns: 1fr 1fr 1fr 1fr;

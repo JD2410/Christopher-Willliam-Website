@@ -34,12 +34,12 @@
 
 @media (min-width: 768px) {
     .map {
-        padding: 60px 0;
+        padding: 60px 20px;
     }
     .map-container {
         display: grid;
         gap: 40px;
-        grid-template-columns: calc(100% - 480px) 400px;
+        grid-template-columns: calc(100% - 440px) 400px;
     }
     .map-details {
         margin-bottom: 0;
