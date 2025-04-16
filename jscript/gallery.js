@@ -195,7 +195,3 @@ let scr = {
         document.getElementById("galleryImage").src = imageSource;
     }
 }
-
-window.onload = (Event) => {
-    scr.init();
-}
