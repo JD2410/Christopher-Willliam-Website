@@ -1,3 +1,7 @@
+:root {
+  --green: #03c720;
+}
+
 
 /* Buttons */
 .cus-button {
@@ -22,7 +26,7 @@
 
 .cus-button:focus {
   outline: none;
-  box-shadow: 0 0 0 2px #ffffff, 0 0 3px 3px #3a97f9;
+  box-shadow: 0 0 0 2px #ffffff, 0 0 3px 3px var(--green);
 }
 
 .cus-button:hover {
@@ -114,7 +118,7 @@
   border: 1px solid #8a8a8a;
   border-radius: 4px;
   display: inline-block;
-  height: 36px;
+  height: 40px;
   font-size: 1rem;
   position: relative;
   box-sizing: border-box;
@@ -122,14 +126,14 @@
   text-align: left;
   cursor: pointer;
 }
-.cus-textarea {
+.textarea {
   height: auto;
 }
-.cus-input label, .cus-textarea label {
+.cus-input label {
   color: #6b6b6b;
   background: transparent;
   position: absolute;
-  line-height: 35px;
+  line-height: 40px;
   font-weight: 400;
   padding-left: 12px;
   height: 100%;
@@ -137,20 +141,34 @@
   cursor: pointer;
   width: 100%;
   z-index: 1;
+  display: flex;
+  align-items: flex-start;
 }
-.cus-input:hover, .cus-textarea:hover {
-  border-color: #0e7ec4;
-  box-shadow: 0 0 3px #0e7ec4;
+.cus-input.selected label {
+  background: #fff;
+  font-size: 0.7rem;
+  line-height: 10px;
+  width: auto;
+  padding: 0 4px;
+  margin-left: 12px;
+  height: 7px;
+  margin: -1.5px 0 0 6px;
+  font-weight: 500;
+  line-height: 3px;
 }
-.cus-input:hover label, .cus-textarea:hover label {
-  color: #0e7ec4;
+.cus-input:hover {
+  border-color: var(--green);
+  box-shadow: 0 0 3px var(--green);
 }
-.cus-input input, .cus-textarea textarea {
+.cus-input:hover label{
+  color: var(--green);
+}
+.cus-input input, .cus-input textarea {
   opacity: 0;
   margin-left: 10px;
   line-height: 26px;
   margin-right: 10px;
-  margin-top: 5px;
+  margin-top: 7px;
   font-size: 1rem;
   border: none;
   transition: opacity 0.3s;
@@ -158,37 +176,22 @@
   padding: 0;
   width: calc(100% - 20px);
 }
-.cus-textarea textarea {
+.cus-input textarea {
   resize: vertical;
 }
-.cus-input input::placeholder, .cus-textarea textarea::placeholder {
+.cus-input input::placeholder, .cus-input textarea::placeholder {
   color: #ccc;
 }
-
-.cus-input.selected, .cus-textarea.selected {
+.cus-input.selected {
   border-width: 1.5px;
 }
-.cus-input.selected-colour, .cus-textarea.selected-colour {
-  border-color: #0e7ec4;
+.cus-input.selected-colour {
+  border-color: var(--green);
 }
-.cus-input.selected-colour label, .cus-textarea.selected-colour label {
-  color: #0e7ec4;
+.cus-input.selected-colour label{
+  color: var(--black);
 }
-
-.cus-input.selected label, .cus-textarea.selected label {
-  background: #fff;
-  font-size: 0.7rem;
-  line-height: 10px;
-  display: flex;
-  align-items: flex-end;
-  width: auto;
-  padding: 0 4px;
-  margin-left: 12px;
-  height: 7px;
-  margin: -1.5px 0 0 6px;
-  font-weight: 500;
-}
-.cus-input.selected input, .cus-textarea.selected textarea {
+.cus-input.selected input, .cus-input.selected textarea {
   opacity: 1;
   
 }

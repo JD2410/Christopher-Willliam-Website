@@ -28,10 +28,10 @@
     .contact-form-content .contact-form-inputs {
         grid-template-columns: repeat(2, 1fr);
     }
-    .contact-form-content .contact-form-inputs .cus-textarea {
+    .contact-form-content .contact-form-inputs .cus-input.textarea {
         grid-column: 1/3;
     }
-    .cus-textarea textarea {
+    .cus-input textarea {
         height: 150px;
     }
 }

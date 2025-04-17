@@ -4,8 +4,7 @@ let cwbs = {
             document.getElementById("navigation").classList.toggle('open')
         })
         this.formScript();
-        this.inputs();
-        this.textarea();
+        this.formInputStyling();
     },
     formScript: function() {
 
@@ -47,41 +46,19 @@ let cwbs = {
                   });
           });
     },
-    textarea: function() {
-        let textareas = document.querySelectorAll(".cus-textarea")
-        for(let textarea of textareas) {
-
-            const $textarea = textarea.getElementsByTagName('textarea')[0];
-
-            textarea.addEventListener("click", function() {
-                let $this = this;
-                $this.classList.add("selected");
-                $this.classList.add("selected-colour");
-                $textarea.select();
-            })
-
-            $textarea.addEventListener("focus", function() {
-                let $this = this;
-                let $outer = $this.closest(".cus-textarea")
-                $outer.classList.add("selected");
-                $outer.classList.add("selected-colour");
-                $textarea.select();
-            })
-
-            $textarea.addEventListener("blur", function() {
-                let $this = this;
-                textarea.classList.remove("selected-colour")
-                if($this.value == "") {
-                    textarea.classList.remove("selected")
-                }
-            })
-        }
-    },
-    inputs: function() {
+    formInputStyling: function() {
         let inputs = document.querySelectorAll(".cus-input")
         for(let input of inputs) {
 
-            const $input = input.getElementsByTagName('input')[0];
+            console.log(input.getElementsByTagName('input').length)
+
+            let $input = input.getElementsByTagName('input');
+
+            if ($input.length >= 1) {
+                $input = input.getElementsByTagName('input')[0];
+            } else {
+                $input = input.getElementsByTagName('textarea')[0];
+            }
            
             input.addEventListener("click", function() {
                 let $this = this;
@@ -115,7 +92,7 @@ let cwbs = {
                 }
             })
         }
-    },
+    }
 }
 
 window.onload = function(){
