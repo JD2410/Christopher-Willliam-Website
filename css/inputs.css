@@ -164,6 +164,7 @@
   color: var(--green);
 }
 .cus-input input, .cus-input textarea {
+  font-family: "Source Sans 3", sans-serif;
   opacity: 0;
   margin-left: 10px;
   line-height: 26px;
