@@ -50,8 +50,6 @@ let cwbs = {
         let inputs = document.querySelectorAll(".cus-input")
         for(let input of inputs) {
 
-            console.log(input.getElementsByTagName('input').length)
-
             let $input = input.getElementsByTagName('input');
 
             if ($input.length >= 1) {

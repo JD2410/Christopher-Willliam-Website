@@ -1,4 +1,4 @@
-.highlights {
+#highlights {
     padding: 20px;
     display: flex;
     justify-content: center;
@@ -16,17 +16,17 @@
     padding: 18px;
     box-sizing: border-box;
 }
-.highlights .card {
+#highlights .card {
     padding: 0 0 20px 75px;
     color: var(--black);
     background-repeat: no-repeat;
     background-color: #fff;
 }
-.highlights .card:nth-child(3) {
+#highlights .card:nth-child(3) {
     margin-right: 0;
     padding-bottom: 0;
 }
-.highlights .card p {
+#highlights .card p {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -52,14 +52,14 @@
     background-image: url(../images/icon-about.svg);
 }
 /* ------------- List of services section ------------- */
-.services {
+#services {
     background-image: url(../images/black-schematic.svg);
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
 }
-.services article {
+#services article {
     max-width: var(--maxwidth);
 }
 .services-opening {
@@ -108,17 +108,17 @@
         position: absolute;
         width: calc(100% - 40px);
     }
-    .highlights .card {
+    #highlights .card {
         padding: 0px 20px 0px 75px;
         margin-right: 20px;
     }
-    .highlights .card:nth-child(3) {
+    #highlights .card:nth-child(3) {
         margin-right: 0;
     }
     .card--projects, .card--provided {
         border-right: 1px solid #00000021;
     }
-    .services {
+    #services {
         padding: 100px 20px 0 20px;
     }
     .services-opening::after {

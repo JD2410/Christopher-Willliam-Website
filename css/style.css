@@ -22,6 +22,9 @@
     --bp-lg: 1024px;
     --bp-xl: 1280px; */
 }
+html {
+    scroll-behavior: smooth;
+}
 body {
     font-family: "Source Sans 3", sans-serif;
     font-optical-sizing: auto;
