@@ -1,7 +1,12 @@
-#contact {
+.contact-form {
     background-color: #F2F2F2;
     display: flex;
     justify-content: center;
+    position: relative;
+}
+#contact {
+    position: absolute;
+    top: -60px;
 }
 .contact-form-container {
     padding: 20px;

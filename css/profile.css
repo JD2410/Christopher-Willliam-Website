@@ -1,8 +1,13 @@
-#about {
+.profile {
     background-color: #f2f2f2;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+}
+#about {
+    position: absolute;
+    top: -60px;
 }
 .profile-container {
     max-width: var(--maxwidth);
