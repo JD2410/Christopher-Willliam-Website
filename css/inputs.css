@@ -15,8 +15,7 @@
   color: #fff;
   font-size: 1rem;
   box-shadow: 0 0 0px #00000075;
-  transition: box-shadow 0.125s, background 0.125s, padding-left 0.3s,
-    min-width 0.3s;
+  transition: box-shadow 0.125s, background 0.125s, padding-left 0.3s, min-width 0.3s;
   position: relative;
   padding: 0 10px;
   overflow: hidden;

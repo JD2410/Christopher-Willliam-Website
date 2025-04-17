@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="1000" height="1000"><style>
+    #light-icon {
+      display: inline;
+    }
+    #dark-icon {
+      display: none;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      #light-icon {
+        display: none;
+      }
+      #dark-icon {
+        display: inline;
+      }
+    }
+  </style><g id="light-icon"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="1000" height="1000"><g><g transform="matrix(1.953125,0,0,1.953125,0,0)"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="512" height="512"><svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="512" height="512" fill="white"></rect>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M119.28 387.412H392.72V448H406.392V387.412H474.752V373.948H406.392V252.653L474.752 309.772L483.598 299.506L406.392 234.995V111.403H392.72V223.571L256 109.333L119.28 223.571L119.28 111.403H105.608L105.608 234.995L28.4022 299.506L37.2477 309.772L105.608 252.653L105.608 373.948H37.2478V387.412H105.608V448H119.28V387.412ZM256 126.99L119.28 241.229L119.28 373.948H392.72V241.229L256 126.99Z" fill="#4F4C4C"></path>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M85.0999 421.072H426.9V448H440.572V421.072H474.752V407.608H440.572V234.192L477.176 264.647L486 254.363L440.572 216.566V145.063H426.9V205.191L256 63L85.0999 205.191V145.063H71.4279V216.566L26 254.363L34.8235 264.647L71.4279 234.192L71.4279 407.608H37.2479V421.072H71.4279V448H85.0999V421.072ZM256 80.6259L85.0999 222.817L85.0999 407.608H426.9V222.817L256 80.6259Z" fill="#FF2400"></path>
+</svg></svg></g></g></svg></g><g id="dark-icon"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="1000" height="1000"><g><g transform="matrix(1.953125,0,0,1.953125,0,0)"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="512" height="512"><svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M119.28 387.412H392.72V448H406.392V387.412H474.752V373.948H406.392V252.653L474.752 309.772L483.598 299.506L406.392 234.995V111.403H392.72V223.571L256 109.333L119.28 223.571L119.28 111.403H105.608L105.608 234.995L28.4022 299.506L37.2477 309.772L105.608 252.653L105.608 373.948H37.2478V387.412H105.608V448H119.28V387.412ZM256 126.99L119.28 241.229L119.28 373.948H392.72V241.229L256 126.99Z" fill="white"></path>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M85.0999 421.072H426.9V448H440.572V421.072H474.752V407.608H440.572V234.192L477.176 264.647L486 254.363L440.572 216.566V145.063H426.9V205.191L256 63L85.0999 205.191V145.063H71.4279V216.566L26 254.363L34.8235 264.647L71.4279 234.192L71.4279 407.608H37.2479V421.072H71.4279V448H85.0999V421.072ZM256 80.6259L85.0999 222.817L85.0999 407.608H426.9V222.817L256 80.6259Z" fill="white"></path>
+</svg></svg></g></g></svg></g></svg>
