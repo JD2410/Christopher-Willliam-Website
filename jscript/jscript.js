@@ -3,6 +3,14 @@ let cwbs = {
         document.getElementById("menu").addEventListener('click', function() {
             document.getElementById("navigation").classList.toggle('open')
         })
+
+        const navigationLinks = document.querySelectorAll('#navigation a')
+
+        navigationLinks.forEach(function(element) {
+            element.addEventListener('click', function() {
+                document.getElementById("navigation").classList.toggle('open')
+            })
+        })
         this.formScript();
         this.formInputStyling();
     },
