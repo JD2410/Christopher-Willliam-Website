@@ -227,17 +227,18 @@
         </div>
     </div>
     <!-- Recaptcha v2 -->
-
-    <script src="https://www.google.com/recaptcha/api.js?render=6Lf7vhsrAAAAAJg9l0CKNoPQg10zHbPbOn79aJtz"></script>
     <script>
-        grecaptcha.ready(function () {
-            grecaptcha.execute('6Lf7vhsrAAAAAJg9l0CKNoPQg10zHbPbOn79aJtz', {
-                    action: 'submit'
-                })
-                .then(function (token) {
-                    document.getElementById('recaptchaResponse').value = token;
-                });
-        });
+        const onloadCallback = function() {
+            grecaptcha.ready(function () {
+                grecaptcha.execute('6Lf7vhsrAAAAAJg9l0CKNoPQg10zHbPbOn79aJtz', {
+                        action: 'submit'
+                    })
+                    .then(function (token) {
+                        document.getElementById('recaptchaResponse').value = token;
+                    });
+            });
+        }
     </script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6Lf7vhsrAAAAAJg9l0CKNoPQg10zHbPbOn79aJtz"></script>
 </body>
 </html>
