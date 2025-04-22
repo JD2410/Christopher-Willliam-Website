@@ -1,5 +1,5 @@
 :root {
-  --green: #03c720;
+  --accent: #454544;
 }
 
 
@@ -25,7 +25,7 @@
 
 .cus-button:focus {
   outline: none;
-  box-shadow: 0 0 0 2px #ffffff, 0 0 3px 3px var(--green);
+  box-shadow: 0 0 0 2px #ffffff, 0 0 3px 3px var(--accent);
 }
 
 .cus-button:hover {
@@ -156,11 +156,11 @@
   line-height: 3px;
 }
 .cus-input:hover {
-  border-color: var(--green);
-  box-shadow: 0 0 3px var(--green);
+  border-color: var(--accent);
+  box-shadow: 0 0 3px var(--accent);
 }
 .cus-input:hover label{
-  color: var(--green);
+  color: var(--accent);
 }
 .cus-input input, .cus-input textarea {
   font-family: "Source Sans 3", sans-serif;
@@ -186,7 +186,7 @@
   border-width: 1.5px;
 }
 .cus-input.selected-colour {
-  border-color: var(--green);
+  border-color: var(--accent);
 }
 .cus-input.selected-colour label{
   color: var(--black);
