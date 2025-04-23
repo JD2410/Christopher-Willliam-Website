@@ -166,6 +166,8 @@ let scr = {
             let image = document.createElement('img')
             image.src = imageSource;
             image.id = "galleryImage";
+            image.style.zIndex = 2;
+            image.style.opacity = 1;
             document.getElementById("galleryImageContainer").appendChild(image);
         } else {
             galleryImage.src = imageSource;
@@ -203,6 +205,19 @@ let scr = {
         this.swapGalleryImage(galleries[whatGallery].images[newImage])
     },
     swapGalleryImage: function(imageSource) {
-        document.getElementById("galleryImage").src = imageSource;
+        //document.getElementById("galleryImage").src = imageSource;
+
+        let originalImage = document.getElementById("galleryImage")
+        console.log(document.getElementById("galleryImage").style.opacity);
+
+        (function fade() {
+            let opa = parseFloat(originalImage.style.opacity);
+            let opaNext = opa -= .01;
+            console.log(opa)
+            if (opaNext >= 0) {
+                originalImage.style.opacity = opaNext;
+                requestAnimationFrame(fade)
+            }
+        })()
     }
 }
