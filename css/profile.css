@@ -35,7 +35,7 @@
 @media (min-width: 768px) {
     .profile-container {
         display: grid;
-        grid-template-columns: 40% auto;
+        grid-template-columns: 46% auto;
         align-items: center;
     }
     .profile-container .images {

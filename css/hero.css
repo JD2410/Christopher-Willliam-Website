@@ -5,9 +5,8 @@
     position: relative;
 }
 .hero-container {
-    padding: 70px 20px 120px 20px;
+    padding: 60px 20px 100px 20px;
     color: #fff;
-    min-height: calc(70vh - 60px);
     display: flex;
     flex-direction: column;
     align-items: center;
