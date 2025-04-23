@@ -17,7 +17,7 @@
     box-sizing: border-box;
 }
 #highlights .card {
-    padding: 0 0 20px 75px;
+    padding: 0 0 20px 53px;
     color: var(--black);
     background-repeat: no-repeat;
     background-color: #fff;
@@ -35,9 +35,11 @@
     -webkit-box-orient: vertical;
     padding: 0;
     margin: 5px 0;
+    font-size: 0.9rem;
 }
 .card h3 {
     margin: 0;
+    font-size: 1rem;
 }
 .card a {
     text-decoration: none;
@@ -45,14 +47,15 @@
 }
 .card--provided {
     background-image: url(../images/icon-provided-services.svg);
-    background-position: 8px top;
+    background-size: 35px auto;
 }
 .card--projects {
     background-image: url(../images/icon-latest-project.svg);
+    background-size: 35px auto;
 }
 .card--about {
     background-image: url(../images/icon-about.svg);
-    background-position: 6px top;
+    background-size: 35px auto;
 }
 /* ------------- List of services section ------------- */
 #services {
@@ -113,9 +116,19 @@
     #highlights .card {
         padding: 0px 20px 0px 75px;
         margin-right: 20px;
+        background-size: unset;
+    }
+    #highlights .card p, #highlights .card h3 {
+        font-size: unset;
     }
     #highlights .card:nth-child(3) {
         margin-right: 0;
+    }
+    .card--provided {
+        background-position: 8px top;
+    }
+    .card--about {
+        background-position: 6px top;
     }
     .card--projects, .card--provided {
         border-right: 1px solid #00000021;
@@ -155,12 +168,7 @@
         display: unset;
     }
 }
-@media (min-width: 768px) and (max-width: 1022px) {
-    .card span {
-        display: none;
-    }
-}
-@media (max-width: 472px) {
+@media (min-width: 768px) and (max-width: 848px) {
     .card span {
         display: none;
     }

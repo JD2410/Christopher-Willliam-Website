@@ -5,7 +5,7 @@
     position: relative;
 }
 .hero-container {
-    padding: 20px;
+    padding: 70px 20px 120px 20px;
     color: #fff;
     min-height: calc(70vh - 60px);
     display: flex;
@@ -18,16 +18,16 @@
     background-size: cover;
     max-width: var(--maxwidth);
     box-sizing: border-box;
-    padding-bottom: 70px;
 }
 .hero h1 {
-    margin-bottom: 0px;
+    margin: 0px;
 }
 .hero h1 span {
     color: var(--red);
 }
 .hero p {
     line-height: 1.6;
+    font-size: 1.2rem;
 }
 .hero a {
     background-color: var(--red);
@@ -43,11 +43,14 @@
     .hero h1, .hero p {
         max-width: 54%;
     }
+    .hero p {
+        font-size: 1rem;
+    }
     .hero-container {
         height: 500px;
         align-items: flex-start;
         background-size: unset;
-        padding-bottom: 50px;
+        padding: 0px 20px 50px 20px;
         min-height: unset;
     }
     .hero-container::after {
