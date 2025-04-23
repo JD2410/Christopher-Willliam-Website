@@ -18,7 +18,7 @@ header {
     margin: auto;
     padding: 0 11px;
     box-sizing: border-box;
-    height: 60px;
+    height: 50px;
 }
 .header--container nav {
     display: flex;
@@ -28,7 +28,7 @@ header {
     width: 104%;
     position: fixed;
     height: 100%;
-    top: 60px;
+    top: 50px;
     left: -4%;
     background: #fff;
     margin-left: -100%;
@@ -38,6 +38,9 @@ header {
 }
 .header--container nav.open {
     margin-left: 2%;
+}
+.header--container picture {
+    line-height: 0px;
 }
 .header--container nav a {
     text-transform: uppercase;
@@ -49,8 +52,8 @@ header {
     width: 100%;
 }
 #menu {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 100%;
     background-image: url("../images/Menu.svg");
     background-repeat: no-repeat;
     background-position: center center;
@@ -60,6 +63,9 @@ header {
    
     #menu {
         display: none;
+    }
+    .header--container {
+        height: 60px;
     }
     .header--container nav {
         flex-direction: row;

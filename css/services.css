@@ -33,8 +33,8 @@
     line-clamp: 2;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-    margin: 0;
-    padding: 5px 0;
+    padding: 0;
+    margin: 5px 0;
 }
 .card h3 {
     margin: 0;
@@ -145,38 +145,23 @@
         text-align: left;
     }
     .services-listed {
-        position: absolute;
-        z-index: 10;
         grid-template-columns: 1fr 1fr 1fr;
-        top: 320px;
         box-sizing: border-box;
+        margin-top: -260px;
+        z-index: 10;
     }
     .card.card--empty {
         background-color: transparent;
         display: unset;
     }
-    .check-out-work {
-        margin-top: 420px;
+}
+@media (min-width: 768px) and (max-width: 1022px) {
+    .card span {
+        display: none;
     }
 }
-@media (min-width: 768px) and (max-width: 1310px) {
-    .services-listed {
-        padding-left: 40px;
-        padding-right: 40px;
-    }
-}
-@media (min-width: 1010px) and (max-width: 1226px) {
-    .check-out-work {
-        margin-top: 480px;
-    }
-}
-@media (min-width: 850px) and (max-width: 1010px) {
-    .check-out-work {
-        margin-top: 550px;
-    }
-}
-@media (min-width: 768px) and (max-width: 850px) {
-    .check-out-work {
-        margin-top: 593px;
+@media (max-width: 472px) {
+    .card span {
+        display: none;
     }
 }

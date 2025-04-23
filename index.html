@@ -17,7 +17,11 @@
 <body>
     <header>
         <div class="header--container">
-            <img src="images/logo.svg" width="144" height="42" alt="Christopher William - Building Solutions Logo">
+            <picture>     
+                <source srcset="images/mobile-logo.svg" media="(max-width: 762px)" width="144" height="31">
+                <img src="images/logo.svg" width="144" height="42" alt="Christopher William - Building Solutions Logo">
+            </picture>
+            
             <div id="menu"></div>
             <nav id="navigation">
                 <a href="#">Home</a>
@@ -38,12 +42,12 @@
     <section id="highlights">
         <div class="highlights-container">
             <div class="card card--provided">
-                <h3>Provided Services</h3>
+                <h3><span>Provided </span>Services</h3>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit voluptatibus quo</p>
                 <a href="#services">Learn More</a>
             </div>
             <div class="card card--projects">
-                <h3>Latest Projects</h3>
+                <h3><span>Latest </span>Projects</h3>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit voluptatibus quo</p>
                 <a href="#projects">Learn More</a>
             </div>

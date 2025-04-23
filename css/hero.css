@@ -2,6 +2,7 @@
     background-color: var(--grey);
     display: flex;
     justify-content: center;
+    position: relative;
 }
 .hero-container {
     padding: 20px;
@@ -19,6 +20,9 @@
     box-sizing: border-box;
     padding-bottom: 70px;
 }
+.hero h1 {
+    margin-bottom: 0px;
+}
 .hero h1 span {
     color: var(--red);
 }
@@ -28,8 +32,8 @@
 .hero a {
     background-color: var(--red);
     color: #fff;
-    font-size: 1.4em;
-    padding: 14px 12px;
+    font-size: 1.3em;
+    padding: 14px 16px;
     text-decoration: none;
     display: block;
     text-align: center; 
@@ -37,22 +41,30 @@
 }
 @media (min-width: 768px) {
     .hero h1, .hero p {
-        max-width: 58%;
+        max-width: 54%;
     }
     .hero-container {
-        height: 600px;
+        height: 500px;
         align-items: flex-start;
         background-size: unset;
-        padding-bottom: 20px;
+        padding-bottom: 50px;
+        min-height: unset;
     }
     .hero-container::after {
         content: "";
         display: block;
-        height: 600px;
-        width: 48%;
+        height: 500px;
+        width: 50%;
         background-image: url(../images/header.png);
         background-repeat: no-repeat;
+        background-size: cover;
         position: absolute;
         right: 0;
+        top: 0;
+    }
+}
+@media (min-width: 1515px) {
+    .hero-container::after {
+        background-size: contain;
     }
 }
