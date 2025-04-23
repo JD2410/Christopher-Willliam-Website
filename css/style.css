@@ -15,12 +15,7 @@
     --red: #FF2400;
     --black: #4F4C4C;
     --grey: #2C2C2C;
-    --maxwidth: 1280px; 
-
-    /* --bp-sm: 480px;
-    --bp-md: 768px;
-    --bp-lg: 1024px;
-    --bp-xl: 1280px; */
+    --maxwidth: 1200px; 
 }
 html {
     scroll-behavior: smooth;
@@ -30,9 +25,9 @@ body {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-    font-size: 16px;
+    font-size: 20px;
     line-height: 1.2;
-    padding-top: 60px;
+    padding-top: 50px;
     margin: 0;
 }
 h1 {
@@ -62,4 +57,10 @@ p {
 .section-introduction.no-border {
     border-left-width: 0px;
     padding-left: 0;
+}
+@media (min-width: 768px) {
+    body {
+        font-size: 16px;
+        padding-top: 60px;
+    }
 }
