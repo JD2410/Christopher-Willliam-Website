@@ -15,6 +15,7 @@
     box-shadow: 1px 3px 7px 3px #00000029;
     padding: 18px;
     box-sizing: border-box;
+    width: 100%;
 }
 #highlights .card {
     padding: 0 0 20px 53px;
@@ -35,11 +36,11 @@
     -webkit-box-orient: vertical;
     padding: 0;
     margin: 5px 0;
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
 .card h3 {
     margin: 0;
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
 .card a {
     text-decoration: none;
@@ -55,17 +56,21 @@
 }
 .card--about {
     background-image: url(../images/icon-about.svg);
-    background-size: 35px auto;
+    background-size: 32px auto;
+    background-position: 4px auto;
 }
 /* ------------- List of services section ------------- */
 #services {
-    background-image: url(../images/black-schematic.svg);
+    position: absolute;
+    margin-top: -70px;
+}
+.services-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
 }
-#services article {
+.services-container article {
     max-width: var(--maxwidth);
 }
 .services-opening {
@@ -74,15 +79,22 @@
 .services-opening--container {
     color: #fff;
     background-color: var(--red);
-    border-radius: 30px;
+    border-radius: 5px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
     text-align: left;
     margin: 0 20px;
-    padding: 16px;
+    padding: 16px 16px 16px 16px;
 }
 .services-listed {
-    padding: 20px;
+    margin: 0 20px;
+    padding: 0px 20px 20px;
     display: grid;
     gap: 20px;
+    z-index: 10;
+    background-color: var(--red);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 .services-listed .card {
     background-color: #fff;
@@ -90,21 +102,29 @@
     border-radius: 6px;
     padding: 16px;
     box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 70px 1fr 1fr;
+    align-items: center;
+    gap: 12px;
+}
+.services-listed .card h4 {
+    margin: 0;
+    grid-column: 2 / -1;
+}
+.services-listed .card p {
+    margin: 0;
+    grid-column: 1 / -1;
 }
 .card.card--empty {
     display: none;
     box-shadow: none;
 }
-.services-listed .card h4 {
-    margin: 14px 0 8px 0;
-}
-.services-listed .card p {
-    margin: 0 0 8px;
-}
+
 .check-out-work {
     color: var(--red);
     text-decoration: none;
-    margin-bottom: 20px;
+    margin: 20px 0 40px;
+    font-size: 1.2rem;
 }
 
 @media (min-width: 768px) {
@@ -133,8 +153,9 @@
     .card--projects, .card--provided {
         border-right: 1px solid #00000021;
     }
-    #services {
+    .services-container {
         padding: 100px 20px 0 20px;
+        background-image: url(../images/black-schematic.svg);
     }
     .services-opening::after {
         content: "";
@@ -156,13 +177,27 @@
         padding: 22px 11% 250px 24px;
         box-sizing: border-box;
         text-align: left;
+        border-radius: 30px;
     }
     .services-listed {
         grid-template-columns: 1fr 1fr 1fr;
         box-sizing: border-box;
-        margin-top: -260px;
-        z-index: 10;
+        padding: 20px 20px 0 20px;
+        background-color: transparent;
+        margin: -260px 0 0 0;
     }
+    .services-listed .card {
+        display: unset;
+    }
+    .services-listed .card h4 {
+        margin: 14px 0 8px 0;
+        grid-column: unset;
+    }
+    .services-listed .card p {
+        margin: 0 0 8px;
+        grid-column: unset;
+    }
+    
     .card.card--empty {
         background-color: transparent;
         display: unset;

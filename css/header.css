@@ -39,7 +39,7 @@ header {
 .header--container nav.open {
     margin-left: 2%;
 }
-.header--container picture {
+.header--container > a {
     line-height: 0px;
 }
 .header--container nav a {

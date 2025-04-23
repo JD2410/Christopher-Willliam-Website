@@ -1,19 +1,13 @@
 .projects-container #gallery {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    /* gap: 10px; */
+    gap: 12px;
     line-height: 0;
 }
 .projects-container #gallery img {
     width: 100%;
     height: auto;
     cursor: pointer;
-    border: 8px solid #fff;
-    box-sizing: border-box;
-    -webkit-transition : border-color 250ms ease-out;
-    -moz-transition : border-color  250ms ease-out;
-    -o-transition : border-color  250ms ease-out;
-    transition : border-color 250ms ease-out;
 }
 
 .gallery-open {
@@ -156,6 +150,15 @@
     }
     .projects-container #gallery {
         grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: unset;
+    }
+    .projects-container #gallery img {
+        border: 8px solid #fff;
+        box-sizing: border-box;
+        -webkit-transition : border-color 250ms ease-out;
+        -moz-transition : border-color  250ms ease-out;
+        -o-transition : border-color  250ms ease-out;
+        transition : border-color 250ms ease-out;
     }
     .projects-container #gallery img:hover {
         border-color: var(--red);
