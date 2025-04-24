@@ -210,21 +210,25 @@ let scr = {
     },
     loadImage: function(imageSource) {
         let image = document.createElement('img')
-        image.src = imageSource;
         image.id = "galleryImage";
         image.style.zIndex = 2;
         image.style.opacity = 0;
-        document.getElementById("galleryImageContainer").appendChild(image);
+        image.src = imageSource;
+        image
+        .decode()
+        .then(() => {
+            document.getElementById("galleryImageContainer").appendChild(image);
+            loadedImage = document.getElementById('galleryImage');
 
-        loadedImage = document.getElementById('galleryImage');
-
-        (function fade() {
-            let opa = parseFloat(loadedImage.style.opacity);
-            let opaNext = opa += .04;
-            if (opaNext <= 1) {
-                loadedImage.style.opacity = opaNext;
-                requestAnimationFrame(fade)
-            }
-        })()
-    },
+            (function fade() {
+                let opa = parseFloat(loadedImage.style.opacity);
+                let opaNext = opa += .04;
+                if (opaNext <= 1) {
+                    loadedImage.style.opacity = opaNext;
+                    requestAnimationFrame(fade)
+                }
+            })()
+        })
+        .catch(encodingError => console.error(encodingError));
+    }
 }
