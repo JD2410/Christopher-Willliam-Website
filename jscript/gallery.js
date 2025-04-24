@@ -144,7 +144,7 @@ let scr = {
             }
         })()
 
-        scr.initalLoadGalleryImage(galleries[whichGallery].images[0])
+        scr.loadImage(galleries[whichGallery].images[0])
     },
     hideGallery: function() {
         let ele = document.getElementById("modal");
@@ -157,21 +157,9 @@ let scr = {
                 requestAnimationFrame(fade)
             } else {
                 ele.removeAttribute("style")
+                document.getElementById("galleryImage").remove();
             }
         })()
-    },
-    initalLoadGalleryImage: function(imageSource) {
-        var galleryImage =  document.getElementById('galleryImage');
-        if (galleryImage == null) {
-            let image = document.createElement('img')
-            image.src = imageSource;
-            image.id = "galleryImage";
-            image.style.zIndex = 2;
-            image.style.opacity = 1;
-            document.getElementById("galleryImageContainer").appendChild(image);
-        } else {
-            galleryImage.src = imageSource;
-        }
     },
     findNextImage: function(nextImage) {
         let galleryDetails = document.getElementById("modal")
@@ -202,22 +190,41 @@ let scr = {
             }
         }
 
-        this.swapGalleryImage(galleries[whatGallery].images[newImage])
+        this.fadeImageOut(galleries[whatGallery].images[newImage])
     },
-    swapGalleryImage: function(imageSource) {
+    fadeImageOut: function(imageSource) {
         //document.getElementById("galleryImage").src = imageSource;
 
-        let originalImage = document.getElementById("galleryImage")
-        console.log(document.getElementById("galleryImage").style.opacity);
+        let ele = document.getElementById("galleryImage");
+        (function fade() {
+            let opa = parseFloat(ele.style.opacity);
+            let opaNext = opa -= .04;
+            if (opaNext >= 0) {
+                ele.style.opacity = opaNext;
+                requestAnimationFrame(fade)
+            } else {
+                ele.remove();
+                scr.loadImage(imageSource)
+            }
+        })()
+    },
+    loadImage: function(imageSource) {
+        let image = document.createElement('img')
+        image.src = imageSource;
+        image.id = "galleryImage";
+        image.style.zIndex = 2;
+        image.style.opacity = 0;
+        document.getElementById("galleryImageContainer").appendChild(image);
+
+        loadedImage = document.getElementById('galleryImage');
 
         (function fade() {
-            let opa = parseFloat(originalImage.style.opacity);
-            let opaNext = opa -= .01;
-            console.log(opa)
-            if (opaNext >= 0) {
-                originalImage.style.opacity = opaNext;
+            let opa = parseFloat(loadedImage.style.opacity);
+            let opaNext = opa += .04;
+            if (opaNext <= 1) {
+                loadedImage.style.opacity = opaNext;
                 requestAnimationFrame(fade)
             }
         })()
-    }
+    },
 }
