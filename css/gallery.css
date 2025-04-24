@@ -179,6 +179,17 @@
 #modal.hide-description .image-description p  {
     display: none;
 }
+.open-image-window {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    bottom: 10px;
+    display: block;
+    padding: 15px 0;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+}
 @media (min-width: 1000px) {
     #modal .wrapper {
         grid-template-columns: auto 300px;
@@ -213,7 +224,7 @@
 }
 /* Loading Spinner */
 .loader {
-    width: 50px;
+    width: 40px;
     aspect-ratio: 1;
     display: grid;
     border: 4px solid #0000;
@@ -221,25 +232,13 @@
     border-color: #fff #0000;
     animation: l16 1s infinite linear;
     position: absolute;
-    left: calc(50% - 25px);
+    left: calc(50% - 20px);
     z-index: 1;
   }
-  .loader::before,
   .loader::after {    
     content: "";
-    grid-area: 1/1;
     margin: 2px;
-    border: inherit;
     border-radius: 50%;
-  }
-  .loader::before {
-    border-color: var(--red) #0000;
-    animation: inherit; 
-    animation-duration: .5s;
-    animation-direction: reverse;
-  }
-  .loader::after {
-    margin: 8px;
   }
   @keyframes l16 { 
     100%{transform: rotate(1turn)}
