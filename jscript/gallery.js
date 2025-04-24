@@ -6,12 +6,12 @@ function Gallery(title, description, pageThumbnail, images) {
 }
 
 let galleries = [
-    new Gallery(null, null, 'images/proj-01.png', [
+    new Gallery("Entrance", "Description Goes here", 'images/proj-01.png', [
         'gallery/proj-01/entrance-01.jpg',
         'gallery/proj-01/entrance-02.jpg',
         'gallery/proj-01/entrance-03.jpg',
     ]),
-    new Gallery(null, null, 'images/proj-02.png', [
+    new Gallery("Kitchen", null, 'images/proj-02.png', [
         'gallery/proj-02/kitchen-01.jpg',
         'gallery/proj-02/kitchen-02.jpg',
         'gallery/proj-02/kitchen-03.jpg',
@@ -19,7 +19,7 @@ let galleries = [
         'gallery/proj-02/kitchen-05.jpg',
         'gallery/proj-02/kitchen-06.jpg',
     ]),
-    new Gallery(null, null, 'images/proj-03.png', [
+    new Gallery(null, "Some text to explain the lof conversion.", 'images/proj-03.png', [
         'gallery/proj-03/loft-01.jpg',
         'gallery/proj-03/loft-02.jpg',
         'gallery/proj-03/loft-03.jpg',
@@ -106,13 +106,14 @@ let scr = {
         document.getElementById("closeGallery").addEventListener("click", function() {
             scr.hideGallery();
         })
-        document.getElementById("next").addEventListener("click", function() {
+        document.getElementById("next").addEventListener("click", function(element) {
             scr.findNextImage(true);
         })
-        document.getElementById("previous").addEventListener("click", function() {
+        document.getElementById("previous").addEventListener("click", function(element) {
             scr.findNextImage(false);
         })
-        this.createGalleryThumbnails()
+        this.createGalleryThumbnails();
+        this.galleryInitialiser();
     },
     createGalleryThumbnails: function() {
         let container = document.getElementById("gallery");
@@ -127,6 +128,15 @@ let scr = {
             container.appendChild(thumbImage)
         })
     },
+    galleryInitialiser: function() {
+        let modalContainer = document.getElementById('modal')
+        let divElement = document.createElement("div")
+        divElement.addEventListener('click', function() {
+            scr.hideGallery();
+        })
+        divElement.classList.add("close-container");
+        modalContainer.appendChild(divElement);
+    },
     showGallery: function(whichGallery) {
         document.querySelector('body').classList.toggle("gallery-open");
         let ele = document.getElementById("modal");
@@ -134,6 +144,27 @@ let scr = {
         ele.style.display = "grid";
         ele.dataset.gallery = whichGallery;
         ele.dataset.indexCount = 0;
+
+        console.log()
+
+        if( galleries[whichGallery].description == null && galleries[whichGallery].title == null ) {
+            document.getElementById("modal").classList.add("hide-details");
+        } else {
+            let title = document.querySelectorAll(".image-description .header")[0];
+            if(galleries[whichGallery].title != null) {
+                title.innerHTML = galleries[whichGallery].title;
+            } else {
+                document.getElementById("modal").classList.add("hide-title");
+            }
+
+            let description = document.querySelectorAll(".image-description p")[0];
+
+            if(galleries[whichGallery].description != null) {
+                description.innerHTML = galleries[whichGallery].description;
+            } else {
+                document.getElementById("modal").classList.add("hide-description");
+            }
+        }
 
         (function fade() {
             let opa = parseFloat(ele.style.opacity);
@@ -144,11 +175,10 @@ let scr = {
             }
         })()
 
-        scr.initalLoadGalleryImage(galleries[whichGallery].images[0])
+        scr.loadImage(galleries[whichGallery].images[0])
     },
     hideGallery: function() {
         let ele = document.getElementById("modal");
-        document.querySelector('body').classList.toggle("gallery-open");
         (function fade() {
             let opa = parseFloat(ele.style.opacity);
             let opaNext = opa -= .04;
@@ -157,19 +187,11 @@ let scr = {
                 requestAnimationFrame(fade)
             } else {
                 ele.removeAttribute("style")
+                document.getElementById("galleryImage").remove();
+                document.getElementById("modal").removeAttribute("class")
+                document.querySelector('body').classList.toggle("gallery-open");
             }
         })()
-    },
-    initalLoadGalleryImage: function(imageSource) {
-        var galleryImage =  document.getElementById('galleryImage');
-        if (galleryImage == null) {
-            let image = document.createElement('img')
-            image.src = imageSource;
-            image.id = "galleryImage";
-            document.getElementById("galleryImageContainer").appendChild(image);
-        } else {
-            galleryImage.src = imageSource;
-        }
     },
     findNextImage: function(nextImage) {
         let galleryDetails = document.getElementById("modal")
@@ -188,7 +210,6 @@ let scr = {
                 galleryDetails.dataset.indexCount = 0;
                 newImage = 0;
             }
-            
         } else {
             newImage = parseInt(currentImageIndex) - 1;
             
@@ -200,9 +221,43 @@ let scr = {
             }
         }
 
-        this.swapGalleryImage(galleries[whatGallery].images[newImage])
+        this.fadeImageOut(galleries[whatGallery].images[newImage])
     },
-    swapGalleryImage: function(imageSource) {
-        document.getElementById("galleryImage").src = imageSource;
+    fadeImageOut: function(imageSource) {
+        let ele = document.getElementById("galleryImage");
+        (function fade() {
+            let opa = parseFloat(ele.style.opacity);
+            let opaNext = opa -= .04;
+            if (opaNext >= 0) {
+                ele.style.opacity = opaNext;
+                requestAnimationFrame(fade)
+            } else {
+                ele.remove();
+                scr.loadImage(imageSource)
+            }
+        })()
+    },
+    loadImage: function(imageSource) {
+        let image = document.createElement('img')
+        image.id = "galleryImage";
+        image.style.zIndex = 2;
+        image.style.opacity = 0;
+        image.src = imageSource;
+        image
+        .decode()
+        .then(() => {
+            document.getElementById("galleryImageContainer").appendChild(image);
+            loadedImage = document.getElementById('galleryImage');
+
+            (function fade() {
+                let opa = parseFloat(loadedImage.style.opacity);
+                let opaNext = opa += .04;
+                if (opaNext <= 1) {
+                    loadedImage.style.opacity = opaNext;
+                    requestAnimationFrame(fade)
+                }
+            })()
+        })
+        .catch(encodingError => console.error(encodingError));
     }
 }
