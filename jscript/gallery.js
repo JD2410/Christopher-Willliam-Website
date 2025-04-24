@@ -6,7 +6,7 @@ function Gallery(title, description, pageThumbnail, images) {
 }
 
 let galleries = [
-    new Gallery("Entrance", "Description Goes here", 'images/proj-01.png', [
+    new Gallery("Entrance", null, 'images/proj-01.png', [
         'gallery/proj-01/entrance-01.jpg',
         'gallery/proj-01/entrance-02.jpg',
         'gallery/proj-01/entrance-03.jpg',
@@ -145,8 +145,18 @@ let scr = {
         ele.dataset.gallery = whichGallery;
         ele.dataset.indexCount = 0;
 
-        console.log()
+        // Creates the link to the image source
+        let sourceLink = document.createElement('a');
+        sourceLink.href = galleries[whichGallery].images[0];
+        sourceLink.textContent = "Open in new Window";
+        sourceLink.target = "_blank";
+        sourceLink.classList.add("open-image-window")
+        sourceLink.id = "openLink";
 
+        document.getElementById("galleryImageContainer").appendChild(sourceLink)
+
+
+        // Update content details or hide them depedning on the availble information.
         if( galleries[whichGallery].description == null && galleries[whichGallery].title == null ) {
             document.getElementById("modal").classList.add("hide-details");
         } else {
@@ -190,6 +200,7 @@ let scr = {
                 document.getElementById("galleryImage").remove();
                 document.getElementById("modal").removeAttribute("class")
                 document.querySelector('body').classList.toggle("gallery-open");
+                document.getElementById("openLink").remove();
             }
         })()
     },
@@ -248,6 +259,7 @@ let scr = {
         .then(() => {
             document.getElementById("galleryImageContainer").appendChild(image);
             loadedImage = document.getElementById('galleryImage');
+            document.getElementById("openLink").href = imageSource;
 
             (function fade() {
                 let opa = parseFloat(loadedImage.style.opacity);
