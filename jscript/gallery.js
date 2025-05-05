@@ -99,18 +99,27 @@ let galleries = [
 
 
 let scr = {
+    disableGalleryNextPrev: false,
     init: function() {
         document.addEventListener('keydown', function(event) {
+            scr.disableGalleryNextPrev = false;
             if(event.key === 'Escape') { scr.hideGallery(); }
         })
         document.getElementById("closeGallery").addEventListener("click", function() {
+            scr.disableGalleryNextPrev = false;
             scr.hideGallery();
         })
         document.getElementById("next").addEventListener("click", function(element) {
-            scr.findNextImage(true);
+            if (!scr.disableGalleryNextPrev) {
+                scr.disableGalleryNextPrev = true;
+                scr.findNextImage(true);
+            }
         })
         document.getElementById("previous").addEventListener("click", function(element) {
-            scr.findNextImage(false);
+            if (!scr.disableGalleryNextPrev) {
+                scr.disableGalleryNextPrev = true;
+                scr.findNextImage(false);
+            }
         })
         this.createGalleryThumbnails();
         this.galleryInitialiser();
@@ -154,7 +163,6 @@ let scr = {
         sourceLink.id = "openLink";
 
         document.getElementById("galleryImageContainer").appendChild(sourceLink)
-
 
         // Update content details or hide them depedning on the availble information.
         if( galleries[whichGallery].description == null && galleries[whichGallery].title == null ) {
@@ -254,6 +262,7 @@ let scr = {
         image.style.zIndex = 2;
         image.style.opacity = 0;
         image.src = imageSource;
+        
         image
         .decode()
         .then(() => {
@@ -267,6 +276,8 @@ let scr = {
                 if (opaNext <= 1) {
                     loadedImage.style.opacity = opaNext;
                     requestAnimationFrame(fade)
+                } else {
+                    scr.disableGalleryNextPrev = false;
                 }
             })()
         })
