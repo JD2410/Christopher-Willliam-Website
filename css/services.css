@@ -56,8 +56,8 @@
 }
 .card--about {
     background-image: url(../images/icon-about.svg);
-    background-size: 32px auto;
-    background-position: 4px auto;
+    background-size: 43px auto;
+    background-position: 0px auto;
 }
 /* ------------- List of services section ------------- */
 #services {
@@ -147,8 +147,9 @@
     .card--provided {
         background-position: 8px top;
     }
-    .card--about {
-        background-position: 6px top;
+    #highlights .card.card--about {
+        background-position: 0px top;
+        background-size: 62px auto;
     }
     .card--projects, .card--provided {
         border-right: 1px solid #00000021;
@@ -190,7 +191,7 @@
         display: unset;
     }
     .services-listed .card h4 {
-        margin: 14px 0 8px 0;
+        margin: 4px 0 8px 0;
         grid-column: unset;
     }
     .services-listed .card p {
