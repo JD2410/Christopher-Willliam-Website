@@ -13,17 +13,17 @@ let cwbs = {
                 cwbs.moveUnderline(index)
             })
             element.addEventListener('mouseout', function() {
-                cwbs.moveUnderline(cwbs.navigationWidth[2])
+                cwbs.moveUnderline(cwbs.navProperties.currentSection)
             })
             if(window.innerWidth > 768) {
-                cwbs.navigationWidth[0].unshift(element.getBoundingClientRect().width)
+                cwbs.navProperties.navWidth.unshift(element.getBoundingClientRect().width)
             }
         })
 
         window.addEventListener("resize", function() {
-            if(cwbs.navigationWidth[1].length == 0 & window.innerWidth > 768) {
+            if(cwbs.navProperties.navPostionRight.length == 0 & window.innerWidth > 768) {
                 navigationLinks.forEach(function(element) {
-                    cwbs.navigationWidth[0].unshift(element.getBoundingClientRect().width)
+                    cwbs.navProperties.navWidth.unshift(element.getBoundingClientRect().width)
                 })
                 cwbs.underlineMovement();
             }
@@ -35,23 +35,27 @@ let cwbs = {
             this.underlineMovement();
         }
     },
-    navigationWidth: [[], [], 0],
+    navProperties: {
+        navWidth: [],
+        navPostionRight: [],
+        currentSection: 0
+    },
     underlineMovement: function() {
         let rightSpacerCounter = 11;
-        this.navigationWidth[1].push(rightSpacerCounter)
-        cwbs.navigationWidth[0].forEach(function(ele, index) {
-            if(index < (cwbs.navigationWidth[0].length - 1)) {
+        this.navProperties.navPostionRight.push(rightSpacerCounter)
+        cwbs.navProperties.navWidth.forEach(function(ele, index) {
+            if(index < (cwbs.navProperties.navWidth.length - 1)) {
                 rightSpacerCounter += parseFloat(ele);
                 rightSpacerCounter += 30;
-                cwbs.navigationWidth[1].unshift(rightSpacerCounter)
+                cwbs.navProperties.navPostionRight.unshift(rightSpacerCounter)
             }
         })
-        cwbs.navigationWidth[0].reverse()
-        this.moveUnderline(cwbs.navigationWidth[2])
+        cwbs.navProperties.navWidth.reverse()
+        this.moveUnderline(cwbs.navProperties.currentSection)
     },
     moveUnderline: function(which) {
-        document.getElementById("underline").style.width = cwbs.navigationWidth[0][which] + "px";
-        document.getElementById("underline").style.right = cwbs.navigationWidth[1][which] + "px";
+        document.getElementById("underline").style.width = cwbs.navProperties.navWidth[which] + "px";
+        document.getElementById("underline").style.right = cwbs.navProperties.navPostionRight[which] + "px";
     },
     formScript: function() {
 
