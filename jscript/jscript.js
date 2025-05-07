@@ -5,14 +5,36 @@ let cwbs = {
         })
 
         const navigationLinks = document.querySelectorAll('#navigation a')
-
-        navigationLinks.forEach(function(element) {
+        navigationLinks.forEach(function(element, index) {
             element.addEventListener('click', function() {
-                document.getElementById("navigation").classList.toggle('open')
+                document.getElementById("navigation").classList.toggle('open');
             })
+            element.addEventListener('mouseover', function() {
+                cwbs.moveUnderline(index)
+            })
+            cwbs.navigationWidth[0].unshift(element.getBoundingClientRect().width)
         })
         this.formScript();
         this.formInputStyling();
+        this.underlineMovement();
+    },
+    navigationWidth: [[], []],
+    underlineMovement: function() {
+        let rightSpacerCounter = 11;
+        this.navigationWidth[1].push(rightSpacerCounter)
+        cwbs.navigationWidth[0].forEach(function(ele, index) {
+            if(index < (cwbs.navigationWidth[0].length - 1)) {
+                rightSpacerCounter += parseFloat(ele);
+                rightSpacerCounter += 30;
+                cwbs.navigationWidth[1].unshift(rightSpacerCounter)
+            }
+        })
+        cwbs.navigationWidth[0].reverse()
+        this.moveUnderline(0)
+    },
+    moveUnderline: function(which) {
+        document.getElementById("underline").style.width = cwbs.navigationWidth[0][which] + "px";
+        document.getElementById("underline").style.right = cwbs.navigationWidth[1][which] + "px";
     },
     formScript: function() {
 
