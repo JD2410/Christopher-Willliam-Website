@@ -12,11 +12,25 @@ let cwbs = {
             element.addEventListener('mouseover', function() {
                 cwbs.moveUnderline(index)
             })
-            cwbs.navigationWidth[0].unshift(element.getBoundingClientRect().width)
+            if(window.innerWidth > 768) {
+                cwbs.navigationWidth[0].unshift(element.getBoundingClientRect().width)
+            }
         })
+
+        window.addEventListener("resize", function() {
+            if(cwbs.navigationWidth[1].length == 0 & window.innerWidth > 768) {
+                navigationLinks.forEach(function(element) {
+                    cwbs.navigationWidth[0].unshift(element.getBoundingClientRect().width)
+                })
+                cwbs.underlineMovement();
+            }
+        })
+
         this.formScript();
         this.formInputStyling();
-        this.underlineMovement();
+        if(window.innerWidth > 768) {
+            this.underlineMovement();
+        }
     },
     navigationWidth: [[], []],
     underlineMovement: function() {
