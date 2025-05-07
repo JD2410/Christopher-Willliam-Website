@@ -12,6 +12,9 @@ let cwbs = {
             element.addEventListener('mouseover', function() {
                 cwbs.moveUnderline(index)
             })
+            element.addEventListener('mouseout', function() {
+                cwbs.moveUnderline(cwbs.navigationWidth[2])
+            })
             if(window.innerWidth > 768) {
                 cwbs.navigationWidth[0].unshift(element.getBoundingClientRect().width)
             }
@@ -32,7 +35,7 @@ let cwbs = {
             this.underlineMovement();
         }
     },
-    navigationWidth: [[], []],
+    navigationWidth: [[], [], 0],
     underlineMovement: function() {
         let rightSpacerCounter = 11;
         this.navigationWidth[1].push(rightSpacerCounter)
@@ -44,7 +47,7 @@ let cwbs = {
             }
         })
         cwbs.navigationWidth[0].reverse()
-        this.moveUnderline(0)
+        this.moveUnderline(cwbs.navigationWidth[2])
     },
     moveUnderline: function(which) {
         document.getElementById("underline").style.width = cwbs.navigationWidth[0][which] + "px";
