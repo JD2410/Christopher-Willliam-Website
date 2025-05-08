@@ -135,7 +135,7 @@ let scr = {
                 scr.showGallery(index)
             })
             container.appendChild(thumbImage)
-        })
+        });
     },
     galleryInitialiser: function() {
         let modalContainer = document.getElementById('modal')

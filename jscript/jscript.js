@@ -27,18 +27,74 @@ let cwbs = {
                 })
                 cwbs.underlineMovement();
             }
+            cwbs.getSectionPositions();
+            cwbs.scrollAnimation();
+        })
+
+        let timer = null;
+        window.addEventListener("scroll", function() {
+            cwbs.scrollAnimation();
         })
 
         this.formScript();
         this.formInputStyling();
         if(window.innerWidth > 768) {
             this.underlineMovement();
+            this.getSectionPositions();
+            cwbs.scrollAnimation();
         }
     },
     navProperties: {
         navWidth: [],
         navPostionRight: [],
-        currentSection: 0
+        currentSection: 0,
+        services: 0,
+        about: 0,
+        projects: 0,
+        contact: 0,
+        windowHeight: 0,
+    },
+    getSectionPositions: function() {
+        this.navProperties.services = document.getElementById("services").getBoundingClientRect().top + window.scrollY;
+        this.navProperties.about = document.getElementById("about").getBoundingClientRect().top + window.scrollY;
+        this.navProperties.projects = document.getElementById("projects").getBoundingClientRect().top + window.scrollY;
+        this.navProperties.contact = document.getElementById("map").getBoundingClientRect().top + window.scrollY;
+        this.navProperties.windowHeight = window.innerHeight;
+    },
+    scrollAnimation: function() {
+        const bufferPixel = 230;
+        let windowPosition = window.scrollY
+        let scroll = windowPosition + cwbs.navProperties.windowHeight - bufferPixel;
+        
+        if(this.navProperties.services < scroll) {
+            document.getElementById('services-container').classList.add("animate")
+        }
+        if(this.navProperties.about < scroll) {
+            document.getElementById('profile').classList.add("animate");
+        }
+        if(this.navProperties.projects < scroll) {
+            document.getElementById('projects-wrapper').classList.add("animate")
+        }
+        if(this.navProperties.contact < scroll) {
+            document.getElementById('contact-form').classList.add("animate")
+        }
+
+        if (windowPosition < this.navProperties.services) {
+            this.navProperties.currentSection = 0;
+        }
+        if(windowPosition > this.navProperties.services && windowPosition < this.navProperties.about) {
+            this.navProperties.currentSection = 1;
+        }
+        if(windowPosition > this.navProperties.about && windowPosition < this.navProperties.projects) {
+            this.navProperties.currentSection = 2;
+        }
+        if(windowPosition > this.navProperties.projects && windowPosition < this.navProperties.contact) {
+            this.navProperties.currentSection = 3;
+        }
+        if(windowPosition > this.navProperties.contact) {
+            this.navProperties.currentSection = 4;
+        }
+        cwbs.moveUnderline(cwbs.navProperties.currentSection)
     },
     underlineMovement: function() {
         let rightSpacerCounter = 11;

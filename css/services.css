@@ -64,13 +64,13 @@
     position: absolute;
     margin-top: -70px;
 }
-.services-container {
+#services-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
 }
-.services-container article {
+#services-container article {
     max-width: var(--maxwidth);
 }
 .services-opening {
@@ -154,7 +154,7 @@
     .card--projects, .card--provided {
         border-right: 1px solid #00000021;
     }
-    .services-container {
+    #services-container {
         padding: 100px 20px 0 20px;
         background-image: url(../images/black-schematic.svg);
     }
