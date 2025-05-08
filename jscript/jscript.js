@@ -63,8 +63,8 @@ let cwbs = {
     },
     scrollAnimation: function() {
         const bufferPixel = 230;
-        let windowPosition = window.scrollY
-        let scroll = windowPosition + cwbs.navProperties.windowHeight - bufferPixel;
+        let windowPosition = window.scrollY + 100;
+        let scroll = window.scrollY + cwbs.navProperties.windowHeight - bufferPixel;
         
         if(this.navProperties.services < scroll) {
             document.getElementById('services-container').classList.add("animate")
