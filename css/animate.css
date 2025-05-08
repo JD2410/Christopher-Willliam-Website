@@ -36,18 +36,18 @@
     #highlights .card.card--projects,
     #highlights .card.card--about {
         background-position-y: -120px ;
-        transition: all 1.4s;
+        transition: background-position 1.4s;
         transition-delay: 0.5s;
     }
 
     #highlights.animate .card.card--projects {
-        background-position: 0px top;
+        background-position: 0px 18px;
     }
     #highlights.animate .card.card--provided {
-        background-position: 8px top;
+        background-position: 16px 18px;
     }
     #highlights.animate .card.card--about {
-        background-position: 0px top;
+        background-position: 0px 18px;
         background-size: 62px auto;
     }
 

@@ -133,20 +133,29 @@
         flex-direction: row;
         position: absolute;
         width: calc(100% - 40px);
+        padding: 0;
+        overflow: hidden;
     }
     #highlights .card {
-        padding: 0px 20px 0px 75px;
-        margin-right: 20px;
+        padding: 18px 20px 18px 75px;
+        margin-right: 17px;
         background-size: unset;
-    }
-    #highlights .card p, #highlights .card h3 {
-        font-size: unset;
+        position: relative;
     }
     #highlights .card:nth-child(3) {
         margin-right: 0;
     }
-    .card--projects, .card--provided {
-        border-right: 1px solid #00000021;
+    #highlights .card p, #highlights .card h3 {
+        font-size: unset;
+    }
+    .card--projects:after, .card--provided:after {
+        content: "";
+        position: absolute;
+        height: calc(100% - 32px);
+        width: 1px;
+        background-color: #00000021;
+        right: 0;
+        top: 16px;
     }
     #services-container {
         padding: 100px 20px 0 20px;
