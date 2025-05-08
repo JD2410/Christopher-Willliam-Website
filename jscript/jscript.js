@@ -65,7 +65,7 @@ let cwbs = {
         const bufferPixel = 230;
         let windowPosition = window.scrollY + 100;
         let scroll = window.scrollY + cwbs.navProperties.windowHeight - bufferPixel;
-        
+            
         if(this.navProperties.services < scroll) {
             document.getElementById('services-container').classList.add("animate")
         }
@@ -203,4 +203,6 @@ let cwbs = {
 window.onload = function(){
     cwbs.init();
     scr.init();
+    document.getElementById('hero').classList.add('animate')
+    document.getElementById('highlights').classList.add('animate')
 };
