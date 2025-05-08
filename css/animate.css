@@ -4,7 +4,7 @@
         opacity: 0;
         transition: margin 1s, opacity 1s;
     }
-    #hero .hero-container h1 {
+    #hero .hero-container h1, #hero .hero-container a {
         margin-left: -40px;
         opacity: 0;
         transition: margin 1s, opacity 1s;
@@ -17,6 +17,10 @@
         opacity: 1;
         margin-left: 0;
     }
+    #hero.animate .hero-container a {
+        opacity: 1;
+        margin-left: 0;
+    }
 
     #highlights .card p, 
     #highlights .card h3, 
@@ -25,9 +29,9 @@
         margin-left: 6px;
         transition: margin 1s, opacity 1s;
     }
-    #highlights .card h3 { transition-delay: 0.2s; }
-    #highlights .card p { transition-delay: 0.4s; }
-    #highlights .card a { transition-delay: 0.6s; }
+    #highlights .card h3 { transition-delay: 0.5s; }
+    #highlights .card p { transition-delay: 0.8s; }
+    #highlights .card a { transition-delay: 1.1s; }
     #highlights.animate .card p, #highlights.animate .card h3, #highlights.animate .card a {
         opacity: 1;
         margin-left: 0;
@@ -35,16 +39,20 @@
     #highlights .card.card--provided,
     #highlights .card.card--projects,
     #highlights .card.card--about {
-        background-position-y: -120px ;
-        transition: background-position 1.4s;
+        background-position: 25px -120px ;
+        transition: background-position 1.4s, background-size 1.4s;
         transition-delay: 0.5s;
+        background-size: 10px;
     }
 
     #highlights.animate .card.card--projects {
         background-position: 0px 18px;
+        background-size: 56px auto;
+
     }
     #highlights.animate .card.card--provided {
         background-position: 16px 18px;
+        background-size: 49px;
     }
     #highlights.animate .card.card--about {
         background-position: 0px 18px;
