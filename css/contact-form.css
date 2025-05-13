@@ -39,4 +39,8 @@
     .cus-input.textarea textarea {
         height: 150px;
     }
+    .form-action {
+        display: flex;
+        justify-content: space-between;
+    }
 }

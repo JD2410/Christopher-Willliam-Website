@@ -10,6 +10,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
     <meta name="apple-mobile-web-app-title" content="Chris Build">
     <link rel="manifest" href="favicon/site.webmanifest">
+    <script src="https://web3forms.com/client/script.js" async defer></script>
     <script src="jscript/jscript.js"></script>
     <script src="jscript/gallery.js"></script>
     <link rel="stylesheet" href="css/style.css">
@@ -170,9 +171,9 @@
             <div class="contact-form-content">
                 <form method="POST" id="form">
 
-                    <input type="hidden" name="access_key" value="12763904-f7a0-4767-b63d-c10fe95787b4">
-                    <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
-
+                    <div id="result"></div>
+                    <!-- <input type="hidden" name="access_key" value="12763904-f7a0-4767-b63d-c10fe95787b4"> -->
+                    <input type="hidden" name="access_key" value="3a0883f7-cd78-4779-85f9-1b8d217f12d3">
                     <div class="contact-form-inputs">
                         <div class="cus-input">
                             <label for="firstname">First Name</label>
@@ -195,10 +196,13 @@
                             <textarea name="message" id="message" placeholder="Description of the work" required></textarea>
                         </div>
                     </div>
-                    
                     <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-                    <button type="submit" class="cus-button normal">Send Request</button>
-                    <div id="result"></div>
+                    <div class="form-action">
+                        <div class="h-captcha" data-captcha="true"></div>
+                        <div><button type="submit" class="cus-button normal">Send Request</button></div>
+                    </div>
+
+                    
                 
                 </form>
                 <div class="contact-description">
@@ -231,19 +235,5 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, aliquam et ullam mollitia, recusandae hic saepe fuga explicabo corporis, sapiente corrupti natus eius voluptatem iure sint? Amet optio atque pariatur!</p></div>
         </div>
     </div>
-    <!-- Recaptcha v2 -->
-    <script>
-        const onloadCallback = function() {
-            grecaptcha.ready(function () {
-                grecaptcha.execute('6Lf7vhsrAAAAAJg9l0CKNoPQg10zHbPbOn79aJtz', {
-                        action: 'submit'
-                    })
-                    .then(function (token) {
-                        document.getElementById('recaptchaResponse').value = token;
-                    });
-            });
-        }
-    </script>
-    <script src="https://www.google.com/recaptcha/api.js?render=6Lf7vhsrAAAAAJg9l0CKNoPQg10zHbPbOn79aJtz"></script>
 </body>
 </html>

@@ -20,6 +20,12 @@ let cwbs = {
         const result = document.getElementById('result');
         form.addEventListener('submit', function(e) {
             e.preventDefault();
+            const hCaptcha = form.querySelector('textarea[name=h-captcha-response]').value;
+            
+            if (!hCaptcha) {
+                e.preventDefault();
+                alert("Please fill out captcha field")
+            } else {
             const formData = new FormData(form);
             const object = Object.fromEntries(formData);
             const json = JSON.stringify(object);
@@ -52,6 +58,7 @@ let cwbs = {
                           result.style.display = "none";
                       }, 3000);
                   });
+                }
           });
     },
     formInputStyling: function() {
