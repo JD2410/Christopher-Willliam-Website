@@ -11,8 +11,23 @@ let cwbs = {
                 document.getElementById("navigation").classList.toggle('open')
             })
         })
+
+        
         this.formScript();
         this.formInputStyling();
+        this.cookiePolicyInit();
+    },
+    cookiePolicyAccept: function() {
+        document.cookie = "cookie-consent=1; max-age=31536000; path=/";
+        document.getElementById('cookie-box-container').style.display = 'none';
+    },
+    cookiePolicyInit: function() {
+        document.getElementById('cookie-accept').addEventListener('click', function() {
+            cwbs.cookiePolicyAccept();
+        })
+        if (!document.cookie.includes("cookie-consent=1")) {
+            document.getElementById('cookie-box-container').style.display = 'grid';
+        }
     },
     formScript: function() {
 
