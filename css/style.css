@@ -16,7 +16,8 @@
     --red: #FF2400;
     --black: #4F4C4C;
     --grey: #2C2C2C;
-    --maxwidth: 1200px; 
+    --maxwidth: 1200px;
+    --gradient: linear-gradient(0deg, #FF2400, #fa3a1c);
 }
 html {
     scroll-behavior: smooth;

@@ -29,7 +29,7 @@
     font-size: 1.2rem;
 }
 .hero a {
-    background-color: var(--red);
+    background: var(--gradient);
     color: #fff;
     font-size: 1.3em;
     padding: 14px 16px;
