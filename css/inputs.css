@@ -5,10 +5,10 @@
 
 /* Buttons */
 .cus-button {
-  background: linear-gradient(0deg, #0e7ec4, #1296e8);
+  background: var(--gradient);
   border: none;
   border-radius: 4px;
-  line-height: 35px;
+  line-height: 42px;
   min-width: 96px;
   text-align: center;
   font-weight: 500;
@@ -30,10 +30,10 @@
 
 .cus-button:hover {
   box-shadow: 0 2px 5px #00000052;
-  background: linear-gradient(0deg, #158ad4, #33a7ef);
+  background: var(--gradienthover);
 }
 .cus-button:active  {
-  background: linear-gradient(0deg, #0f75b5, #0f75b5);
+  background: var(--gradient);
 }
 
 .cus-button.processing,
@@ -98,17 +98,17 @@
   opacity: 1;
 }
 .style-btn.primary {
-  background: linear-gradient(0deg, #0e7ec4, #1296e8);
+  background: linear-gradient(0deg, #FF2400, #fa3a1c);
   color: #fff;
 }
 .style-btn.secondary {
-  color: #0e7ec4;
-  border: 2px solid #0e7ec4;
+  color: #FF2400;
+  border: 2px solid #FF2400;
   line-height: 48px;
   width: 108px;
 }
 .style-btn.tertiary {
-  color: #0e7ec4;
+  color: #FF2400;
 }
 
 /* Inputs */

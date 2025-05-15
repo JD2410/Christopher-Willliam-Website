@@ -29,7 +29,7 @@
     font-size: 1.2rem;
 }
 .hero a {
-    background-color: var(--red);
+    background: var(--gradient);
     color: #fff;
     font-size: 1.3em;
     padding: 14px 16px;
@@ -37,6 +37,10 @@
     display: block;
     text-align: center; 
     border-radius: 6px;
+}
+.hero a:hover {
+    background: linear-gradient(0deg, #fff, #fff);
+    color: var(--red);
 }
 @media (min-width: 768px) {
     .hero h1, .hero p {

@@ -11,48 +11,101 @@ let cwbs = {
                 document.getElementById("navigation").classList.toggle('open')
             })
         })
+
+        document.getElementById('result-container').addEventListener('click', function() {
+            this.removeAttribute("style");
+        })
+
         this.formScript();
         this.formInputStyling();
+        cwbs.cookie.init();
+    },
+    cookie: {
+        init: function() {
+            if (!document.cookie.includes("cookie-consent=1")) {
+                document.getElementById('cookie-box-container').classList.add('show');
+                document.getElementById('cookie-accept').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    cwbs.cookie.acceptPolicy();
+                });
+            } else {
+                cwbs.cookie.loadScript();
+            }
+        },
+        acceptPolicy: function() {
+            document.cookie = "cookie-consent=1; max-age=31536000; path=/";
+            document.getElementById('cookie-box-container').classList.remove('show');
+            cwbs.cookie.loadScript();
+        },
+        loadScript: function() {
+            let script = document.createElement('script');
+            script.setAttribute('type', 'text/javascript');
+            script.setAttribute('src', 'https://web3forms.com/client/script.js');
+            document.head.appendChild(script);
+        }
     },
     formScript: function() {
 
         const form = document.getElementById('form');
-        const result = document.getElementById('result');
+        
         form.addEventListener('submit', function(e) {
             e.preventDefault();
-            const formData = new FormData(form);
-            const object = Object.fromEntries(formData);
-            const json = JSON.stringify(object);
-            result.innerHTML = "Please wait..."
-          
-              fetch('https://api.web3forms.com/submit', {
-                      method: 'POST',
-                      headers: {
-                          'Content-Type': 'application/json',
-                          'Accept': 'application/json'
-                      },
-                      body: json
-                  })
-                  .then(async (response) => {
-                      let json = await response.json();
-                      if (response.status == 200) {
-                          result.innerHTML = "Form submitted successfully";
-                      } else {
-                          console.log(response);
-                          result.innerHTML = json.message;
-                      }
-                  })
-                  .catch(error => {
-                      console.log(error);
-                      result.innerHTML = "Something went wrong!";
-                  })
-                  .then(function() {
-                      form.reset();
-                      setTimeout(() => {
-                          result.style.display = "none";
-                      }, 3000);
-                  });
+
+            if (document.cookie.includes("cookie-consent=1")) { 
+                const hCaptcha = form.querySelector('textarea[name=h-captcha-response]').value;
+                if (!hCaptcha) {
+                    e.preventDefault();
+                    alert("Please fill out captcha field")
+                } else {
+                    const formData = new FormData(form);
+                    const object = Object.fromEntries(formData);
+                    const json = JSON.stringify(object);
+                    cwbs.contectFormMessage("Please wait...", "info")
+
+                    fetch('https://api.web3forms.com/submit', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json'
+                            },
+                            body: json
+                        })
+                        .then(async (response) => {
+                            let json = await response.json();
+                            if (response.status == 200) {
+                                cwbs.contectFormMessage("Form submitted successfully", "success")
+                            } else {
+                                console.log(response);
+                                cwbs.contectFormMessage(json.message, "failed")
+                            }
+                        })
+                        .catch(error => {
+                            console.log(error);
+                            cwbs.contectFormMessage("Something went wrong!", "failed")
+                        })
+                        .then(function() {
+                            form.reset();
+                        });
+                    }
+                } else {
+                    cwbs.contectFormMessage("Please confirm you have understood our usage of cookies in the popup", "info")
+                }
+            
           });
+    },
+    contectFormMessage: function(message, status) {
+        
+        const resultMessage = document.getElementById('result-message');
+        const resultCon = document.getElementById('result-container');
+
+        resultCon.classList.remove("success")
+        resultCon.classList.remove("info")
+        resultCon.classList.remove("failed")
+
+        resultMessage.innerHTML = message;
+        resultCon.classList.add(status);
+        resultCon.style.display = "flex";
+
     },
     formInputStyling: function() {
         let inputs = document.querySelectorAll(".cus-input")
