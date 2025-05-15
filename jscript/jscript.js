@@ -11,22 +11,32 @@ let cwbs = {
                 document.getElementById("navigation").classList.toggle('open')
             })
         })
-
-        
         this.formScript();
         this.formInputStyling();
-        this.cookiePolicyInit();
+        cwbs.cookie.init();
     },
-    cookiePolicyAccept: function() {
-        document.cookie = "cookie-consent=1; max-age=31536000; path=/";
-        document.getElementById('cookie-box-container').style.display = 'none';
-    },
-    cookiePolicyInit: function() {
-        document.getElementById('cookie-accept').addEventListener('click', function() {
-            cwbs.cookiePolicyAccept();
-        })
-        if (!document.cookie.includes("cookie-consent=1")) {
-            document.getElementById('cookie-box-container').style.display = 'grid';
+    cookie: {
+        init: function() {
+            if (!document.cookie.includes("cookie-consent=1")) {
+                document.getElementById('cookie-box-container').classList.add('show');
+                document.getElementById('cookie-accept').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    cwbs.cookie.acceptPolicy();
+                });
+            } else {
+                cwbs.cookie.loadScript();
+            }
+        },
+        acceptPolicy: function() {
+            document.cookie = "cookie-consent=1; max-age=31536000; path=/";
+            document.getElementById('cookie-box-container').classList.remove('show');
+            cwbs.cookie.loadScript();
+        },
+        loadScript: function() {
+            let script = document.createElement('script');
+            script.setAttribute('type', 'text/javascript');
+            script.setAttribute('src', 'https://web3forms.com/client/script.js');
+            document.head.appendChild(script);
         }
     },
     formScript: function() {
