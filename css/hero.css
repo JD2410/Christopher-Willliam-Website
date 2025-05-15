@@ -38,6 +38,10 @@
     text-align: center; 
     border-radius: 6px;
 }
+.hero a:hover {
+    background: linear-gradient(0deg, #fff, #fff);
+    color: var(--red);
+}
 @media (min-width: 768px) {
     .hero h1, .hero p {
         max-width: 54%;

@@ -18,6 +18,7 @@
     --grey: #2C2C2C;
     --maxwidth: 1200px;
     --gradient: linear-gradient(0deg, #FF2400, #fa3a1c);
+    --gradienthover: linear-gradient(0deg, #f6492e, #f78574);
 }
 html {
     scroll-behavior: smooth;

@@ -30,10 +30,10 @@
 
 .cus-button:hover {
   box-shadow: 0 2px 5px #00000052;
-  background: linear-gradient(0deg, #158ad4, #33a7ef);
+  background: var(--gradienthover);
 }
 .cus-button:active  {
-  background: linear-gradient(0deg, #0f75b5, #0f75b5);
+  background: var(--gradient);
 }
 
 .cus-button.processing,
