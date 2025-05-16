@@ -6,12 +6,12 @@ function Gallery(title, description, pageThumbnail, images) {
 }
 
 let galleries = [
-    new Gallery("Entrance", null, 'images/proj-01.png', [
+    new Gallery("Entrance", null, 'images/proj-01.webp', [
         'gallery/proj-01/entrance-01.jpg',
         'gallery/proj-01/entrance-02.jpg',
         'gallery/proj-01/entrance-03.jpg',
     ]),
-    new Gallery("Kitchen", null, 'images/proj-02.png', [
+    new Gallery("Kitchen", null, 'images/proj-02.webp', [
         'gallery/proj-02/kitchen-01.jpg',
         'gallery/proj-02/kitchen-02.jpg',
         'gallery/proj-02/kitchen-03.jpg',
@@ -19,7 +19,7 @@ let galleries = [
         'gallery/proj-02/kitchen-05.jpg',
         'gallery/proj-02/kitchen-06.jpg',
     ]),
-    new Gallery(null, "Some text to explain the lof conversion.", 'images/proj-03.png', [
+    new Gallery(null, "Some text to explain the lof conversion.", 'images/proj-03.webp', [
         'gallery/proj-03/loft-01.jpg',
         'gallery/proj-03/loft-02.jpg',
         'gallery/proj-03/loft-03.jpg',
@@ -28,18 +28,18 @@ let galleries = [
         'gallery/proj-03/loft-06.jpg',
         'gallery/proj-03/loft-07.jpg',
     ]),
-    new Gallery(null, null, 'images/proj-04.png', [
+    new Gallery(null, null, 'images/proj-04.webp', [
         'gallery/proj-04/outside-render-01.jpg',
         'gallery/proj-04/outside-render-02.jpg',
     ]),
-    new Gallery(null, null, 'images/proj-05.png', [
+    new Gallery(null, null, 'images/proj-05.webp', [
         'gallery/proj-05/entrance-chimney-01.jpg',
         'gallery/proj-05/entrance-chimney-02.jpg',
         'gallery/proj-05/entrance-chimney-03.jpg',
         'gallery/proj-05/entrance-chimney-04.jpg',
         'gallery/proj-05/entrance-chimney-05.jpg',
     ]),
-    new Gallery(null, null, 'images/proj-06.png', [
+    new Gallery(null, null, 'images/proj-06.webp', [
         'gallery/proj-06/gym-render-01.jpg',
         'gallery/proj-06/gym-render-02.jpg',
         'gallery/proj-06/gym-render-03.jpg',
@@ -50,7 +50,7 @@ let galleries = [
         'gallery/proj-06/gym-render-08.jpg',
         'gallery/proj-06/gym-render-09.jpg',
     ]),
-    new Gallery(null, null, 'images/proj-07.png', [
+    new Gallery(null, null, 'images/proj-07.webp', [
         'gallery/proj-07/pond-patio-01.jpg',
         'gallery/proj-07/pond-patio-02.jpg',
         'gallery/proj-07/pond-patio-03.jpg',
@@ -60,7 +60,7 @@ let galleries = [
         'gallery/proj-07/pond-patio-07.jpg',
         'gallery/proj-07/pond-patio-08.jpg',
     ]),
-    new Gallery(null, null, 'images/proj-08.png', [
+    new Gallery(null, null, 'images/proj-08.webp', [
         'gallery/proj-08/pool-patio-01.jpg',
         'gallery/proj-08/pool-patio-02.jpg',
         'gallery/proj-08/pool-patio-03.jpg',
@@ -75,7 +75,7 @@ let galleries = [
         'gallery/proj-08/pool-patio-12.jpg',
         'gallery/proj-08/pool-patio-13.jpg',
     ]),
-    new Gallery(null, null, 'images/proj-09.png', [
+    new Gallery(null, null, 'images/proj-09.webp', [
         'gallery/proj-09/mural-entertainment-01.jpg',
         'gallery/proj-09/mural-entertainment-02.jpg',
         'gallery/proj-09/mural-entertainment-03.jpg',
@@ -89,7 +89,7 @@ let galleries = [
         'gallery/proj-09/mural-entertainment-11.jpg',
         'gallery/proj-09/mural-entertainment-12.jpg',
     ]),
-    new Gallery(null, null, 'images/proj-10.png', [
+    new Gallery(null, null, 'images/proj-10.webp', [
         'gallery/proj-10/stairs-01.jpg',
         'gallery/proj-10/stairs-02.jpg',
         'gallery/proj-10/stairs-03.jpg',
