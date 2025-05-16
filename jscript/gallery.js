@@ -129,7 +129,9 @@ let scr = {
 
         Array.from(galleries).forEach(function(item, index, array) {
             let thumbImage = document.createElement('img')
-            thumbImage.src = item.thumbnail
+            thumbImage.src = item.thumbnail;
+            thumbImage.setAttribute("width", "284px");
+            thumbImage.setAttribute("height", "152px");
             thumbImage.setAttribute('draggable', false)
             thumbImage.addEventListener('click', function(element) {
                 scr.showGallery(index)
