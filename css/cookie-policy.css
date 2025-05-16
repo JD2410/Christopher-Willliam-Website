@@ -1,0 +1,36 @@
+
+@import "style.css";
+@import "header.css";
+@import "footer.css";
+
+
+.cookie-container {
+    box-sizing: border-box;
+    color: var(--black);
+}
+h1 {
+    font-size: 2rem;
+    border-bottom: 3px solid var(--red);
+    padding-bottom: 6px;
+}
+h2 {
+    font-size: 1.3rem;
+}
+
+@media (min-width: 768px) {
+    #page-container {
+        position: relative;
+        min-height: calc(100vh - 87px);
+        
+    }
+    .cookie-container {
+        padding-bottom: 94px;
+        max-width: var(--maxwidth);
+        margin: auto;
+    }
+    footer {
+        position: absolute;
+        bottom: 0;
+        width: calc(100% - 40px);
+    }
+}

@@ -159,7 +159,7 @@
     }
     .services-opening::after {
         content: "";
-        background-image: url(../images/skilled-hands.png);
+        background-image: url(../images/skilled-hands.webp);
         width: 36%;
         height: 610px;
         display: block;
