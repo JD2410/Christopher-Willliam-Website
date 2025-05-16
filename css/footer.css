@@ -26,11 +26,13 @@ footer a {
 @media (min-width: 768px) {
     footer {
         padding: 0 20px;
+        height: 94px;
     }
     .footer-container {
         max-width: var(--maxwidth);
         grid-template-columns: 40fr 20fr 40fr;
         gap: 12px;
+        padding: 0;
     }
     .footer-container ul {
         grid-column: unset;
