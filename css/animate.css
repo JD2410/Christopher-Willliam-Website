@@ -21,7 +21,6 @@
         opacity: 1;
         margin-left: 0;
     }
-
     #highlights .card p, 
     #highlights .card h3, 
     #highlights .card a {
@@ -44,11 +43,9 @@
         transition-delay: 0.5s;
         background-size: 10px;
     }
-
     #highlights.animate .card.card--projects {
         background-position: 0px 18px;
         background-size: 56px auto;
-
     }
     #highlights.animate .card.card--provided {
         background-position: 16px 18px;
@@ -59,4 +56,98 @@
         background-size: 62px auto;
     }
 
+    #services-container .services-opening--container h2 {
+        margin-left: -20px;
+        opacity: 0;
+        transition: margin-left 1.2s, opacity 1.2s;
+    }
+    #services-container .services-opening--container p {
+        margin-left: 20px;
+        opacity: 0;
+        transition: margin-left 1.2s, opacity 1.2s;
+    }
+    #services-container.animate .services-opening--container h2,
+    #services-container.animate .services-opening--container p {
+        margin-left: 0;
+        opacity: 1;
+    }
+
+    #services-container .services-listed .card {
+        transform: scale(1.2);
+        opacity: 0;
+        transition: transform 1.2s, opacity 1.2s;
+    }
+    #services-container.animate-first-row .services-listed .card:first-child {
+        transform: scale(1);
+        opacity: 1;
+    }
+    #services-container.animate-first-row .services-listed .card:nth-child(2) {
+        transform: scale(1);
+        opacity: 1;
+        transition-delay: 0.25s;
+    }
+    #services-container.animate-second-row .services-listed .card:nth-child(4) {
+        transform: scale(1);
+        opacity: 1;
+    }
+    #services-container.animate-second-row .services-listed .card:nth-child(5) {
+        transform: scale(1);
+        opacity: 1;
+        transition-delay: 0.25s;
+    }
+    #services-container.animate-second-row .services-listed .card:nth-child(6) {
+        transform: scale(1);
+        opacity: 1;
+        transition-delay: 0.5s;
+    }
+    #services-container.animate-third-row .services-listed .card:nth-child(7) {
+        transform: scale(1);
+        opacity: 1;
+    }
+    #services-container.animate-third-row .services-listed .card:nth-child(8) {
+        transform: scale(1);
+        opacity: 1;
+        transition-delay: 0.25s;
+    }
+    #services-container.animate-third-row .services-listed .card:nth-child(9) {
+        transform: scale(1);
+        opacity: 1;
+        transition-delay: 0.5s;
+    }
+
+    #profile .profile-container .images #profile-pool, 
+    #profile .profile-container .images #profile-gym {
+        transform: scale(1.1);
+        opacity: 0;
+        transition: transform 0.7s, opacity 0.7s, margin-right 0.7s;
+    }
+    #profile .profile-container .images #profile-main {
+        margin-left: -100px;
+        opacity: 0;
+        transition: margin-left 0.7s, opacity 0.7s;
+    }
+    #profile.animate .profile-container .images #profile-pool, 
+    #profile.animate .profile-container .images #profile-gym {
+        transform: scale(1);
+        opacity: 1;
+    }
+    #profile.animate .profile-container .images #profile-gym {
+        transition-delay: 0.25s;
+    }
+    #profile.animate .profile-container .images #profile-main {
+        margin-left: 0px;
+        opacity: 1;
+    }
+
+    #projects-wrapper #gallery img {
+        opacity: 0;
+        margin-left: -10px;
+        transform: scale(1.1);
+        transition: opacity 0.7s, margin-left 0.7s, transform 0.7s;
+    }
+    #projects-wrapper.animate #gallery img {
+        opacity: 1;
+        margin-left: 0;
+        transform: scale(1);
+    }
 }

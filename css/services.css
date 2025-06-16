@@ -93,7 +93,7 @@
     display: grid;
     gap: 20px;
     z-index: 10;
-    background-color: var(--red);
+    background: var(--gradient);
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
@@ -187,7 +187,7 @@
         grid-template-columns: 1fr 1fr 1fr;
         box-sizing: border-box;
         padding: 20px 20px 0 20px;
-        background-color: transparent;
+        background: transparent;
         margin: -260px 0 0 0;
     }
     .services-listed .card {

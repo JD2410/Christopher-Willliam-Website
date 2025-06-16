@@ -50,6 +50,7 @@ let cwbs = {
         navPostionRight: [],
         currentSection: 0,
         services: 0,
+        servicesCards : [0, 0, 0],
         about: 0,
         projects: 0,
         contact: 0,
@@ -60,6 +61,9 @@ let cwbs = {
         this.navProperties.about = document.getElementById("about").getBoundingClientRect().top + window.scrollY;
         this.navProperties.projects = document.getElementById("projects").getBoundingClientRect().top + window.scrollY;
         this.navProperties.contact = document.getElementById("map").getBoundingClientRect().top + window.scrollY;
+        this.navProperties.servicesCards[0] = document.querySelector(".services-listed .card:first-child").getBoundingClientRect().top + window.scrollY;
+        this.navProperties.servicesCards[1] = document.querySelector(".services-listed .card:nth-child(4)").getBoundingClientRect().top + window.scrollY;
+        this.navProperties.servicesCards[2] = document.querySelector(".services-listed .card:nth-child(8)").getBoundingClientRect().top + window.scrollY;
         this.navProperties.windowHeight = window.innerHeight;
     },
     scrollAnimation: function() {
@@ -69,6 +73,15 @@ let cwbs = {
             
         if(this.navProperties.services < scroll) {
             document.getElementById('services-container').classList.add("animate")
+        }
+        if((this.navProperties.servicesCards[0] - 200) < scroll) {
+            document.getElementById('services-container').classList.add("animate-first-row")
+        }
+        if((this.navProperties.servicesCards[1] - 200) < scroll) {
+            document.getElementById('services-container').classList.add("animate-second-row")
+        }
+        if((this.navProperties.servicesCards[2] - 200) < scroll) {
+            document.getElementById('services-container').classList.add("animate-third-row")
         }
         if(this.navProperties.about < scroll) {
             document.getElementById('profile').classList.add("animate");

@@ -20,7 +20,7 @@
     grid-template-rows: 1fr 1fr;
     gap: 10px;
 }
-.profile-main {
+#profile-main {
     grid-row: 1 / span 2; /* Span 2 rows */
 }
 .profile-container .images img {
@@ -42,13 +42,13 @@
         display: unset;
         position: relative;
     }
-    .profile-container .images img.profile-main {
+    .profile-container .images #profile-main {
         width: 90%;
         height: 415px;
         margin-top: 40px;
         margin-bottom: 40px;
     }
-    .profile-container .images img.profile-pool, .profile-container .images img.profile-gym {
+    .profile-container .images #profile-pool, .profile-container .images #profile-gym {
         width: 50%;
         height: 235px;
         border-left: 20px solid #f2f2f2;
@@ -57,10 +57,10 @@
         position: absolute;
         left: calc(100% - 50%);
     }
-    .profile-container .images img.profile-pool {
+    .profile-container .images #profile-pool {
         border-bottom: 20px solid #f2f2f2;
     }
-    .profile-container .images img.profile-gym {
+    .profile-container .images #profile-gym {
         top: 270px;
         border-top: 20px solid #f2f2f2;
     }
