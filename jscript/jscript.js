@@ -18,6 +18,7 @@ let cwbs = {
 
         this.formScript();
         this.formInputStyling();
+        this.map.init();
         cwbs.cookie.init();
     },
     cookie: {
@@ -106,6 +107,37 @@ let cwbs = {
         resultCon.classList.add(status);
         resultCon.style.display = "flex";
 
+    },
+     map: {
+        init: () => {
+
+            const isMobile = window.innerWidth <= 768;
+            const mapPos = isMobile ? [51.7095, 0.2428] : [51.7095, 1.1428] ;
+            const zoom = 9;
+            
+            const londonLatLng = [51.7095, 0.2428];
+            const map = L.map('map', {
+                center: mapPos,
+                zoom: zoom,
+                dragging: false,
+                scrollWheelZoom: false
+            });
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors',
+            }).addTo(map);
+
+            const radiusInMeters = 20 * 1609.34;
+
+            L.circle(londonLatLng, {
+                color: '#00E539',
+                fillColor: '#00E539',
+                fillOpacity: 0.2,
+                radius: radiusInMeters,
+            }).addTo(map);
+
+            L.marker(londonLatLng).addTo(map)
+        }
     },
     formInputStyling: function() {
         let inputs = document.querySelectorAll(".cus-input")
