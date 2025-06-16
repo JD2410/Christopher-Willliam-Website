@@ -3,6 +3,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 12px;
     line-height: 0;
+    min-height: 505px;
 }
 .projects-container #gallery img {
     width: 100%;
