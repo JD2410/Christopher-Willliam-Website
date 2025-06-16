@@ -28,7 +28,7 @@
     line-height: 1.6;
     font-size: 1.2rem;
 }
-.hero a {
+#hero a {
     background: var(--gradient);
     color: #fff;
     font-size: 1.3em;

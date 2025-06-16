@@ -38,6 +38,7 @@ let cwbs = {
 
         this.formScript();
         this.formInputStyling();
+        this.map.init();
         if(window.innerWidth > 768) {
             this.underlineMovement();
             this.getSectionPositions();
