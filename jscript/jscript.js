@@ -19,7 +19,27 @@ let cwbs = {
         this.formScript();
         this.formInputStyling();
         this.map.init();
+        this.heroImage.init()
         cwbs.cookie.init();
+    },
+    heroImage: {
+        primaryImages: ["big-hero.png", "big-hero-2.png", "big-hero-3.png"],
+        secondaryImages: ["small-hero.png", "small-hero-2.png", "small-hero-3.png"],
+        selection: 0,
+        path: "images/hero-images/",
+        init: () => {
+            const primaryContainer = document.getElementById("primary-image");
+            const secondaryContainer = document.getElementById("secondary-image");
+
+            let primaryBacking = document.createElement("img");
+            primaryBacking.src = cwbs.heroImage.path + cwbs.heroImage.primaryImages[1];
+            primaryContainer.appendChild(primaryBacking);
+
+            let scondaryBacking = document.createElement("img");
+            scondaryBacking.src = cwbs.heroImage.path + cwbs.heroImage.secondaryImages[1];
+            secondaryContainer.appendChild(scondaryBacking);
+
+        }
     },
     cookie: {
         init: function() {
