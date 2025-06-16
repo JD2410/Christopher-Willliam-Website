@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cwbuilding-solutions.co.uk/sitemap.xml
