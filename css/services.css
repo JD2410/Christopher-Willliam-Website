@@ -79,7 +79,7 @@
 }
 .services-opening--container {
     color: #fff;
-    background-color: var(--red);
+    background: var(--gradient);
     border-radius: 5px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
@@ -163,7 +163,7 @@
     }
     .services-opening::after {
         content: "";
-        background-image: url(../images/skilled-hands.png);
+        background-image: url(../images/skilled-hands.webp);
         width: 36%;
         height: 610px;
         display: block;
@@ -178,7 +178,7 @@
     .services-opening--container {
         width: 75%;
         margin: 0;
-        padding: 22px 11% 250px 24px;
+        padding: 22px 14% 250px 24px;
         box-sizing: border-box;
         text-align: left;
         border-radius: 30px;

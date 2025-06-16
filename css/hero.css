@@ -28,8 +28,8 @@
     line-height: 1.6;
     font-size: 1.2rem;
 }
-#hero a {
-    background-color: var(--red);
+.hero a {
+    background: var(--gradient);
     color: #fff;
     font-size: 1.3em;
     padding: 14px 16px;
@@ -37,6 +37,10 @@
     display: block;
     text-align: center; 
     border-radius: 6px;
+}
+.hero a:hover {
+    background: linear-gradient(0deg, #fff, #fff);
+    color: var(--red);
 }
 @media (min-width: 768px) {
     #hero h1 {
@@ -59,7 +63,7 @@
         display: block;
         height: 500px;
         width: 50%;
-        background-image: url(../images/header.png);
+        background-image: url(../images/header.webp);
         background-repeat: no-repeat;
         background-size: cover;
         position: absolute;

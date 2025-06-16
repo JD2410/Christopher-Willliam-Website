@@ -116,42 +116,96 @@ let cwbs = {
     formScript: function() {
 
         const form = document.getElementById('form');
-        const result = document.getElementById('result');
+        
         form.addEventListener('submit', function(e) {
             e.preventDefault();
-            const formData = new FormData(form);
-            const object = Object.fromEntries(formData);
-            const json = JSON.stringify(object);
-            result.innerHTML = "Please wait..."
-          
-              fetch('https://api.web3forms.com/submit', {
-                      method: 'POST',
-                      headers: {
-                          'Content-Type': 'application/json',
-                          'Accept': 'application/json'
-                      },
-                      body: json
-                  })
-                  .then(async (response) => {
-                      let json = await response.json();
-                      if (response.status == 200) {
-                          result.innerHTML = "Form submitted successfully";
-                      } else {
-                          console.log(response);
-                          result.innerHTML = json.message;
-                      }
-                  })
-                  .catch(error => {
-                      console.log(error);
-                      result.innerHTML = "Something went wrong!";
-                  })
-                  .then(function() {
-                      form.reset();
-                      setTimeout(() => {
-                          result.style.display = "none";
-                      }, 3000);
-                  });
+
+            if (document.cookie.includes("cookie-consent=1")) { 
+                const hCaptcha = form.querySelector('textarea[name=h-captcha-response]').value;
+                if (!hCaptcha) {
+                    e.preventDefault();
+                    alert("Please fill out captcha field")
+                } else {
+                    const formData = new FormData(form);
+                    const object = Object.fromEntries(formData);
+                    const json = JSON.stringify(object);
+                    cwbs.contectFormMessage("Please wait...", "info")
+
+                    fetch('https://api.web3forms.com/submit', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json'
+                            },
+                            body: json
+                        })
+                        .then(async (response) => {
+                            let json = await response.json();
+                            if (response.status == 200) {
+                                cwbs.contectFormMessage("Form submitted successfully", "success")
+                            } else {
+                                console.log(response);
+                                cwbs.contectFormMessage(json.message, "failed")
+                            }
+                        })
+                        .catch(error => {
+                            console.log(error);
+                            cwbs.contectFormMessage("Something went wrong!", "failed")
+                        })
+                        .then(function() {
+                            form.reset();
+                        });
+                    }
+                } else {
+                    cwbs.contectFormMessage("Please confirm you have understood our usage of cookies in the popup", "info")
+                }
+            
           });
+    },
+    contectFormMessage: function(message, status) {
+        
+        const resultMessage = document.getElementById('result-message');
+        const resultCon = document.getElementById('result-container');
+
+        resultCon.classList.remove("success")
+        resultCon.classList.remove("info")
+        resultCon.classList.remove("failed")
+
+        resultMessage.innerHTML = message;
+        resultCon.classList.add(status);
+        resultCon.style.display = "flex";
+
+    },
+     map: {
+        init: () => {
+
+            const isMobile = window.innerWidth <= 768;
+            const mapPos = isMobile ? [51.7095, 0.2428] : [51.7095, 1.1428] ;
+            const zoom = 9;
+            
+            const londonLatLng = [51.7095, 0.2428];
+            const map = L.map('map', {
+                center: mapPos,
+                zoom: zoom,
+                dragging: false,
+                scrollWheelZoom: false
+            });
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors',
+            }).addTo(map);
+
+            const radiusInMeters = 20 * 1609.34;
+
+            L.circle(londonLatLng, {
+                color: '#00E539',
+                fillColor: '#00E539',
+                fillOpacity: 0.2,
+                radius: radiusInMeters,
+            }).addTo(map);
+
+            L.marker(londonLatLng).addTo(map)
+        }
     },
     formInputStyling: function() {
         let inputs = document.querySelectorAll(".cus-input")
