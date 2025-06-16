@@ -126,23 +126,12 @@ let scr = {
         this.galleryInitialiser();
     },
     createGalleryThumbnails: function() {
-        let container = document.getElementById("gallery");
+        const galleryThumbnails = document.querySelectorAll('.gallery-image');
 
-        Array.from(galleries).forEach(function(item, index, array) {
-            let thumbImage = document.createElement('img')
-            thumbImage.src = item.thumbnail;
-            if(item.thumbnailAlt != null) {
-                thumbImage.setAttribute("alt", item.thumbnailAlt);
-            } else {
-                thumbImage.setAttribute("alt", "Building Project");
-            }
-            thumbImage.setAttribute("width", "284px");
-            thumbImage.setAttribute("height", "152px");
-            thumbImage.setAttribute('draggable', false)
-            thumbImage.addEventListener('click', function(element) {
+        galleryThumbnails.forEach((thumbnail, index) => {
+            thumbnail.addEventListener('click', function(element) {
                 scr.showGallery(index)
             })
-            container.appendChild(thumbImage)
         })
     },
     galleryInitialiser: function() {
