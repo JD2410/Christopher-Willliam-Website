@@ -4,7 +4,7 @@
     justify-content: center;
     position: relative;
 }
-.hero .images {
+#hero .images {
     display: none;
 }
 .hero-container {
@@ -103,7 +103,6 @@
             img:first-child {
                 z-index: 4;
                 transition: opacity 1s;
-                transition-delay: 1s;
             }
         }
     }
