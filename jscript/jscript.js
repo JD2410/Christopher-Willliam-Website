@@ -39,6 +39,7 @@ let cwbs = {
         this.formScript();
         this.formInputStyling();
         this.map.init();
+        this.heroImage.init();
         if(window.innerWidth > 768) {
             this.underlineMovement();
             this.getSectionPositions();
@@ -264,6 +265,55 @@ let cwbs = {
                     input.classList.remove("error")
                 }
             })
+        }
+    },
+    heroImage: {
+        primaryImages: ["big-hero.png", "big-hero-2.png", "big-hero-3.png"],
+        secondaryImages: ["small-hero.png", "small-hero-2.png", "small-hero-3.png"],
+        selection: 1,
+        path: "images/hero-images/",
+        state: true,
+        init: () => {
+            const primaryContainer = document.getElementById("primary-image");
+            const secondaryContainer = document.getElementById("secondary-image");
+
+            let primaryBacking = document.createElement("img");
+            primaryBacking.src = cwbs.heroImage.path + cwbs.heroImage.primaryImages[1];
+            primaryContainer.appendChild(primaryBacking);
+
+            let scondaryBacking = document.createElement("img");
+            scondaryBacking.src = cwbs.heroImage.path + cwbs.heroImage.secondaryImages[1];
+            secondaryContainer.appendChild(scondaryBacking);
+        },
+        loadNextImage: () => {
+
+            cwbs.heroImage.selection++;
+
+            if(cwbs.heroImage.selection > (cwbs.heroImage.primaryImages.length - 1)) {
+                cwbs.heroImage.selection = 0;
+            }
+            if (cwbs.heroImage.state) {
+                document.getElementById("primary-image").classList.add("fade")
+                document.getElementById("secondary-image").classList.add("fade");
+
+                setTimeout(() => {
+                    document.querySelector("#primary-image img:first-child").src = cwbs.heroImage.path + cwbs.heroImage.primaryImages[cwbs.heroImage.selection];
+                    document.querySelector("#secondary-image img:first-child").src = cwbs.heroImage.path + cwbs.heroImage.secondaryImages[cwbs.heroImage.selection];
+                }, 3000)
+
+                cwbs.heroImage.state = false;
+            } else {
+                document.getElementById("primary-image").classList.remove("fade")
+                document.getElementById("secondary-image").classList.remove("fade");
+
+                setTimeout(() => {
+                    document.querySelector("#primary-image img:nth-child(2)").src = cwbs.heroImage.path + cwbs.heroImage.primaryImages[cwbs.heroImage.selection];
+                    document.querySelector("#secondary-image img:nth-child(2)").src = cwbs.heroImage.path + cwbs.heroImage.secondaryImages[cwbs.heroImage.selection];
+                }, 3000)
+
+                cwbs.heroImage.state = true;
+            }
+            
         }
     }
 }

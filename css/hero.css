@@ -61,7 +61,7 @@
         padding: 0px 20px 50px 20px;
         min-height: unset;
     }
-    .hero .images {
+    #hero .images {
         display: unset;
         position: absolute;
         width: 50%;
