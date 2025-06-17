@@ -268,8 +268,8 @@ let cwbs = {
         }
     },
     heroImage: {
-        primaryImages: ["big-hero.png", "big-hero-2.png", "big-hero-3.png"],
-        secondaryImages: ["small-hero.png", "small-hero-2.png", "small-hero-3.png"],
+        primaryImages: ["project-new-kitchen.png", "big-hero-2.png", "big-hero-3.png"],
+        secondaryImages: ["project-new-study.png", "small-hero-2.png", "small-hero-3.png"],
         selection: 1,
         path: "images/hero-images/",
         state: true,
