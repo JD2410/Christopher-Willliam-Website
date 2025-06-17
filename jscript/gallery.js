@@ -127,11 +127,13 @@ let scr = {
     },
     createGalleryThumbnails: function() {
         const galleryThumbnails = document.querySelectorAll('.gallery-image');
-
+        let delayAmount = 0
         galleryThumbnails.forEach((thumbnail, index) => {
+            thumbnail.style.transitionDelay = delayAmount + "s";
             thumbnail.addEventListener('click', function(element) {
                 scr.showGallery(index)
             })
+            delayAmount += 0.16;
         })
     },
     galleryInitialiser: function() {

@@ -5,95 +5,127 @@ let cwbs = {
         })
 
         const navigationLinks = document.querySelectorAll('#navigation a')
-
-        navigationLinks.forEach(function(element) {
+        navigationLinks.forEach(function(element, index) {
             element.addEventListener('click', function() {
-                document.getElementById("navigation").classList.toggle('open')
+                document.getElementById("navigation").classList.toggle('open');
             })
+            element.addEventListener('mouseover', function() {
+                cwbs.moveUnderline(index)
+            })
+            element.addEventListener('mouseout', function() {
+                cwbs.moveUnderline(cwbs.navProperties.currentSection)
+            })
+            if(window.innerWidth > 768) {
+                cwbs.navProperties.navWidth.unshift(element.getBoundingClientRect().width)
+            }
         })
 
-        document.getElementById('result-container').addEventListener('click', function() {
-            this.removeAttribute("style");
+        window.addEventListener("resize", function() {
+            if(cwbs.navProperties.navPostionRight.length == 0 & window.innerWidth > 768) {
+                navigationLinks.forEach(function(element) {
+                    cwbs.navProperties.navWidth.unshift(element.getBoundingClientRect().width)
+                })
+                cwbs.underlineMovement();
+            }
+            cwbs.getSectionPositions();
+            cwbs.scrollAnimation();
+        })
+
+        let timer = null;
+        window.addEventListener("scroll", function() {
+            cwbs.scrollAnimation();
         })
 
         this.formScript();
         this.formInputStyling();
         this.map.init();
-        this.heroImage.init()
-        cwbs.cookie.init();
+        if(window.innerWidth > 768) {
+            this.underlineMovement();
+            this.getSectionPositions();
+            cwbs.scrollAnimation();
+        }
     },
-    heroImage: {
-        primaryImages: ["big-hero.png", "big-hero-2.png", "big-hero-3.png"],
-        secondaryImages: ["small-hero.png", "small-hero-2.png", "small-hero-3.png"],
-        selection: 1,
-        path: "images/hero-images/",
-        state: true,
-        init: () => {
-            const primaryContainer = document.getElementById("primary-image");
-            const secondaryContainer = document.getElementById("secondary-image");
-
-            let primaryBacking = document.createElement("img");
-            primaryBacking.src = cwbs.heroImage.path + cwbs.heroImage.primaryImages[1];
-            primaryContainer.appendChild(primaryBacking);
-
-            let scondaryBacking = document.createElement("img");
-            scondaryBacking.src = cwbs.heroImage.path + cwbs.heroImage.secondaryImages[1];
-            secondaryContainer.appendChild(scondaryBacking);
-        },
-        loadNextImage: () => {
-
-            cwbs.heroImage.selection++;
-
-            if(cwbs.heroImage.selection > (cwbs.heroImage.primaryImages.length - 1)) {
-                cwbs.heroImage.selection = 0;
-            }
-            if (cwbs.heroImage.state) {
-                document.getElementById("primary-image").classList.add("fade")
-                document.getElementById("secondary-image").classList.add("fade");
-
-                setTimeout(() => {
-                    document.querySelector("#primary-image img:first-child").src = cwbs.heroImage.path + cwbs.heroImage.primaryImages[cwbs.heroImage.selection];
-                    document.querySelector("#secondary-image img:first-child").src = cwbs.heroImage.path + cwbs.heroImage.secondaryImages[cwbs.heroImage.selection];
-                }, 3000)
-
-                cwbs.heroImage.state = false;
-            } else {
-                document.getElementById("primary-image").classList.remove("fade")
-                document.getElementById("secondary-image").classList.remove("fade");
-
-                setTimeout(() => {
-                    document.querySelector("#primary-image img:nth-child(2)").src = cwbs.heroImage.path + cwbs.heroImage.primaryImages[cwbs.heroImage.selection];
-                    document.querySelector("#secondary-image img:nth-child(2)").src = cwbs.heroImage.path + cwbs.heroImage.secondaryImages[cwbs.heroImage.selection];
-                }, 3000)
-
-                cwbs.heroImage.state = true;
-            }
+    navProperties: {
+        navWidth: [],
+        navPostionRight: [],
+        currentSection: 0,
+        services: 0,
+        servicesCards : [0, 0, 0],
+        about: 0,
+        projects: 0,
+        contact: 0,
+        windowHeight: 0,
+    },
+    getSectionPositions: function() {
+        this.navProperties.services = document.getElementById("services").getBoundingClientRect().top + window.scrollY;
+        this.navProperties.about = document.getElementById("about").getBoundingClientRect().top + window.scrollY;
+        this.navProperties.projects = document.getElementById("projects").getBoundingClientRect().top + window.scrollY;
+        this.navProperties.contact = document.getElementById("map").getBoundingClientRect().top + window.scrollY;
+        this.navProperties.servicesCards[0] = document.querySelector(".services-listed .card:first-child").getBoundingClientRect().top + window.scrollY;
+        this.navProperties.servicesCards[1] = document.querySelector(".services-listed .card:nth-child(4)").getBoundingClientRect().top + window.scrollY;
+        this.navProperties.servicesCards[2] = document.querySelector(".services-listed .card:nth-child(8)").getBoundingClientRect().top + window.scrollY;
+        this.navProperties.windowHeight = window.innerHeight;
+    },
+    scrollAnimation: function() {
+        const bufferPixel = 230;
+        let windowPosition = window.scrollY + 100;
+        let scroll = window.scrollY + cwbs.navProperties.windowHeight - bufferPixel;
             
+        if(this.navProperties.services < scroll) {
+            document.getElementById('services-container').classList.add("animate")
         }
+        if((this.navProperties.servicesCards[0] - 200) < scroll) {
+            document.getElementById('services-container').classList.add("animate-first-row")
+        }
+        if((this.navProperties.servicesCards[1] - 200) < scroll) {
+            document.getElementById('services-container').classList.add("animate-second-row")
+        }
+        if((this.navProperties.servicesCards[2] - 200) < scroll) {
+            document.getElementById('services-container').classList.add("animate-third-row")
+        }
+        if(this.navProperties.about < scroll) {
+            document.getElementById('profile').classList.add("animate");
+        }
+        if(this.navProperties.projects < scroll) {
+            document.getElementById('projects-wrapper').classList.add("animate")
+        }
+        if(this.navProperties.contact < scroll) {
+            document.getElementById('contact-form').classList.add("animate")
+        }
+
+        if (windowPosition < this.navProperties.services) {
+            this.navProperties.currentSection = 0;
+        }
+        if(windowPosition > this.navProperties.services && windowPosition < this.navProperties.about) {
+            this.navProperties.currentSection = 1;
+        }
+        if(windowPosition > this.navProperties.about && windowPosition < this.navProperties.projects) {
+            this.navProperties.currentSection = 2;
+        }
+        if(windowPosition > this.navProperties.projects && windowPosition < this.navProperties.contact) {
+            this.navProperties.currentSection = 3;
+        }
+        if(windowPosition > this.navProperties.contact) {
+            this.navProperties.currentSection = 4;
+        }
+        cwbs.moveUnderline(cwbs.navProperties.currentSection)
     },
-    cookie: {
-        init: function() {
-            if (!document.cookie.includes("cookie-consent=1")) {
-                document.getElementById('cookie-box-container').classList.add('show');
-                document.getElementById('cookie-accept').addEventListener('click', function(e) {
-                    e.preventDefault();
-                    cwbs.cookie.acceptPolicy();
-                });
-            } else {
-                cwbs.cookie.loadScript();
+    underlineMovement: function() {
+        let rightSpacerCounter = 11;
+        this.navProperties.navPostionRight.push(rightSpacerCounter)
+        cwbs.navProperties.navWidth.forEach(function(ele, index) {
+            if(index < (cwbs.navProperties.navWidth.length - 1)) {
+                rightSpacerCounter += parseFloat(ele);
+                rightSpacerCounter += 30;
+                cwbs.navProperties.navPostionRight.unshift(rightSpacerCounter)
             }
-        },
-        acceptPolicy: function() {
-            document.cookie = "cookie-consent=1; max-age=31536000; path=/";
-            document.getElementById('cookie-box-container').classList.remove('show');
-            cwbs.cookie.loadScript();
-        },
-        loadScript: function() {
-            let script = document.createElement('script');
-            script.setAttribute('type', 'text/javascript');
-            script.setAttribute('src', 'https://web3forms.com/client/script.js');
-            document.head.appendChild(script);
-        }
+        })
+        cwbs.navProperties.navWidth.reverse()
+        this.moveUnderline(cwbs.navProperties.currentSection)
+    },
+    moveUnderline: function(which) {
+        document.getElementById("underline").style.width = cwbs.navProperties.navWidth[which] + "px";
+        document.getElementById("underline").style.right = cwbs.navProperties.navPostionRight[which] + "px";
     },
     formScript: function() {
 
@@ -239,4 +271,6 @@ let cwbs = {
 window.onload = function(){
     cwbs.init();
     scr.init();
+    document.getElementById('hero').classList.add('animate')
+    document.getElementById('highlights').classList.add('animate')
 };
