@@ -337,4 +337,5 @@ window.onload = function(){
     scr.init();
     document.getElementById('hero').classList.add('animate')
     document.getElementById('highlights').classList.add('animate')
+    document.getElementsByTagName('body')[0].classList.add('startAnimate')
 };

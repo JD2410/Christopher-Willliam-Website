@@ -2,17 +2,24 @@
     #hero .hero-container p {
         margin-left: 40px;
         opacity: 0;
-        transition: margin 1s, opacity 1s;
+        
     }
+    body.startAnimate {
+        #hero.animate .hero-container p {
+            transition: margin 1s, opacity 1s;
+            opacity: 1;
+            margin-left: 0;
+        }
+    }
+    
+
+
     #hero .hero-container h1, #hero .hero-container a {
         margin-left: -40px;
         opacity: 0;
         transition: margin 1s, opacity 1s;
     }
-    #hero.animate .hero-container p {
-        opacity: 1;
-        margin-left: 0;
-    }
+    
     #hero.animate .hero-container h1 {
         opacity: 1;
         margin-left: 0;
