@@ -268,8 +268,8 @@ let cwbs = {
         }
     },
     heroImage: {
-        primaryImages: ["project-new-kitchen.png", "big-hero-2.png", "big-hero-3.png"],
-        secondaryImages: ["project-new-study.png", "small-hero-2.png", "small-hero-3.png"],
+        primaryImages: ["project-new-kitchen.webp", "big-hero-2.webp", "big-hero-3.webp"],
+        secondaryImages: ["project-new-study.webp", "small-hero-2.webp", "small-hero-3.webp"],
         selection: 1,
         path: "images/hero-images/",
         state: true,
@@ -279,11 +279,15 @@ let cwbs = {
             const secondaryContainer = document.getElementById("secondary-image");
 
             let primaryBacking = document.createElement("img");
+
             primaryBacking.src = cwbs.heroImage.path + cwbs.heroImage.primaryImages[1];
+            primaryBacking.alt = 'Examples of work from Christorpher William - Building Solutions'
             primaryContainer.appendChild(primaryBacking);
 
             let scondaryBacking = document.createElement("img");
             scondaryBacking.src = cwbs.heroImage.path + cwbs.heroImage.secondaryImages[1];
+            scondaryBacking.alt = 'Examples of work from Christorpher William - Building Solutions'
+
             secondaryContainer.appendChild(scondaryBacking);
 
             cwbs.heroImage.heroTimer = setInterval(() => { cwbs.heroImage.loadNextImage() }, 2000)

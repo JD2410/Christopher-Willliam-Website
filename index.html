@@ -29,9 +29,9 @@
 
     <script src="jscript/jscript.js" defer></script>
     <script src="jscript/gallery.js" defer></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" defer>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin defer>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wdth,wght@0,18..144,87..112,700;1,18..144,87..112,700&family=Source+Sans+3&display=swap" rel="stylesheet" async>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wdth,wght@0,18..144,87..112,700;1,18..144,87..112,700&family=Source+Sans+3&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/home.css">
 
     <script type="application/ld+json">
@@ -57,15 +57,15 @@
         }
     </script>
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" defer />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" ></script>
 </head>
 <body>
     <header>
         <div class="header--container">
             <a href="#"><picture>     
                 <source srcset="images/mobile-logo.svg" media="(max-width: 762px)" width="144" height="31">
-                <img src="images/chris-william-solution-logo.svg" width="144" height="42" alt="Christopher William - Building Solutions Logo">
+                <img src="images/chris-william-solution-logo.svg" width="144" height="42" alt="Christopher William - Building Solutions Logo" loading="eager">
             </picture></a>
             <div id="menu"></div>
             <nav id="navigation">
@@ -78,6 +78,7 @@
             </nav>
         </div>
     </header>
+    <main>
     <section id="hero">
         <div class="hero-container">
             <h1>Bringing skilled trades together for a smoother build. Contact me today.</h1>
@@ -85,32 +86,32 @@
             <a href="#contact">Get in Contact</a>
         </div>
         <div class="images">
-            <div id="primary-image"><img src="images/hero-images/project-new-kitchen.png" alt="Examples of work from Christorpher William - Building Solutions"></div>
-            <div id="secondary-image"><img src="images/hero-images/project-new-study.png" alt="Examples of work from Christorpher William - Building Solutions"></div>
+            <div id="primary-image"><img src="images/hero-images/project-new-kitchen.webp" alt="Examples of work from Christorpher William - Building Solutions" loading="eager"></div>
+            <div id="secondary-image"><img src="images/hero-images/project-new-study.webp" alt="Examples of work from Christorpher William - Building Solutions" loading="eager"></div>
         </div>
     </section>
     <section id="highlights">
         <div class="highlights-container">
             <div class="card card--provided">
-                <h3><span>Provided </span>Services</h3>
+                <h2><span>Provided </span>Services</h2>
                 <p>Discover the wide range of professional building and management services we offer.</p>
                 <a href="#services">Learn More</a>
             </div>
             <div class="card card--projects">
-                <h3><span>Latest </span>Projects</h3>
+                <h2><span>Latest </span>Projects</h2>
                 <p>Take a look at some of our recent building and property management projects in action.</p>
                 <a href="#projects">Learn More</a>
             </div>
             <div class="card card--about">
-                <h3>About Us</h3>
+                <h2>About Us</h2>
                 <p>Get to know our team, our values, and how we deliver trusted building management solutions.</p>
                 <a href="#about">Learn More</a>
             </div>
         </div>
     </section>
     
-    <section id="services-container">
-        <span id="services" ></span>
+    <div id="services-container">
+        <span id="services"></span>
         <article class="services-opening">
             <div class="services-opening--container">
                 <div class="section-introduction no-border">
@@ -122,57 +123,57 @@
         </article>
         <article class="services-listed">
             <div class="card">
-                <img src="images/icon-bathroom.svg" width="44" height="40" alt="Bathroom Refurbishment Services Icon">
-                <h4>Bathroom Refurbishments</h4>
+                <img src="images/icon-bathroom.svg" width="44" height="40" alt="Bathroom Refurbishment Services Icon" loading="lazy">
+                <h3>Bathroom Refurbishments</h3>
                 <p>From modern upgrades to full-scale renovations, I handle everything from plumbing coordination to tiling and finishing touches.</p>
             </div>
             <div class="card">
-                <img src="images/icon-kitchen.svg" width="53" height="40" alt="Kitchen Renovations Services Icon">
-                <h4>Kitchen Renovations</h4>
+                <img src="images/icon-kitchen.svg" width="53" height="40" alt="Kitchen Renovations Services Icon" loading="lazy">
+                <h3>Kitchen Renovations</h3>
                 <p>A kitchen is the heart of the home. I manage the entire process, ensuring seamless installation, top-quality fittings, and a layout that works for you.</p>
             </div>
             <div class="card card--empty">
             </div>
             <div class="card">
-                <img src="images/icon-barn.svg" width="38" width="40" alt="Barn Conversions Services Icon">
-                <h4>Barn Conversions</h4>
+                <img src="images/icon-barn.svg" width="40" height="42" alt="Barn Conversions Services Icon" loading="lazy">
+                <h3>Barn Conversions</h3>
                 <p>Looking to turn a barn into a home? We deliver traditional or modern conversions with care, staying true to the character of the original building.</p>
             </div>
             <div class="card">
-                <img src="images/icon-full-renovation.svg" width="47" height="40" alt="Full Property Renovation Service Icon">
-                <h4>Full Property Renovations</h4>
+                <img src="images/icon-full-renovation.svg" width="47" height="40" alt="Full Property Renovation Service Icon" loading="lazy">
+                <h3>Full Property Renovations</h3>
                 <p>Whether it's a single room or an entire house, I bring together skilled trades to deliver high-quality renovations, keeping projects.</p>
             </div>
             <div class="card">
-                <img src="images/icon-loft.svg" width="38" height="40" alt="Loft Conversion Services Icon">
-                <h4>Loft Conversions</h4>
+                <img src="images/icon-loft.svg" width="38" height="40" alt="Loft Conversion Services Icon" loading="lazy">
+                <h3>Loft Conversions</h3>
                 <p>Transforming attic spaces into functional areas like bedrooms or offices while ensuring structural integrity and compliance.</p>
             </div>
             <div class="card">
-                <img src="images/icon-structural.svg" width="53" height="40" alt="Structural Alterations Services Icon">
-                <h4>Structural Alterations</h4>
+                <img src="images/icon-structural.svg" width="53" height="40" alt="Structural Alterations Services Icon" loading="lazy">
+                <h3>Structural Alterations</h3>
                 <p>Managing changes like removing walls, installing beams, or modifying layouts to create open spaces or improve functionality.</p>
             </div>
             <div class="card">
-                <img src="images/icon-landscaping.svg" width="70" height="40" alt="Landscaping & Outdoor Construction Services Icon">
-                <h4>Landscaping & Outdoor Construction</h4>
+                <img src="images/icon-landscaping.svg" width="70" height="40" alt="Landscaping & Outdoor Construction Services Icon" loading="lazy">
+                <h3>Landscaping & Outdoor Construction</h3>
                 <p>Overseeing the design and installation of driveways, patios, decking, fencing, and garden structures to enhance a property's outdoor space.</p>
             </div>
             <div class="card">
-                <img src="images/icon-project.svg" width="65" height="40" alt="Project Coordination & Client Liaison Services Icon">
-                <h4>Project Coordination & Client Liaison</h4>
+                <img src="images/icon-project.svg" width="65" height="40" alt="Project Coordination & Client Liaison Services Icon" loading="lazy">
+                <h3>Project Coordination & Client Liaison</h3>
                 <p>Acting as the link between tradespeople and clients, ensuring smooth execution, clear communication, and timeline adherence.</p>
             </div>
         </article>
         <a href="#projects" class="check-out-work">Check out some of the work</a>
-    </section>
+    </div>
     <section id="profile">
         <span id="about"></span>
         <div class="profile-container">
             <div class="images">
-                <img src="images/profile.webp" width="480" height="415" alt="Gorrila Wall Art" id="profile-main">
-                <img src="images/profile-pool.webp" width="267" height="235" alt="Pool Project" id="profile-pool">
-                <img src="images/profile-gym.webp" width="267" height="235" alt="Gym Project" id="profile-gym">
+                <img src="images/profile.webp" width="480" height="415" alt="Gorrila Wall Art" id="profile-main" loading="lazy">
+                <img src="images/profile-pool.webp" width="267" height="235" alt="Pool Project" id="profile-pool" loading="lazy">
+                <img src="images/profile-gym.webp" width="267" height="235" alt="Gym Project" id="profile-gym" loading="lazy">
             </div>
             <div class="profile-details">
                 <div class="profile-intro section-introduction">
@@ -197,20 +198,20 @@
                 <p>Take a look at some of our completed projects. From planning to execution, we ensure every detail meets the highest standards. Browse through our gallery to see the craftsmanship and dedication that go into every job.</p>
             </div>
             <div id="gallery">
-                <img src="images/project-new-entrance.webp" width="284px" height="152px" draggable="false" alt="New Entrance" class="gallery-image">
-                <img src="images/project-kitchen-revamp.webp" width="284px" height="152px" draggable="false" alt="New Kitchen (Revamped)" class="gallery-image">
-                <img src="images/project-new-roof.webp" width="284px" height="152px" draggable="false" alt="Construction of a complete Roof" class="gallery-image">
-                <img src="images/project-house-rendering.webp" width="284px" height="152px" draggable="false" alt="House Rendering (Revamp)" class="gallery-image">
-                <img src="images/project-chimney-entrance.webp" width="284px" height="152px" draggable="false" alt="New Entrance & Chimeny restoration" class="gallery-image">
-                <img src="images/project-standalone-gym.webp" width="284px" height="152px" draggable="false" alt="Outside Gym - from scratch" class="gallery-image">
-                <img src="images/project-pool-resurfacing.webp" width="284px" height="152px" draggable="false" alt="Outside pool and patio resurfacing" class="gallery-image">
-                <img src="images/project-pool-bbq-area.webp" width="284px" height="152px" draggable="false" alt="Outside Pool - BBQ area" class="gallery-image">
-                <img src="images/project-custom-art-new-kitchen.webp" width="284px" height="152px" draggable="false" alt="Custom Artwork (Gnasher) - New Kitchen" class="gallery-image">
-                <img src="images/project-new-staircase.webp" width="284px" height="152px" draggable="false" alt="New Staircase" class="gallery-image">
+                <img src="images/project-new-entrance.webp" width="284" height="152" draggable="false" alt="New Entrance" class="gallery-image" loading="lazy">
+                <img src="images/project-kitchen-revamp.webp" width="284" height="152" draggable="false" alt="New Kitchen (Revamped)" class="gallery-image" loading="lazy">
+                <img src="images/project-new-roof.webp" width="284" height="152" draggable="false" alt="Construction of a complete Roof" class="gallery-image" loading="lazy">
+                <img src="images/project-house-rendering.webp" width="284" height="152" draggable="false" alt="House Rendering (Revamp)" class="gallery-image" loading="lazy">
+                <img src="images/project-chimney-entrance.webp" width="284" height="152" draggable="false" alt="New Entrance & Chimeny restoration" class="gallery-image" loading="lazy">
+                <img src="images/project-standalone-gym.webp" width="284" height="152" draggable="false" alt="Outside Gym - from scratch" class="gallery-image" loading="lazy">
+                <img src="images/project-pool-resurfacing.webp" width="284" height="152" draggable="false" alt="Outside pool and patio resurfacing" class="gallery-image" loading="lazy">
+                <img src="images/project-pool-bbq-area.webp" width="284" height="152" draggable="false" alt="Outside Pool - BBQ area" class="gallery-image" loading="lazy">
+                <img src="images/project-custom-art-new-kitchen.webp" width="284" height="152" draggable="false" alt="Custom Artwork (Gnasher) - New Kitchen" class="gallery-image" loading="lazy">
+                <img src="images/project-new-staircase.webp" width="284" height="152" draggable="false" alt="New Staircase" class="gallery-image" loading="lazy">
             </div>
         </div>
     </section>
-    <section id="map"></section>
+    <div id="map"></div>
     <section id="map-contents">
         <div class="map-container">
             <div class="map-details">
@@ -269,6 +270,7 @@
             </div>
         </div>
     </section>
+    </main>
     <footer>
         <div class="footer-container">
             <ul>
@@ -279,7 +281,7 @@
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="cookie-policy/">Cookie Policy</a></li>
             </ul>
-            <div class="image-container"><img src="images/footer-icon.svg" width="49" height="41" alt="Christopher William Logo"></div>
+            <div class="image-container"><img src="images/footer-icon.svg" width="49" height="41" alt="Christopher William Logo" loading="lazy"></div>
             <p>&copy; Christopher William Building Solution. All rights reserved</p>
         </div>
     </footer>
