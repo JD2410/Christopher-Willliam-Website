@@ -26,7 +26,7 @@
             transition: margin-left 1s, opacity 1s;
             transition-delay: 0.8s; 
         }
-        #highlights.animate .card h3 {
+        #highlights.animate .card h2 {
             opacity: 1;
             margin-left: 0;
             transition: margin-left 1s, opacity 1s;
@@ -65,7 +65,7 @@
     }
     
     #highlights .card p, 
-    #highlights .card h3, 
+    #highlights .card h2, 
     #highlights .card a {
         opacity: 0;
         margin-left: 6px;

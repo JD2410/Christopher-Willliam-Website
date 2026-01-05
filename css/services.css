@@ -39,7 +39,7 @@
     margin-bottom: 5px;
     font-size: 1rem;
 }
-.card h3 {
+.card h2 {
     margin: 0;
     font-size: 1.2rem;
 }
@@ -108,7 +108,7 @@
     align-items: center;
     gap: 12px;
 }
-.services-listed .card h4 {
+.services-listed .card h3 {
     margin: 0;
     grid-column: 2 / -1;
 }
@@ -145,7 +145,7 @@
     #highlights .card:nth-child(3) {
         margin-right: 0;
     }
-    #highlights .card p, #highlights .card h3 {
+    #highlights .card p, #highlights .card h2 {
         font-size: unset;
     }
     .card--projects:after, .card--provided:after {
@@ -193,7 +193,7 @@
     .services-listed .card {
         display: unset;
     }
-    .services-listed .card h4 {
+    .services-listed .card h3 {
         margin: 4px 0 8px 0;
         grid-column: unset;
     }
