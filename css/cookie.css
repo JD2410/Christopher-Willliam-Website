@@ -1,6 +1,6 @@
 #cookie-box-container {
     position: fixed;
-    bottom: 10px;
+    bottom: 15px;
     right: 10px;
     left: 10px;
     justify-content: center;
@@ -8,7 +8,6 @@
     opacity: 0;
     transition: opacity 0.25s, margin 0.5s;
     display: grid;
-    margin-bottom: -100px;
 }
 #cookie-box-container.show {
     transition-delay: 1s;

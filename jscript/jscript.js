@@ -20,6 +20,16 @@ let cwbs = {
             }
         })
 
+        document.getElementById('cookie-accept').addEventListener('mousedown', () => {
+            document.cookie = "cookie-consent=1"
+            document.getElementById('cookie-box-container').classList.remove('show')
+        })
+
+        if (!document.cookie.includes("cookie-consent=1")) {
+            document.getElementById('cookie-box-container').classList.add('show')
+        }
+        
+
         window.addEventListener("resize", function() {
             if(cwbs.navProperties.navPostionRight.length == 0 & window.innerWidth > 768) {
                 navigationLinks.forEach(function(element) {
