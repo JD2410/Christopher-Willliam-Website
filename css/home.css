@@ -1,14 +1,23 @@
 
-@import "style.css";
+/* Base / globals */
 @import "animate.css";
-@import "cookie.css";
+@import "inputs.css";
+
+/* Layout */
+@import "style.css";
+@import "footer.css";
 @import "header.css";
+
+/* Sections */
 @import "hero.css";
 @import "services.css";
 @import "profile.css";
 @import "projects.css";
 @import "gallery.css";
 @import "map.css";
+
+/* Forms & utilities */
 @import "contact-form.css";
-@import "inputs.css";
-@import "footer.css";
+
+/* Cookies */
+@import "cookie.css";
