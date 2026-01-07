@@ -2,9 +2,36 @@
     #hero .hero-container p {
         margin-left: 40px;
         opacity: 0;
-        
+    }
+    #primary-image {
+        opacity: 0;
+        transform: scale(1.2);
+        top: -25px;
+    }
+    #secondary-image {
+        opacity: 0;
+        transform: scale(1.2);
+        margin-top: -30px
+    }
+    #highlights .highlights-container {
+        opacity: 0;
+        transform: scale(1.2);
     }
     body.startAnimate {
+        
+        #primary-image {
+            transition: opacity 1s, transform 1s, top 1s;
+            opacity: 1;
+            transform: scale(1);
+            top: 0;
+        }
+        #secondary-image {
+            transition: opacity 1s, transform 1s, margin-top 1s;
+            opacity: 1;
+            transform: scale(1);
+            margin-top: 0;
+            transition-delay: 0.6s;
+        }
         #hero.animate .hero-container p {
             transition: margin-left 1s, opacity 1s;
             opacity: 1;
@@ -19,6 +46,11 @@
             opacity: 1;
             margin-left: 0;
             transition: margin-left 1s, opacity 1s;
+        }
+        #highlights .highlights-container {
+            opacity: 1;
+            transform: scale(1);
+            transition: opacity 1s, transform 1s;
         }
         #highlights.animate .card p {
             opacity: 1;
@@ -137,6 +169,12 @@
         transition-delay: 0.5s;
     }
 
+    #profile .profile-container .profile-details {
+        transition: transform 0.7s, opacity 0.7s;
+        transform: translate(30px, 0px);
+        opacity: 0;
+    }
+
     #profile .profile-container .images #profile-pool, 
     #profile .profile-container .images #profile-gym {
         transform: scale(1.1);
@@ -147,6 +185,10 @@
         margin-left: -100px;
         opacity: 0;
         transition: margin-left 0.7s, opacity 0.7s;
+    }
+    #profile.animate .profile-container .profile-details {
+        transform: translate(0px, 0px);
+        opacity: 1;
     }
     #profile.animate .profile-container .images #profile-pool, 
     #profile.animate .profile-container .images #profile-gym {
@@ -160,12 +202,29 @@
         margin-left: 0px;
         opacity: 1;
     }
-
+    #projects-wrapper .section-introduction {
+        transform: translate(-20px, 0px);
+        opacity: 0;
+        transition: opacity 0.7s, transform 0.7s;
+    }
+    #projects-wrapper .project-info p {
+        transform: translate(20px, 0px);
+        opacity: 0;
+        transition: opacity 0.7s, transform 0.7s;
+    }
     #projects-wrapper #gallery img {
         opacity: 0;
         margin-left: -10px;
         transform: scale(1.1);
         transition: opacity 0.7s, margin-left 0.7s, transform 0.7s;
+    }
+    #projects-wrapper.animate .section-introduction {
+        transform: translate(0px, 0px);
+        opacity: 1;
+    }
+    #projects-wrapper.animate .project-info p {
+        transform: translate(0px, 0px);
+        opacity: 1;
     }
     #projects-wrapper.animate #gallery img {
         opacity: 1;
