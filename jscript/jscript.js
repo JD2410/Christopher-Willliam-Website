@@ -20,7 +20,8 @@ let cwbs = {
             }
         })
 
-        document.getElementById('cookie-accept').addEventListener('mousedown', () => {
+        document.getElementById('cookie-accept').addEventListener('click', (e) => {
+            e.preventDefault();
             document.cookie = "cookie-consent=1"
             document.getElementById('cookie-box-container').classList.remove('show')
         })
