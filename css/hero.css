@@ -8,10 +8,15 @@
     .hero-container {
         color: #fff;
         display: flex;
-        flex-direction: column;
+        flex-flow: column-reverse;
         align-items: center;
         justify-content: center;
         max-width: var(--maxwidth);
+
+        .images > img,
+        .images .lower img:last-child {
+            display: none;
+        }
 
         h1 {
             font-size: 1.9rem;
@@ -35,10 +40,6 @@
                 border-radius: 40px;
                 width: 100%;
             }
-            .services {
-                
-            }
-       
         }
 
     }
@@ -50,33 +51,69 @@
 
          .hero-container {
             align-items: flex-start;
-            background-size: unset;
+            flex-flow: row;
+            justify-content: left;
+            align-items: center;
             padding: 0px 20px 0px 20px;
+            height: 630px;
 
+            .hero-content {
+                    width: 60%;
 
-            h1 {
-                font-size: 2.35rem;
-                margin-bottom: 20px;
-            }
-            ul {
-                font-size: 1.34rem;
-                line-height: 1.6;
-            }
+                    h1 {
+                    font-size: 2.35rem;
+                    margin-bottom: 20px;
+                }
+                ul {
+                    font-size: 1.34rem;
+                    line-height: 1.6;
+                }
 
-            .cta {
-                display: flex;
-                align-items: center;
-                gap: 20px;
-                width: unset;
-
-                .contact {
+                .cta {
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
                     width: unset;
-                }
-                .contact:hover {
-                    background: linear-gradient(0deg, #fff, #fff);
-                    color: var(--red);
+
+                    .contact {
+                        width: unset;
+                    }
+                    .contact:hover {
+                        background: linear-gradient(0deg, #fff, #fff);
+                        color: var(--red);
+                    }
                 }
             }
+
+            .images > img {
+                margin-left: 130px;
+            }
+            
+            .images {
+                position: absolute;
+                display: grid;
+                gap: 40px;
+                left: calc(50% + 30px);
+                width: 100%;
+
+                img {
+                    border: 6px solid var(--red);
+                    box-shadow: 1px 1px 23px #000;
+                    display: block;
+                    border-radius: 250px;
+                }
+                .lower {
+                    display: flex;
+                    gap: 20px;
+                    
+                    img:last-child {
+                        display: block;
+                    }
+                }
+            }
+
+
+            
         }
     }
    
