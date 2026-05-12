@@ -27,7 +27,7 @@ let cwbs = {
         })
 
         if (!document.cookie.includes("cookie-consent=1")) {
-            document.getElementById('cookie-box-container').classList.add('show')
+            //document.getElementById('cookie-box-container').classList.add('show')
         }
         
 
@@ -47,14 +47,13 @@ let cwbs = {
             cwbs.scrollAnimation();
         })
 
-        this.formScript();
+        //this.formScript();
         this.formInputStyling();
         this.map.init();
         if(window.innerWidth > 768) {
             this.underlineMovement();
             this.getSectionPositions();
             cwbs.scrollAnimation();
-            this.heroImage.init();
         }
     },
     navProperties: {
@@ -277,80 +276,13 @@ let cwbs = {
                 }
             })
         }
-    },
-    heroImage: {
-        primaryImages: ["project-new-kitchen.webp", "big-hero-2.webp", "big-hero-3.webp"],
-        secondaryImages: ["project-new-study.webp", "small-hero-2.webp", "small-hero-3.webp"],
-        selection: 1,
-        path: "images/hero-images/",
-        state: true,
-        heroTimer: "",
-        init: () => {
-            const primaryContainer = document.getElementById("primary-image");
-            const secondaryContainer = document.getElementById("secondary-image");
-
-            let primaryBacking = document.createElement("img");
-
-            primaryBacking.src = cwbs.heroImage.path + cwbs.heroImage.primaryImages[1];
-            primaryBacking.alt = 'Examples of work from Christorpher William - Building Solutions'
-            primaryContainer.appendChild(primaryBacking);
-
-            let scondaryBacking = document.createElement("img");
-            scondaryBacking.src = cwbs.heroImage.path + cwbs.heroImage.secondaryImages[1];
-            scondaryBacking.alt = 'Examples of work from Christorpher William - Building Solutions'
-
-            secondaryContainer.appendChild(scondaryBacking);
-
-            cwbs.heroImage.heroTimer = setInterval(() => { cwbs.heroImage.loadNextImage() }, 2000)
-        },
-        loadNextImage: () => {
-
-            const primaryImageHolder = document.getElementById("primary-image")
-
-            if (cwbs.heroImage.state) {
-
-                if (!primaryImageHolder.classList.contains("fade")) {
-                    primaryImageHolder.classList.add("fade");
-                    cwbs.heroImage.selection++;
-                    if(cwbs.heroImage.selection > (cwbs.heroImage.primaryImages.length - 1)) {
-                        cwbs.heroImage.selection = 0;
-                    }
-                    setTimeout(() => {
-                        document.querySelector("#primary-image img:first-child").src = cwbs.heroImage.path + cwbs.heroImage.primaryImages[cwbs.heroImage.selection];
-                    }, 2000);
-                } else {
-                    document.getElementById("secondary-image").classList.add("fade");
-                    setTimeout(() => {
-                        document.querySelector("#secondary-image img:first-child").src = cwbs.heroImage.path + cwbs.heroImage.secondaryImages[cwbs.heroImage.selection];
-                    }, 2000)
-                    cwbs.heroImage.state = false;
-                }
-            } else {
-                if (primaryImageHolder.classList.contains("fade")) {
-                    cwbs.heroImage.selection++;
-                    if(cwbs.heroImage.selection > (cwbs.heroImage.primaryImages.length - 1)) {
-                        cwbs.heroImage.selection = 0;
-                    }
-                    primaryImageHolder.classList.remove("fade")
-                    setTimeout(() => {
-                        document.querySelector("#primary-image img:nth-child(2)").src = cwbs.heroImage.path + cwbs.heroImage.primaryImages[cwbs.heroImage.selection];
-                    }, 2000)
-                } else {
-                    document.getElementById("secondary-image").classList.remove("fade")
-                    setTimeout(() => {
-                        document.querySelector("#secondary-image img:nth-child(2)").src = cwbs.heroImage.path + cwbs.heroImage.secondaryImages[cwbs.heroImage.selection];
-                    }, 2000)
-                    cwbs.heroImage.state = true;
-                }
-            }
-        }
     }
 }
 
 window.onload = function(){
     cwbs.init();
     scr.init();
-    document.getElementById('hero').classList.add('animate')
-    document.getElementById('highlights').classList.add('animate')
-    document.getElementsByTagName('body')[0].classList.add('startAnimate')
+    // document.getElementById('hero').classList.add('animate')
+    // document.getElementById('highlights').classList.add('animate')
+    // document.getElementsByTagName('body')[0].classList.add('startAnimate')
 };
