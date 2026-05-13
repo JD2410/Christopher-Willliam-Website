@@ -4,17 +4,18 @@
     justify-content: center;
     position: relative;
     margin-top: 50px;
+    background-image: url('../images/hero/white-on-black-schematic.svg');
+    background-repeat: no-repeat;
+
 
     .hero-container {
         color: #fff;
         display: flex;
         flex-flow: column-reverse;
-        align-items: center;
         justify-content: center;
-        max-width: var(--maxwidth);
+        max-width: var(--maxwidth);     
 
-        .images > img,
-        .images .lower img:last-child {
+        .images > img {
             display: none;
         }
 
@@ -25,11 +26,16 @@
         ul {
             line-height: 1.9rem;
             padding-left: 40px;
+
+            li {
+                margin-bottom: 10px;
+            }
         }
         .cta {
             width: 100%;
 
             .contact {
+                font-weight: 400;
                 background: var(--gradient);
                 color: #fff;
                 font-size: 1em;
@@ -39,32 +45,51 @@
                 text-align: center; 
                 border-radius: 40px;
                 width: 100%;
+                font-size: 1.25rem;
+            }
+            .services {
+                font-weight: 400;
+                color: #fff;
+                text-decoration: none;
+                position: relative;
+                border-bottom: 4px solid var(--red);
+                padding: 12px 40px 12px 0;
+                font-size: 1.25rem;
+            }
+            .services::after {
+                background: url('../images/hero/arrow.svg') no-repeat center center;
+                content: "";
+                position: absolute;
+                display: block;
+                right: 0;
+                width: 40px;
+                height: 100%;
+                top: 0;
             }
         }
 
     }
 }
-
 @media (min-width: 768px) {
     #hero {
         margin-top: 60px;
+        background-position: calc(50% - 470px);
 
          .hero-container {
             align-items: flex-start;
-            flex-flow: row;
-            justify-content: left;
-            align-items: center;
-            padding: 0px 20px 0px 20px;
-            height: 630px;
+            flex-flow: column;
+            padding: 20px 20px 20px 20px;
+            min-height: 630px;    
 
             .hero-content {
-                    width: 60%;
+                z-index: 1;
 
-                    h1 {
+                h1 {
                     font-size: 2.35rem;
                     margin-bottom: 20px;
                 }
                 ul {
+                    width: 80%;
                     font-size: 1.34rem;
                     line-height: 1.6;
                 }
@@ -74,6 +99,7 @@
                     align-items: center;
                     gap: 20px;
                     width: unset;
+                    margin-top: 30px;
 
                     .contact {
                         width: unset;
@@ -84,24 +110,26 @@
                     }
                 }
             }
-
-            .images > img {
-                margin-left: 130px;
-            }
             
             .images {
-                position: absolute;
-                display: grid;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
                 gap: 40px;
-                left: calc(50% + 30px);
-                width: 100%;
+                background: url('../images/hero/red-plan.svg') no-repeat center left;
+                background-size: 700px auto;
 
                 img {
                     border: 6px solid var(--red);
                     box-shadow: 1px 1px 23px #000;
                     display: block;
                     border-radius: 250px;
+                    width: 100%;
+                    max-height: 164px;
+                    max-width: 333px;
+                    object-fit:cover;
                 }
+                
                 .lower {
                     display: flex;
                     gap: 20px;
@@ -111,10 +139,38 @@
                     }
                 }
             }
-
-
-            
         }
     }
-   
+}
+@media (min-width: 1024px) {
+    #hero {
+        overflow: hidden;
+        
+         .hero-container {   
+            justify-content: left;
+            align-items: center;
+            flex-flow: row;
+
+            .hero-content {
+                width: 70%;
+            }
+
+            .images {
+                position: absolute;
+                left: calc(50% + 30px);
+                height: 100%;
+
+                & > img {
+                    margin-left: 80px;
+                }
+
+                img {
+                    max-width: unset;
+                    max-height: unset;
+                    width: unset;
+                }
+
+            }
+        }
+    }
 }
