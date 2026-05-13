@@ -11,12 +11,30 @@
     .hero-container {
         color: #fff;
         display: flex;
-        flex-flow: column-reverse;
+        flex-flow: column;
         justify-content: center;
-        max-width: var(--maxwidth);     
+        max-width: var(--maxwidth);  
 
-        .images > img {
-            display: none;
+        .images {
+            display: flex;
+            overflow: hidden;
+            padding: 20px 0px;
+            
+            .lower {
+                display: flex;
+            }
+
+            img {
+                display: block;
+                width: 100%;
+                max-height: 164px;
+                max-width: 333px;
+                object-fit:cover;
+                border: 6px solid var(--red);
+                box-shadow: 1px 1px 23px #000;
+                border-radius: 250px;
+                margin: 0 5px;
+            }
         }
 
         h1 {
@@ -75,14 +93,13 @@
         margin-top: 60px;
         background-position: calc(50% - 470px);
 
-         .hero-container {
-            align-items: flex-start;
+        .hero-container {
             flex-flow: column;
-            padding: 20px 20px 20px 20px;
             min-height: 630px;    
 
             .hero-content {
                 z-index: 1;
+                padding: 30px 30px 0 30px;
 
                 h1 {
                     font-size: 2.35rem;
@@ -110,35 +127,6 @@
                     }
                 }
             }
-            
-            .images {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                gap: 40px;
-                background: url('../images/hero/red-plan.svg') no-repeat center left;
-                background-size: 700px auto;
-
-                img {
-                    border: 6px solid var(--red);
-                    box-shadow: 1px 1px 23px #000;
-                    display: block;
-                    border-radius: 250px;
-                    width: 100%;
-                    max-height: 164px;
-                    max-width: 333px;
-                    object-fit:cover;
-                }
-                
-                .lower {
-                    display: flex;
-                    gap: 20px;
-                    
-                    img:last-child {
-                        display: block;
-                    }
-                }
-            }
         }
     }
 }
@@ -146,19 +134,29 @@
     #hero {
         overflow: hidden;
         
-         .hero-container {   
+         .hero-container {  
+            align-items: flex-start;
             justify-content: left;
             align-items: center;
             flex-flow: row;
+            padding: 20px 20px 20px 20px;
 
             .hero-content {
                 width: 70%;
+                padding: 0;
             }
 
             .images {
+                background: url('../images/hero/red-plan.svg') no-repeat center left;
+                background-size: 700px auto;
                 position: absolute;
+                flex-direction: column;
+                justify-content: center;
                 left: calc(50% + 30px);
                 height: 100%;
+                gap: 40px;
+                margin-left: 0;
+                align-items: left;
 
                 & > img {
                     margin-left: 80px;
@@ -168,6 +166,11 @@
                     max-width: unset;
                     max-height: unset;
                     width: unset;
+                    border-radius: 250px;
+                }
+
+                .lower {
+                    gap: 20px;
                 }
 
             }
