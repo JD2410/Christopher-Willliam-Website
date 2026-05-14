@@ -38,7 +38,8 @@
             padding-bottom: 20px;
 
             img {
-                flex: 0 0 80px;
+                flex: 0 0 40px;
+                width: 40px;
             }
             h3 {
                 flex: 1 1 calc(100% - 90px);
