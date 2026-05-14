@@ -11,81 +11,88 @@
     .hero-container {
         color: #fff;
         display: flex;
-        flex-flow: column;
         justify-content: center;
-        max-width: var(--maxwidth);  
+        max-width: var(--maxwidth);
+        padding: 30px 0;
+
+        .hero-content {
+            padding: 0 20px 20px 20px;
+
+            h1 {
+                margin-bottom: 10px;
+            }
+            ul {
+                font-size: 1.4rem;
+                line-height: 1.9rem;
+                padding-left: 40px;
+
+                li {
+                    margin-bottom: 16px;
+                }
+            }
+            .cta {
+                display: flex;
+                width: 100%;
+                gap: 30px;
+
+                .contact {
+                    font-weight: 400;
+                    background: var(--gradient);
+                    color: #fff;
+                    font-size: 1em;
+                    padding: 14px 20px;
+                    text-decoration: none;
+                    display: block;
+                    text-align: center; 
+                    border-radius: 40px;
+                    width: 100%;
+                    font-size: 1.25rem;
+                }
+                .services {
+                    text-align: center;
+                    display: block;
+                    width: 100%;
+                    font-weight: 400;
+                    color: #fff;
+                    text-decoration: none;
+                    position: relative;
+                    border-bottom: 4px solid var(--red);
+                    padding: 12px 0px 12px 0;
+                    font-size: 1.25rem;
+                }
+                .services::after {
+                    background: url('../images/hero/arrow.svg') no-repeat center center;
+                    content: "";
+                    position: absolute;
+                    display: block;
+                    right: 0;
+                    width: 40px;
+                    height: 100%;
+                    top: 0;
+                }
+            }
+        }
 
         .images {
-            display: flex;
+            display: none;  
             overflow: hidden;
             padding: 20px 0px;
-            
-            .lower {
-                display: flex;
-            }
 
             img {
                 display: block;
                 width: 100%;
-                max-height: 164px;
-                max-width: 333px;
+
                 object-fit:cover;
                 border: 6px solid var(--red);
                 box-shadow: 1px 1px 23px #000;
                 border-radius: 250px;
                 margin: 0 5px;
             }
-        }
 
-        h1 {
-            font-size: 1.9rem;
-            margin-bottom: 10px;
-        }
-        ul {
-            line-height: 1.9rem;
-            padding-left: 40px;
-
-            li {
-                margin-bottom: 10px;
+            .lower {
+                display: none;
             }
         }
-        .cta {
-            width: 100%;
-
-            .contact {
-                font-weight: 400;
-                background: var(--gradient);
-                color: #fff;
-                font-size: 1em;
-                padding: 14px 20px;
-                text-decoration: none;
-                display: block;
-                text-align: center; 
-                border-radius: 40px;
-                width: 100%;
-                font-size: 1.25rem;
-            }
-            .services {
-                font-weight: 400;
-                color: #fff;
-                text-decoration: none;
-                position: relative;
-                border-bottom: 4px solid var(--red);
-                padding: 12px 40px 12px 0;
-                font-size: 1.25rem;
-            }
-            .services::after {
-                background: url('../images/hero/arrow.svg') no-repeat center center;
-                content: "";
-                position: absolute;
-                display: block;
-                right: 0;
-                width: 40px;
-                height: 100%;
-                top: 0;
-            }
-        }
-
     }
 }
 @media (min-width: 768px) {
@@ -94,29 +101,25 @@
         background-position: calc(50% - 470px);
 
         .hero-container {
-            flex-flow: column;
-            min-height: 630px;    
 
             .hero-content {
                 z-index: 1;
-                padding: 30px 30px 0 30px;
+                padding: 0px 30px 0 30px;
 
                 h1 {
-                    font-size: 2.35rem;
                     margin-bottom: 20px;
                 }
-                ul {
-                    width: 80%;
-                    font-size: 1.34rem;
-                    line-height: 1.6;
-                }
-
                 .cta {
-                    display: flex;
+
                     align-items: center;
                     gap: 20px;
                     width: unset;
                     margin-top: 30px;
+
+                    .services {
+                        padding: 12px 50px 12px 0;
+                        width: unset;
+                    }
 
                     .contact {
                         width: unset;
@@ -127,11 +130,23 @@
                     }
                 }
             }
+            .images {
+                display: flex;
+                overflow: hidden;
+                width: 60%;
+
+                img {
+                    width: 250%;
+                    height: 100%;
+                }
+            }
         }
+        
     }
 }
 @media (min-width: 1024px) {
     #hero {
+        min-height: 630px;  
         overflow: hidden;
         
          .hero-container {  
@@ -144,6 +159,10 @@
             .hero-content {
                 width: 70%;
                 padding: 0;
+
+                ul {
+                    width: 80%; 
+                }
             }
 
             .images {
@@ -154,22 +173,24 @@
                 justify-content: center;
                 left: calc(50% + 30px);
                 height: 100%;
+                width: unset;
                 gap: 40px;
                 margin-left: 0;
                 align-items: left;
 
-                & > img {
-                    margin-left: 80px;
-                }
-
+            
                 img {
-                    max-width: unset;
-                    max-height: unset;
                     width: unset;
                     border-radius: 250px;
+                    height: 164px;
                 }
 
+                & > img {
+                    margin-left: 80px;
+                    height: 284px;
+                }
                 .lower {
+                    display: flex;
                     gap: 20px;
                 }
 
