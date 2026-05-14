@@ -23,6 +23,7 @@ body {
     font-size: 22px;
     line-height: 1.2;
     margin: 0;
+    color: #686161;
 }
 h1 {
     font-family: "Merriweather", serif;
@@ -34,14 +35,6 @@ h1 {
     line-height: 1.4;
     font-size: 1.9rem;
 }
-@media (min-width: 768px) {
-    body {
-        font-size: 20px;
-    }
-    h1 {
-        font-size: 2.35rem;
-    } 
-}
 h2, h3, h4 {
     font-family: "Merriweather", serif;
     font-optical-sizing: auto;
@@ -49,13 +42,29 @@ h2, h3, h4 {
     font-style: normal;
     font-variation-settings:
     "wdth" 100;
+    color: #484242;
 }
 h2 {
-    font-size: 2.3rem;
+    font-size: 1.6em;
+}
+h3 {
+    font-size: 1em;
 }
 p {
     line-height: 1.4;
 }
+@media (min-width: 768px) {
+    body {
+        font-size: 18px;
+    }
+    h1 {
+        font-size: 2.35rem;
+    }
+    h2 {
+        font-size: 2.3rem;
+    }
+}
+
 .section-introduction {
     border-left: 8px solid var(--red);
     padding-left: 12px;
