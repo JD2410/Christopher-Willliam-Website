@@ -49,8 +49,8 @@
                 gap: 30px;
 
                 img {
-                    max-height: unset;
-                    width: 350px;
+                    
+                    width: 100%;
                 }
 
             }
@@ -66,6 +66,7 @@
                 gap: 60px;
 
                 img {
+                    max-height: unset;
                     width: 542px;
                 }
 
