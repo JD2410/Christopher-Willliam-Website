@@ -18,10 +18,10 @@ html {
 body {
     font-family: "Source Sans 3", Arial, sans-serif;
     font-optical-sizing: auto;
-    font-weight: 300;
+    font-weight: 400;
     font-style: normal;
-    font-size: 22px;
-    line-height: 1.65;
+    font-size: 20px;
+    line-height: 1.45;
     margin: 0;
     color: #686161;
 }
@@ -32,7 +32,8 @@ h1 {
     font-style: normal;
     font-variation-settings:
     "wdth" 100;
-    font-size: 1.9rem;
+    font-size: 2.6rem;
+    line-height: 3.1rem;
 }
 h2, h3, h4 {
     font-family: "Merriweather", serif;
@@ -44,7 +45,8 @@ h2, h3, h4 {
     color: #484242;
 }
 h2 {
-    font-size: 1.6em;
+    font-size: 1.4em;
+    line-height: 1.2em;
     span {
         color: var(--red);
     }

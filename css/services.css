@@ -10,7 +10,7 @@
         padding: 30px 20px;
     }
     .services-opening {
-        text-align: center;
+        text-align: left;
 
         h2 {
             margin-bottom: 12px;
@@ -23,33 +23,39 @@
         gap: 60px;
 
         .card {
-            display: flex;
+            display: grid;
+            grid-template-columns: 44px calc(100% - 44px);
+            column-gap: 16px;
+            row-gap: 16px;
             align-items: stretch;
-            column-gap: 12px;
             position: relative;
             margin-bottom: 21px;
-            padding-bottom: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            padding: 12px;
+            border-radius: 10px;
 
             img {
-                width: 40px;
+                width: 50px;
             }
 
             .details {
                 display: flex;
                 flex-direction: column;
-            }
-            
 
+                h3 {
+                    margin: 0;
+                }
+                p {
+                    display: none;
+                }
+                &::after {
+                    content: 'Learn More';
+                    color: var(--red);
+                }
+            }
         }
-        .card::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            width: 90%;
-            left: 5%;
-            background-color: var(--red);
-            height: 1px;
-            display: block;
+        .card.show .details p {
+             display: unset;
         }
         & > img {
             object-fit: cover;
@@ -64,19 +70,26 @@
 @media (min-width: 768px) {
     #services-container {
         .services-listed {
-
+            .card {
+                box-shadow: none;
+                
+                .details {
+                    p {
+                        display: unset;
+                    }
+                    &::after {
+                        display: none;
+                    }
+                }
+            }
             .options {
                 display: grid;
                 grid-template-columns: 50% 50%;
-                row-gap: 30px;
-                column-gap: 30px;
+                gap: 12px;
 
                 .card {
                     margin-bottom: 0;
                     padding-bottom: 0;
-                }
-                .card::after {
-                    display: none;
                 }
             }
             

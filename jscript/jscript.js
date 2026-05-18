@@ -55,6 +55,8 @@ let cwbs = {
             this.getSectionPositions();
             cwbs.scrollAnimation();
         }
+
+        this.servicesRevealDescription()
     },
     navProperties: {
         navWidth: [],
@@ -276,6 +278,14 @@ let cwbs = {
                 }
             })
         }
+    },
+    servicesRevealDescription: () => {
+        let services = document.querySelectorAll('.card');
+        services.forEach( ele => {
+            ele.addEventListener('click', () => {
+                ele.classList.toggle('show')
+            })
+        })
     }
 }
 

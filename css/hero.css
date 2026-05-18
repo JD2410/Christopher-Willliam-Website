@@ -2,8 +2,10 @@
     background-color: var(--grey);
     display: flex;
     justify-content: center;
+    align-items: center;
     position: relative;
     margin-top: 50px;
+    height: 90vh;
     background-image: url('../images/hero/white-on-black-schematic.svg');
     background-repeat: no-repeat;
 
@@ -19,12 +21,12 @@
             padding: 0 20px 20px 20px;
 
             h1 {
-                margin-bottom: 10px;
+                margin-bottom: 30px;
             }
             ul {
                 font-size: 1.4rem;
                 line-height: 1.9rem;
-                padding-left: 40px;
+                padding-left: 20px;
 
                 li {
                     margin-bottom: 16px;
@@ -60,16 +62,6 @@
                     padding: 12px 0px 12px 0;
                     font-size: 1.25rem;
                 }
-                .services::after {
-                    background: url('../images/hero/arrow.svg') no-repeat center center;
-                    content: "";
-                    position: absolute;
-                    display: block;
-                    right: 0;
-                    width: 40px;
-                    height: 100%;
-                    top: 0;
-                }
             }
         }
 
@@ -99,6 +91,7 @@
     #hero {
         margin-top: 60px;
         background-position: calc(50% - 470px);
+        height: unset;
 
         .hero-container {
 
@@ -109,6 +102,10 @@
                 h1 {
                     margin-bottom: 20px;
                 }
+                ul {
+                    padding-left: 40px;
+                }
+
                 .cta {
 
                     align-items: center;
@@ -119,6 +116,16 @@
                     .services {
                         padding: 12px 50px 12px 0;
                         width: unset;
+                    }
+                    .services::after {
+                        background: url('../images/hero/arrow.svg') no-repeat center center;
+                        content: "";
+                        position: absolute;
+                        display: block;
+                        right: 0;
+                        width: 40px;
+                        height: 100%;
+                        top: 0;
                     }
 
                     .contact {
@@ -195,6 +202,15 @@
                 }
 
             }
+        }
+    }
+}
+@media (max-width: 768px) {
+    #hero .hero-container .hero-content ul {
+        li:nth-child(2),
+        li:nth-child(4),
+        li:nth-child(5) {
+            display: none;
         }
     }
 }
