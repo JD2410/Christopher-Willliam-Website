@@ -17,10 +17,9 @@
 @import "banner.css";
 @import "projects.css";
 @import "gallery.css";
-@import "map.css";
 
 /* Forms & utilities */
-@import "contact-form.css";
+@import "contact.css";
 
 /* Cookies */
 @import "cookie.css";

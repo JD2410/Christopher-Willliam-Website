@@ -240,7 +240,7 @@
                         <img src="images/services/icon-structural.svg" width="53" height="40" alt="Structural Alterations Services Icon" loading="lazy">
                         <div class="details">
                             <h3>25+ years of experience</h3>
-                            <p>We’ve been managing projects for many years. With this we bring the best know how and solutions for various projects. Not sure how/if you project is attainable? We’ll work it out along side you all the way.</p>
+                            <p>We've been managing projects for many years. With this we bring the best know how and solutions for various projects. Not sure how/if you project is attainable? We'll work it out along side you all the way.</p>
                         </div>
                     </div>
                 </div>
@@ -252,7 +252,7 @@
                         <img src="images/services/icon-loft.svg" width="38" height="40" alt="Loft Conversion Services Icon" loading="lazy">
                         <div class="details">
                             <h3>Access to the best contractors</h3>
-                            <p>Through hundreds of different projects, we’ve been able to work with the best contractors in the country bringing skilled trades together to deliver excellent results. Armed with this knowledge we can ensure you get the best quality work possible.</p>
+                            <p>Through hundreds of different projects, we've been able to work with the best contractors in the country bringing skilled trades together to deliver excellent results. Armed with this knowledge we can ensure you get the best quality work possible.</p>
                         </div>
                     </div>
                     <div class="card">
@@ -279,62 +279,68 @@
             <a href="#contact" class="btn">Get in Contact</a>
         </div>
     </section>
-    <div id="map"></div>
-    <section id="map-contents">
-        <div class="map-container">
-            <div class="map-details">
-                <h2>Where we Work</h2>
-                <p>We take on projects across Hertfordshire and Essex, covering a wide area.  The map here highlights the main locations we serve.  If your project falls just outside this area, please get in touch and we'll always do our best to accommodate your needs.</p>
-                <a href="https://www.google.com/maps/search/?api=1&query=hertfordshire" target="_blank">Click here to go to Google Maps</a>
-            </div>
-        </div>
-    </section>
     <section id="contact-form">
        <span id="contact"></span>
+       <div class="section-introduction">
+            <h2>Contact Us - <span>We'd love to hear from you</span></h2>
+            <p>We'd love to hear about your project. Either simply fill in the form or send us an email with as much detail as possible and we'll review your request. If we need any more information, we'll be in touch to discuss the details. Otherwise, we'll let you know if your project is good to go.</p>
+        </div>
         <div class="contact-form-container">
-            <div class="section-introduction">
-                <sub>Get in touch today</sub>
-                <h2>Contact Us</h2>
-            </div>
-            <div class="contact-form-content">
-                <form method="POST" id="form">
-
-                    <div class="contact-message" id="result-container">
-                        <div id="result-message"></div><div id="closemessage"></div>
+            <form method="POST" id="form">
+                <div class="method">
+                    <div>
+                        <span>
+                            Email:
+                            <a href="mailto:address@emailaddress.com">address@emailaddress.com</a>
+                        </span>
+                        
                     </div>
-                    <input type="hidden" name="access_key" value="12763904-f7a0-4767-b63d-c10fe95787b4">
-                    <div class="contact-form-inputs">
-                        <div class="cus-input">
-                            <label for="firstname">First Name</label>
-                            <input type="text" id="firstname" name="firstname" placeholder="First Name" required>
-                        </div>
-                        <div class="cus-input">
-                            <label for="lastname">Last Name</label>
-                            <input type="text" id="lastname" name="lastname" placeholder="Last Name" required>
-                        </div>
-                        <div class="cus-input">
-                            <label for="email" >Email Address</label>
-                            <input type="email" id="email" name="email" placeholder="Email Address" required>
-                        </div>
-                        <div class="cus-input">
-                            <label for="phonenumber">Phone Number</label>
-                            <input type="text" id="phonenumber" name="phonenumber" placeholder="Phone Number">
-                        </div>
-                        <div class="cus-input textarea">
-                            <label for="message">Description of work</label>
-                            <textarea name="message" id="message" placeholder="Description of the work" required></textarea>
-                        </div>
+                    <div>
+                        <span>
+                            Phone:
+                            <a href="callto:02993992992">38288838828992</a>
+                        </span>
                     </div>
-                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-                    <div class="form-action">
-                        <div class="h-captcha" data-captcha="true"></div>
-                        <div><button type="submit" class="cus-button normal">Send Request</button></div>
-                    </div>
-                </form>
-                <div class="contact-description">
-                    <h3>How this'll work</h3>
-                    <p>Simply fill in the form with as much details as possible and we'll review your request.  If we need more information we'll be in touch to discuss the details.  We aim to respond promptly but if you haven't heard from us within five working days please check your spam or junk folder.  Still nothing?  Please feel free to follow up, and we'll be happy to assist.</p>
                 </div>
+                <div class="or"></div>
+                <div class="contact-message" id="result-container">
+                    <div id="result-message"></div><div id="closemessage"></div>
+                </div>
+                <input type="hidden" name="access_key" value="12763904-f7a0-4767-b63d-c10fe95787b4">
+                <div class="contact-form-inputs">
+                    <div class="input">
+                        <label for="firstname">First Name</label>
+                        <input type="text" id="firstname" name="firstname" placeholder="First Name" required>
+                    </div>
+                    <div class="input">
+                        <label for="lastname">Last Name</label>
+                        <input type="text" id="lastname" name="lastname" placeholder="Last Name" required>
+                    </div>
+                    <div class="input">
+                        <label for="email" >Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="input">
+                        <label for="phonenumber">Phone Number</label>
+                        <input type="text" id="phonenumber" name="phonenumber" placeholder="Phone Number">
+                    </div>
+                    <div class="input">
+                        <label for="message">Description of work</label>
+                        <textarea name="message" id="message" placeholder="Description of the work" required></textarea>
+                    </div>
+                </div>
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                <div class="form-action">
+                    <div class="h-captcha" data-captcha="true"></div>
+                    <div><button type="submit" class="btn">Send Message</button></div>
+                </div>
+            </form>
+            <div class="contact-description">
+                <h3>Where we'll work</h3>
+                <p>We take on projects across Hertfordshire and Essex, covering a wide area. The map here highlights the main locations we serve. If your project falls just outside this area, please get in touch and we'll always do our best to accommodate your needs.</p>
+                <p>Essex and Hertfordshite</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=hertfordshire" target="_blank">Click here to go to Google Maps</p>
+                <div id="map"></div>
             </div>
         </div>
     </section>
