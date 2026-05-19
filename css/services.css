@@ -21,7 +21,7 @@
 
         .card {
             display: grid;
-            grid-template-columns: 50px calc(100% - 89px);
+            grid-template-columns: 50px auto;
             column-gap: 16px;
             row-gap: 16px;
             align-items: stretch;
@@ -80,8 +80,8 @@
 
         .options {
             display: grid;
-            grid-template-columns: 50% 50%;
-            column-gap: 16px;
+            grid-template-columns: 50% calc(50% - 20px);
+            column-gap: 20px;
             row-gap: 24px;
 
             .card {

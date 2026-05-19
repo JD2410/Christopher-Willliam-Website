@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
+    text-align: left;
 
     .profile-container {
         max-width: var(--maxwidth);
@@ -47,6 +47,7 @@
 @media (min-width: 768px) {
 
 #profile {
+    text-align: center;
     margin-top: 20px;
     
     .profile-container {

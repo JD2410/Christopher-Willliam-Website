@@ -20,7 +20,16 @@ let galleries = [
         'gallery/proj-02/kitchen-05.jpg',
         'gallery/proj-02/kitchen-06.jpg',
     ]),
-    new Gallery(null, "Some text to explain the lof conversion.", 'images/proj-03.webp', "Loft Conversion", [
+    // new Gallery(null, "Some text to explain the lof conversion.", 'images/proj-03.webp', "Loft Conversion", [
+    //     'gallery/proj-03/loft-01.jpg',
+    //     'gallery/proj-03/loft-02.jpg',
+    //     'gallery/proj-03/loft-03.jpg',
+    //     'gallery/proj-03/loft-04.jpg',
+    //     'gallery/proj-03/loft-05.jpg',
+    //     'gallery/proj-03/loft-06.jpg',
+    //     'gallery/proj-03/loft-07.jpg',
+    // ]),
+    new Gallery(null, null, 'images/proj-03.webp', "Loft Conversion", [
         'gallery/proj-03/loft-01.jpg',
         'gallery/proj-03/loft-02.jpg',
         'gallery/proj-03/loft-03.jpg',
@@ -131,7 +140,17 @@ let scr = {
         galleryThumbnails.forEach((thumbnail, index) => {
             thumbnail.style.transitionDelay = delayAmount + "s";
             thumbnail.addEventListener('click', function(element) {
-                scr.showGallery(index)
+                let gallerySelect = thumbnail.getAttribute('data-gallery-index')
+                let galleryImage = thumbnail.getAttribute('data-gallery-which-image')
+
+                if(!gallerySelect) {
+                    gallerySelect = 0
+                }
+                if(!galleryImage) {
+                    galleryImage = 0
+                }
+                scr.showGallery(parseInt(gallerySelect), parseInt(galleryImage))
+
             })
             delayAmount += 0.16;
         })
@@ -145,17 +164,17 @@ let scr = {
         divElement.classList.add("close-container");
         modalContainer.appendChild(divElement);
     },
-    showGallery: function(whichGallery) {
+    showGallery: function(whichGallery, whichImage) {
         document.querySelector('body').classList.toggle("gallery-open");
         let ele = document.getElementById("modal");
         ele.style.opacity = 0;
         ele.style.display = "grid";
         ele.dataset.gallery = whichGallery;
-        ele.dataset.indexCount = 0;
+        ele.dataset.indexCount = whichImage;
 
         // Creates the link to the image source
         let sourceLink = document.createElement('a');
-        sourceLink.href = galleries[whichGallery].images[0];
+        sourceLink.href = galleries[whichGallery].images[whichImage];
         sourceLink.textContent = "Open in new Window";
         sourceLink.target = "_blank";
         sourceLink.classList.add("open-image-window")
@@ -192,7 +211,7 @@ let scr = {
             }
         })()
 
-        scr.loadImage(galleries[whichGallery].images[0])
+        scr.loadImage(galleries[whichGallery].images[whichImage])
     },
     hideGallery: function() {
         let ele = document.getElementById("modal");
