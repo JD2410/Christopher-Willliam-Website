@@ -3,7 +3,12 @@
     align-items: center;
     justify-content: center;
     text-align: left;
+    position: relative;
 
+    #about {
+        position: absolute;
+        top: 0;
+    }
     .profile-container {
         max-width: var(--maxwidth);
         background-color: #F5F5F5;

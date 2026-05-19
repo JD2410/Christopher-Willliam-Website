@@ -1,35 +1,8 @@
 let cwbs = {
     init: function() {
-        document.getElementById("menu").addEventListener('click', function() {
-            document.getElementById("navigation").classList.toggle('open')
-        })
-
-        const navigationLinks = document.querySelectorAll('#navigation a')
-        navigationLinks.forEach(function(element, index) {
-            element.addEventListener('click', function() {
-                document.getElementById("navigation").classList.toggle('open');
-            })
-            element.addEventListener('mouseover', function() {
-                cwbs.moveUnderline(index)
-            })
-            element.addEventListener('mouseout', function() {
-                cwbs.moveUnderline(cwbs.navProperties.currentSection)
-            })
-            if(window.innerWidth > 768) {
-                cwbs.navProperties.navWidth.unshift(element.getBoundingClientRect().width)
-            }
-        })
-
-        document.getElementById('cookie-accept').addEventListener('click', (e) => {
-            e.preventDefault();
-            document.cookie = "cookie-consent=1"
-            document.getElementById('cookie-box-container').classList.remove('show')
-        })
-
-        if (!document.cookie.includes("cookie-consent=1")) {
-            //document.getElementById('cookie-box-container').classList.add('show')
-        }
         
+        this.cookiePolicy()
+        this.navgationInit();
 
         window.addEventListener("resize", function() {
             if(cwbs.navProperties.navPostionRight.length == 0 & window.innerWidth > 768) {
@@ -47,64 +20,96 @@ let cwbs = {
             cwbs.scrollAnimation();
         })
 
-        //this.formScript();
-        this.formInputStyling();
-        this.map.init();
+        this.formScript();
+        this.map();
+
         if(window.innerWidth > 768) {
             this.underlineMovement();
             this.getSectionPositions();
             cwbs.scrollAnimation();
         }
-
-        this.servicesRevealDescription()
+        this.servicesRevealDescription();
     },
     navProperties: {
         navWidth: [],
         navPostionRight: [],
         currentSection: 0,
         services: 0,
-        servicesCards : [0, 0, 0],
         about: 0,
         projects: 0,
+        why: 0,
         contact: 0,
+        footer: 0,
         windowHeight: 0,
+    },
+    navgationInit: () => {
+        // Allows user to open the menu in mobile screen proportions
+        document.getElementById("menu").addEventListener('click', function() {
+            document.getElementById("navigation").classList.toggle('open')
+        })
+
+        // Sets up the scripts for the underline
+        const navigationLinks = document.querySelectorAll('#navigation a')
+        navigationLinks.forEach(function(element, index) {
+            element.addEventListener('click', function() {
+                document.getElementById("navigation").classList.toggle('open');
+            })
+            element.addEventListener('mouseover', function() {
+                cwbs.moveUnderline(index)
+            })
+            element.addEventListener('mouseout', function() {
+                cwbs.moveUnderline(cwbs.navProperties.currentSection)
+            })
+            if(window.innerWidth > 768) {
+                cwbs.navProperties.navWidth.unshift(element.getBoundingClientRect().width)
+            }
+        })
+    },
+    cookiePolicy: () => {
+        document.getElementById('cookie-accept').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.cookie = "cookie-consent=1"
+            document.getElementById('cookie-box-container').classList.remove('show')
+        })
+
+        if (!document.cookie.includes("cookie-consent=1")) {
+            document.getElementById('cookie-box-container').classList.add('show')
+        }
     },
     getSectionPositions: function() {
         this.navProperties.services = document.getElementById("services").getBoundingClientRect().top + window.scrollY;
         this.navProperties.about = document.getElementById("about").getBoundingClientRect().top + window.scrollY;
         this.navProperties.projects = document.getElementById("projects").getBoundingClientRect().top + window.scrollY;
-        this.navProperties.contact = document.getElementById("map").getBoundingClientRect().top + window.scrollY;
-        this.navProperties.servicesCards[0] = document.querySelector(".services-listed .card:first-child").getBoundingClientRect().top + window.scrollY;
-        this.navProperties.servicesCards[1] = document.querySelector(".services-listed .card:nth-child(4)").getBoundingClientRect().top + window.scrollY;
-        this.navProperties.servicesCards[2] = document.querySelector(".services-listed .card:nth-child(8)").getBoundingClientRect().top + window.scrollY;
+        this.navProperties.why = document.getElementById("why-us").getBoundingClientRect().top + window.scrollY;
+        this.navProperties.contact = document.getElementById("contact").getBoundingClientRect().top + window.scrollY;
+        this.navProperties.footer = document.getElementById("footer").getBoundingClientRect().top + window.scrollY;
         this.navProperties.windowHeight = window.innerHeight;
     },
     scrollAnimation: function() {
-        const bufferPixel = 230;
-        let windowPosition = window.scrollY + 100;
-        let scroll = window.scrollY + cwbs.navProperties.windowHeight - bufferPixel;
-            
-        if(this.navProperties.services < scroll) {
-            document.getElementById('services-container').classList.add("animate")
+        let scroll = (window.scrollY + cwbs.navProperties.windowHeight) - 230;
+        
+        document.getElementById('temp').innerHTML = document.getElementById("services").getBoundingClientRect().top - 200;
+
+        if(scroll > this.navProperties.services) {
+            document.getElementById('services-container').classList.add("animate");
         }
-        if((this.navProperties.servicesCards[0] - 200) < scroll) {
-            document.getElementById('services-container').classList.add("animate-first-row")
-        }
-        if((this.navProperties.servicesCards[1] - 200) < scroll) {
-            document.getElementById('services-container').classList.add("animate-second-row")
-        }
-        if((this.navProperties.servicesCards[2] - 200) < scroll) {
-            document.getElementById('services-container').classList.add("animate-third-row")
-        }
-        if(this.navProperties.about < scroll) {
+        if(scroll > this.navProperties.about) {
             document.getElementById('profile').classList.add("animate");
         }
         if(this.navProperties.projects < scroll) {
-            document.getElementById('projects-wrapper').classList.add("animate")
+            document.getElementById('projects-wrapper').classList.add("animate");
+        }
+        if(this.navProperties.why < scroll) {
+            document.getElementById('why-us').classList.add("animate")
         }
         if(this.navProperties.contact < scroll) {
             document.getElementById('contact-form').classList.add("animate")
         }
+        if((window.scrollY + cwbs.navProperties.windowHeight) > this.navProperties.footer) {
+            document.getElementById('footer').classList.add("animate")
+        }
+
+        let windowPosition = window.scrollY + 200;
 
         if (windowPosition < this.navProperties.services) {
             this.navProperties.currentSection = 0;
@@ -115,12 +120,16 @@ let cwbs = {
         if(windowPosition > this.navProperties.about && windowPosition < this.navProperties.projects) {
             this.navProperties.currentSection = 2;
         }
-        if(windowPosition > this.navProperties.projects && windowPosition < this.navProperties.contact) {
+        if(windowPosition > this.navProperties.projects && windowPosition < this.navProperties.why) {
             this.navProperties.currentSection = 3;
         }
-        if(windowPosition > this.navProperties.contact) {
+        if(windowPosition > this.navProperties.why && windowPosition < this.navProperties.contact) {
             this.navProperties.currentSection = 4;
         }
+        if(windowPosition > this.navProperties.contact) {
+            this.navProperties.currentSection = 5;
+        }
+
         cwbs.moveUnderline(cwbs.navProperties.currentSection)
     },
     underlineMovement: function() {
@@ -156,7 +165,7 @@ let cwbs = {
                     const formData = new FormData(form);
                     const object = Object.fromEntries(formData);
                     const json = JSON.stringify(object);
-                    cwbs.contectFormMessage("Please wait...", "info")
+                    cwbs.contactFormMessage("Please wait...", "info")
 
                     fetch('https://api.web3forms.com/submit', {
                             method: 'POST',
@@ -169,27 +178,27 @@ let cwbs = {
                         .then(async (response) => {
                             let json = await response.json();
                             if (response.status == 200) {
-                                cwbs.contectFormMessage("Form submitted successfully", "success")
+                                cwbs.contactFormMessage("Form submitted successfully", "success")
                             } else {
                                 console.log(response);
-                                cwbs.contectFormMessage(json.message, "failed")
+                                cwbs.contactFormMessage(json.message, "failed")
                             }
                         })
                         .catch(error => {
                             console.log(error);
-                            cwbs.contectFormMessage("Something went wrong!", "failed")
+                            cwbs.contactFormMessage("Something went wrong!", "failed")
                         })
                         .then(function() {
                             form.reset();
                         });
                     }
                 } else {
-                    cwbs.contectFormMessage("Please confirm you have understood our usage of cookies in the popup", "info")
+                    cwbs.contactFormMessage("Please confirm you have understood our usage of cookies in the popup", "info")
                 }
             
           });
     },
-    contectFormMessage: function(message, status) {
+    contactFormMessage: function(message, status) {
         
         const resultMessage = document.getElementById('result-message');
         const resultCon = document.getElementById('result-container');
@@ -203,82 +212,30 @@ let cwbs = {
         resultCon.style.display = "flex";
 
     },
-     map: {
-        init: () => {
+    // Loads the map
+    map: () => {
+        const mapCentre = [51.7095, 0.2428];
+        const map = L.map('map', {
+            center: mapCentre,
+            zoom: 9,
+            dragging: true,
+            scrollWheelZoom: false
+        });
 
-            const isMobile = window.innerWidth <= 768;
-            const mapPos = isMobile ? [51.7095, 0.2428] : [51.7095, 0.2428] ;
-            const zoom = 9;
-            
-            const londonLatLng = [51.7095, 0.2428];
-            const map = L.map('map', {
-                center: mapPos,
-                zoom: zoom,
-                dragging: false,
-                scrollWheelZoom: false
-            });
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors',
+        }).addTo(map);
 
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; OpenStreetMap contributors',
-            }).addTo(map);
+        L.circle(mapCentre, {
+            color: '#00E539',
+            fillColor: '#00E539',
+            fillOpacity: 0.2,
+            radius: 32186.8,
+        }).addTo(map);
 
-            const radiusInMeters = 20 * 1609.34;
-
-            L.circle(londonLatLng, {
-                color: '#00E539',
-                fillColor: '#00E539',
-                fillOpacity: 0.2,
-                radius: radiusInMeters,
-            }).addTo(map);
-
-            L.marker(londonLatLng).addTo(map)
-        }
+        L.marker(mapCentre).addTo(map)
     },
-    formInputStyling: function() {
-        let inputs = document.querySelectorAll(".cus-input")
-        for(let input of inputs) {
-
-            let $input = input.getElementsByTagName('input');
-
-            if ($input.length >= 1) {
-                $input = input.getElementsByTagName('input')[0];
-            } else {
-                $input = input.getElementsByTagName('textarea')[0];
-            }
-           
-            input.addEventListener("click", function() {
-                let $this = this;
-                $this.classList.add("selected");
-                $this.classList.add("selected-colour");
-                $input.select();
-            })
-
-            $input.addEventListener("focus", function() {
-                let $this = this;
-                let $outer = $this.closest(".cus-input")
-                $outer.classList.add("selected");
-                $outer.classList.add("selected-colour");
-                $input.select();
-            })
-
-            $input.addEventListener("blur", function() {
-                let $this = this;
-                input.classList.remove("selected-colour")
-                if($this.value == "") {
-                    input.classList.remove("selected")
-                }
-            })
-
-            $input.addEventListener("keyup", function() {
-                let $this = this;
-                if($this.value.toUpperCase() == "ERROR") {
-                    input.classList.add("error")
-                } else {
-                    input.classList.remove("error")
-                }
-            })
-        }
-    },
+    // Reveals the service description when screen size is mobile proportions
     servicesRevealDescription: () => {
         let services = document.querySelectorAll('.card');
         services.forEach( ele => {
@@ -292,7 +249,5 @@ let cwbs = {
 window.onload = function(){
     cwbs.init();
     scr.init();
-    // document.getElementById('hero').classList.add('animate')
-    // document.getElementById('highlights').classList.add('animate')
-    // document.getElementsByTagName('body')[0].classList.add('startAnimate')
+    document.getElementsByTagName('body')[0].classList.add('startAnimate')
 };

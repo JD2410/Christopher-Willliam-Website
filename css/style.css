@@ -125,3 +125,6 @@ h3 {
     }
 }
 
+.animate {
+    background-color: red !important;
+}
