@@ -91,7 +91,7 @@
     #hero {
         margin-top: 60px;
         background-position: calc(50% - 470px);
-        height: unset;
+        height: 580px;
 
         .hero-container {
 

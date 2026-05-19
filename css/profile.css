@@ -2,19 +2,23 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
 
     .profile-container {
         max-width: var(--maxwidth);
         background-color: #F5F5F5;
         padding: 30px;
+
         .body {
+            text-align: left;
+
             img {
                 border: 6px solid var(--red);
                 background-color: #fff;
-                border-radius: 30px;
+                border-radius: 20px;
                 padding: 10px;
-                width: 250px;
-                max-height: 300px;
+                width: 100%;
+                max-height: 200px;
                 object-fit: cover;
                 margin: 20px 0;
                 flex: 1;
@@ -23,6 +27,11 @@
             h3 {
                 border-bottom: 6px solid var(--red);
                 padding-bottom: 16px;
+                font-size: 1.4rem;
+                margin: 30px 0;
+            }
+            h3:first-child {
+                margin-top: 0;
             }
             p {
                 padding: 16px 0;
@@ -36,41 +45,55 @@
 }
 
 @media (min-width: 768px) {
-    #profile {
-        .profile-container {
-            margin: 0 20px;
-            border-radius: 30px;
-            padding: 60px;
 
-            .body {
-                display: flex;
-                flex-direction: column;
-                flex: 30% 60%;
-                gap: 30px;
+#profile {
+    margin-top: 20px;
+    
+    .profile-container {
+        padding: 40px 30px 30px;
+        margin: 0 20px;
+        border-radius: 20px;
+        gap: 40px;
+        display: flex;
+        flex-direction: column;
 
-                img {
-                    
-                    width: 100%;
-                }
+        .body {
+            display: grid;
+            grid-template-columns: 47% auto;
+            column-gap: 40px;
 
+            img {
+                max-height: unset;
+                margin: 0;
             }
+
+            .profile-details {
+                padding-top: 3px;
+
+                h3 {
+                    border-left: 6px solid var(--red);
+                    border-bottom: 0px;
+                    padding: 16px 0 8px 16px;
+                    margin: 15px 0;
+                    font-size: 1.5rem;
+                }
+            }
+            
         }
     }
-
+}
 }
 @media (min-width: 1200px) {
-    #profile {
-        .profile-container {
-            .body {
-                flex-direction: row;
-                gap: 60px;
+#profile {
+    margin-top: 60px;
 
-                img {
-                    max-height: unset;
-                    width: 542px;
-                }
+    .profile-container {
+        padding: 60px;
 
-            }
+        .body {
+            grid-template-columns: 542px auto;
+
         }
     }
+}
 }
