@@ -207,7 +207,7 @@ let cwbs = {
         init: () => {
 
             const isMobile = window.innerWidth <= 768;
-            const mapPos = isMobile ? [51.7095, 0.2428] : [51.7095, 1.1428] ;
+            const mapPos = isMobile ? [51.7095, 0.2428] : [51.7095, 0.2428] ;
             const zoom = 9;
             
             const londonLatLng = [51.7095, 0.2428];
