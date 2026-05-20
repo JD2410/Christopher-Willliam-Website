@@ -1,4 +1,4 @@
-#why-us {
+#why {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -18,7 +18,7 @@
                 margin-bottom: 12px;
             }
         }
-        .why {
+        .why-body {
             display: flex;
             flex-direction: column;
             gap: 20px;
@@ -44,7 +44,7 @@
     }
 }
 @media (min-width: 768px) {
-#why-us {
+#why {
     padding: 20px;
     text-align: center;
 
@@ -57,7 +57,7 @@
                 font-size: 1.5rem;
             }
         }
-        .why {            
+        .why-body {            
             .col {
                 flex-direction: row;
 
@@ -71,10 +71,10 @@
 }
 @media (min-width: 1000px) {
 
-#why-us {
+#why {
     .why-container {
         border-radius: 30px;
-        .why {
+        .why-body {
             flex-direction: row;
             gap: 50px;
 

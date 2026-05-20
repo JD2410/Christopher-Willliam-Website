@@ -1,4 +1,4 @@
-#contact-form {
+#contact {
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -141,7 +141,7 @@
 }
 
 @media (min-width: 768px) {
-    #contact-form {
+    #contact {
         text-align: center;
         align-items: center;
         gap: 40px;
@@ -211,7 +211,7 @@
     }
 }
 @media (min-width: 1000px) {
-#contact-form {
+#contact {
     .contact-form-container {
         flex-direction: row;
         box-shadow: 0 0 30px rgba(0, 0, 0, 0.17);

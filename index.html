@@ -62,7 +62,7 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" ></script>
 </head>
 <body>
-    <header>
+    <header class="animate-scroll">
         <div class="header--container">
             <a href="#"><picture>     
                 <source srcset="images/mobile-logo.svg" media="(max-width: 762px)" width="144" height="31">
@@ -72,7 +72,7 @@
             <div id="menu"></div>
             <nav id="navigation">
                 <a href="#">Home</a>
-                <a href="#services">Services</a>
+                <a href="#services-section">Services</a>
                 <a href="#about">About</a>
                 <a href="#projects">Projects</a>
                 <a href="#why">Why Us</a>
@@ -82,7 +82,7 @@
         </div>
     </header>
     <main>
-        <section id="hero">
+        <section id="hero" class="animate-scroll">
             <div class="hero-container">
                 <div class="hero-content">
                     <h1>Building Project Management</h1>
@@ -107,14 +107,13 @@
                 </div>
             </div>
         </section>
-        
-    <div id="services-container">
-        <span id="services"></span>
-        <article class="services-opening">
-            <h2>Provided Services - <span>What we can do for you</span></h2>
-            <p>Complete Build - coordination with Planning Requirements-  Construction, Groundworks, Scaffolding Management, Plumbing, Electrical Works, Flooring, Plastering, Internal fittings through to completion.  Total site clearance and tidying when the job is complete.</p>
-        </article>
-        <article class="services-listed">
+        <section id="services" class="animate-scroll">
+            <span id="services-section"></span>
+            <article class="services-opening">
+                <h2>Provided Services - <span>What we can do for you</span></h2>
+                <p>Complete Build - coordination with Planning Requirements-  Construction, Groundworks, Scaffolding Management, Plumbing, Electrical Works, Flooring, Plastering, Internal fittings through to completion.  Total site clearance and tidying when the job is complete.</p>
+            </article>
+            <article class="services-listed">
             <div class="options">
                 <div class="card">
                     <img src="images/services/icon-bathroom.svg" width="44" height="40" alt="Bathroom Refurbishment Services Icon" loading="lazy">
@@ -122,7 +121,6 @@
                         <h3>Bathroom Refurbishments</h3>
                         <p>From modern upgrades to full-scale renovations, I handle everything from plumbing coordination to tiling and finishing touches.</p>
                     </div>
-                    
                 </div>
                 <div class="card">
                     <img src="images/services/icon-kitchen.svg" width="53" height="40" alt="Kitchen Renovations Services Icon" loading="lazy">
@@ -176,33 +174,32 @@
             </div>
             <img src="images/services/skilled-hands.png" width="521" height="651" alt="">
         </article>
-    </div>
-
-    <section id="profile">
-        <span id="about"></span>
-        <div class="profile-container">
+    </section>
+    <section id="about" class="animate-scroll">
+        <span id="about-section"></span>
+        <div class="about-container">
             <h2>About Us - <span>Bringing quality to homes</span></h2>
-            <div class="body">
+            <div class="about-body">
                 <img src="images/profile.png" width="542" height="836" alt="Gorrila Wall Art" id="profile-main" loading="lazy">
                 <div class="profile-details">
-                <h3>20 years in the trade. Built on Experience, Driven by quality</h3>
-                <p>With over 25 years in the building and construction industry, I've had the privilege of working on a vast range of projects, from small home renovations to large scale complete builds.  My journey began after university working on barn conversions in Devon where the passion for building was ignited.  I gained hands-on experience in various trades before transitioning into complete project management.  This background gives me an in-depth understanding of the building process from start to finish.  This ensures that every project runs smoothly, stays on budget and meets the highest standards.</p>
-                <p>As a project manager I've gathered together like-minded tradesmen whose eye for details and quality meets the high standards we are known for.  Clear communication and careful planning are the keys to a successful build.  Whether it's coordinating contractors, troubleshooting unexpected challenges or keeping clients informed, we are committed to making the process as straightforward and stress free as possible.</p>
-                <h3>We're committed to making the process as straightforward and stress-free as possible.</h3>
-                <p>What sets my team apart is their dedication to quality and our hands-on approach.  I stay very much involved, picking up on details and I take great pride in delivering work that exceeds expectations, whether it's a full home renovation, an extension, kitchen and bathroom installation or a complete new build.</p>
-                <p>If you're looking for a company who understands construction inside and out, and who are committed to high-quality work, we'd love to hear about you and your project.</p>
-            </div>
+                    <h3>20 years in the trade. Built on Experience, Driven by quality</h3>
+                    <p>With over 25 years in the building and construction industry, I've had the privilege of working on a vast range of projects, from small home renovations to large scale complete builds.  My journey began after university working on barn conversions in Devon where the passion for building was ignited.  I gained hands-on experience in various trades before transitioning into complete project management.  This background gives me an in-depth understanding of the building process from start to finish.  This ensures that every project runs smoothly, stays on budget and meets the highest standards.</p>
+                    <p>As a project manager I've gathered together like-minded tradesmen whose eye for details and quality meets the high standards we are known for.  Clear communication and careful planning are the keys to a successful build.  Whether it's coordinating contractors, troubleshooting unexpected challenges or keeping clients informed, we are committed to making the process as straightforward and stress free as possible.</p>
+                    <h3>We're committed to making the process as straightforward and stress-free as possible.</h3>
+                    <p>What sets my team apart is their dedication to quality and our hands-on approach.  I stay very much involved, picking up on details and I take great pride in delivering work that exceeds expectations, whether it's a full home renovation, an extension, kitchen and bathroom installation or a complete new build.</p>
+                    <p>If you're looking for a company who understands construction inside and out, and who are committed to high-quality work, we'd love to hear about you and your project.</p>
+                </div>
             </div>
         </div> 
     </section>
-    <section class="banner">
+    <section id="banner-one" class="banner animate-scroll">
         <div>
             <h1>Bringing skilled <span>trades together</span> for a <span>smoother build</span>. Contact me today.</h1>
             <a href="#contact" class="btn">Get in Contact</a>
         </div>
     </section>
-    <section id="projects-wrapper">
-        <span id="projects"></span>
+    <section id="projects" class="animate-scroll">
+        <span id="projects-section"></span>
         <div class="projects-container">
             <div class="project-info">
                 <h2>Projects - <span>Let our work speak for itself</span></h2>
@@ -223,13 +220,13 @@
             </div>
         </div>
     </section>
-    <section id="why-us">
+    <section id="why" class="animate-scroll">
         <div class="why-container">
             <div class="why-introduction">
                 <h2>Why choose us? - <span>What do we have that others don't?</span></h2>
                 <p>You've seen our work and you know what we can do. By why should you choose us for your project.</p>
             </div>
-            <div class="why">
+            <div class="why-body">
                 <div class="col">
                     <div class="card">
                         <img src="images/services/icon-loft.svg" width="38" height="40" alt="Loft Conversion Services Icon" loading="lazy">
@@ -275,14 +272,14 @@
             </div>
         </div>
     </section>
-    <section class="banner">
+    <section id="banner-two" class="banner animate-scroll">
         <div>
             <h1>Bringing skilled <span>trades together</span> for a <span>smoother build</span>. Contact me today.</h1>
             <a href="#contact" class="btn">Get in Contact</a>
         </div>
     </section>
-    <section id="contact-form">
-       <span id="contact"></span>
+    <section id="contact" class="animate-scroll">
+       <span id="contact-section"></span>
        <div class="section-introduction">
             <h2>Contact Us - <span>We'd love to hear from you</span></h2>
             <p>We'd love to hear about your project. Either simply fill in the form or send us an email with as much detail as possible and we'll review your request. If we need any more information, we'll be in touch to discuss the details. Otherwise, we'll let you know if your project is good to go.</p>
@@ -346,11 +343,11 @@
         </div>
     </section>
     </main>
-    <footer id="footer">
+    <footer id="footer" class="animate-scroll">
         <div class="footer-container">
             <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="#services">Services</a></li>
+                <li><a href="#services-section">Services</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>

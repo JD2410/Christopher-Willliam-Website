@@ -11,7 +11,6 @@ let cwbs = {
                 })
                 cwbs.underlineMovement();
             }
-            cwbs.getSectionPositions();
             cwbs.scrollAnimation();
         })
 
@@ -25,7 +24,6 @@ let cwbs = {
 
         if(window.innerWidth > 768) {
             this.underlineMovement();
-            this.getSectionPositions();
             cwbs.scrollAnimation();
         }
         this.servicesRevealDescription();
@@ -34,13 +32,6 @@ let cwbs = {
         navWidth: [],
         navPostionRight: [],
         currentSection: 0,
-        services: 0,
-        about: 0,
-        projects: 0,
-        why: 0,
-        contact: 0,
-        footer: 0,
-        windowHeight: 0,
     },
     navgationInit: () => {
         // Allows user to open the menu in mobile screen proportions
@@ -76,61 +67,38 @@ let cwbs = {
             document.getElementById('cookie-box-container').classList.add('show')
         }
     },
-    getSectionPositions: function() {
-        this.navProperties.services = document.getElementById("services").getBoundingClientRect().top + window.scrollY;
-        this.navProperties.about = document.getElementById("about").getBoundingClientRect().top + window.scrollY;
-        this.navProperties.projects = document.getElementById("projects").getBoundingClientRect().top + window.scrollY;
-        this.navProperties.why = document.getElementById("why-us").getBoundingClientRect().top + window.scrollY;
-        this.navProperties.contact = document.getElementById("contact").getBoundingClientRect().top + window.scrollY;
-        this.navProperties.footer = document.getElementById("footer").getBoundingClientRect().top + window.scrollY;
-        this.navProperties.windowHeight = window.innerHeight;
-    },
     scrollAnimation: function() {
-        let scroll = (window.scrollY + cwbs.navProperties.windowHeight) - 230;
-        
-        document.getElementById('temp').innerHTML = document.getElementById("services").getBoundingClientRect().top - 200;
 
-        if(scroll > this.navProperties.services) {
-            document.getElementById('services-container').classList.add("animate");
-        }
-        if(scroll > this.navProperties.about) {
-            document.getElementById('profile').classList.add("animate");
-        }
-        if(this.navProperties.projects < scroll) {
-            document.getElementById('projects-wrapper').classList.add("animate");
-        }
-        if(this.navProperties.why < scroll) {
-            document.getElementById('why-us').classList.add("animate")
-        }
-        if(this.navProperties.contact < scroll) {
-            document.getElementById('contact-form').classList.add("animate")
-        }
-        if((window.scrollY + cwbs.navProperties.windowHeight) > this.navProperties.footer) {
-            document.getElementById('footer').classList.add("animate")
-        }
+        const elements = document.querySelectorAll('.animate-scroll');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
 
-        let windowPosition = window.scrollY + 200;
+                    if (entry.target.id == 'hero') {
+                        this.navProperties.currentSection = 0;
+                    } else if (entry.target.id == 'services') {
+                        this.navProperties.currentSection = 1;
+                    } else if (entry.target.id == 'about') {
+                        this.navProperties.currentSection = 2;
+                    } else if (entry.target.id == 'projects') {
+                        this.navProperties.currentSection = 3;
+                    } else if (entry.target.id == 'why') {
+                        this.navProperties.currentSection = 4;
+                    } else if (entry.target.id == 'contact') {
+                        this.navProperties.currentSection = 5;
+                    }
+                    cwbs.moveUnderline(cwbs.navProperties.currentSection)
+                }
+            });
+        }, {
+            //The amount of screen displayed before animated. 0 is as soon as it appears on the page. 1 is a bit. 2 is...
+            threshold: 0.4
+        });
 
-        if (windowPosition < this.navProperties.services) {
-            this.navProperties.currentSection = 0;
-        }
-        if(windowPosition > this.navProperties.services && windowPosition < this.navProperties.about) {
-            this.navProperties.currentSection = 1;
-        }
-        if(windowPosition > this.navProperties.about && windowPosition < this.navProperties.projects) {
-            this.navProperties.currentSection = 2;
-        }
-        if(windowPosition > this.navProperties.projects && windowPosition < this.navProperties.why) {
-            this.navProperties.currentSection = 3;
-        }
-        if(windowPosition > this.navProperties.why && windowPosition < this.navProperties.contact) {
-            this.navProperties.currentSection = 4;
-        }
-        if(windowPosition > this.navProperties.contact) {
-            this.navProperties.currentSection = 5;
-        }
-
-        cwbs.moveUnderline(cwbs.navProperties.currentSection)
+        elements.forEach(element => {
+            observer.observe(element);
+        });
     },
     underlineMovement: function() {
         let rightSpacerCounter = 11;
