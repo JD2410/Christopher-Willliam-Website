@@ -2,23 +2,21 @@
     color: #fff;
     background-color: var(--black);
     display: flex;
+    text-align: center;
+    background-image: url('../images/schematic-white.svg');
+    background-position: 50% center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 400px;
+    display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    gap: 20px;
+    padding: 50px;
 
-    div {
-        max-width: var(--maxwidth);
-        text-align: center;
-        background-image: url('../images/schematic-white.svg');
-        background-position: 50% center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        min-height: 400px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
-        padding: 50px;
+    h1 {
+      max-width: var(--maxwidth);  
     }
 }
 
