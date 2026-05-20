@@ -88,12 +88,13 @@ let cwbs = {
                     } else if (entry.target.id == 'contact') {
                         this.navProperties.currentSection = 5;
                     }
+                    document.getElementById("temp").innerHTML = cwbs.navProperties.currentSection
                     cwbs.moveUnderline(cwbs.navProperties.currentSection)
                 }
             });
         }, {
             //The amount of screen displayed before animated. 0 is as soon as it appears on the page. 1 is a bit. 2 is...
-            threshold: 0.2
+            threshold: 0.3
         });
 
         elements.forEach(element => {

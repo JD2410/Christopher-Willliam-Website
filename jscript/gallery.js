@@ -20,15 +20,6 @@ let galleries = [
         'gallery/proj-02/kitchen-05.jpg',
         'gallery/proj-02/kitchen-06.jpg',
     ]),
-    // new Gallery(null, "Some text to explain the lof conversion.", 'images/proj-03.webp', "Loft Conversion", [
-    //     'gallery/proj-03/loft-01.jpg',
-    //     'gallery/proj-03/loft-02.jpg',
-    //     'gallery/proj-03/loft-03.jpg',
-    //     'gallery/proj-03/loft-04.jpg',
-    //     'gallery/proj-03/loft-05.jpg',
-    //     'gallery/proj-03/loft-06.jpg',
-    //     'gallery/proj-03/loft-07.jpg',
-    // ]),
     new Gallery(null, null, 'images/proj-03.webp', "Loft Conversion", [
         'gallery/proj-03/loft-01.jpg',
         'gallery/proj-03/loft-02.jpg',
@@ -152,7 +143,7 @@ let scr = {
                 scr.showGallery(parseInt(gallerySelect), parseInt(galleryImage))
 
             })
-            delayAmount += 0.16;
+            delayAmount += 0.1;
         })
     },
     galleryInitialiser: function() {

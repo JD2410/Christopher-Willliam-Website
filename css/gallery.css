@@ -111,10 +111,10 @@
     background-repeat: no-repeat;
     border-radius: 50%;
     margin: -15px;
-    -webkit-transition : all 150ms ease-out;
-    -moz-transition : all  150ms ease-out;
-    -o-transition : all 150ms ease-out;
-    transition : all 150ms ease-out;
+    -webkit-transition : background-color 150ms ease-out;
+    -moz-transition : background-color  150ms ease-out;
+    -o-transition : background-color 150ms ease-out;
+    transition : background-color 150ms ease-out;
 }
 #closeGallery:hover::after, .image-holder #previous:hover::after, .image-holder #next:hover::after  {
     background-color: #33a7ef;
@@ -213,6 +213,13 @@
         margin-top: 60px;
         p {
             font-size: 1.4rem;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+        h2 {
+            letter-spacing: 0.1rem;
+            opacity: 0;
+            transition: opacity 1s, letter-spacing 1s;
         }
     }
     .image-description p {
@@ -231,13 +238,25 @@
         width: calc(25% - 12px);
         border: 6px solid #fff;
         box-sizing: border-box;
-        -webkit-transition : border-color 150ms ease-out;
-        -moz-transition : border-color  150ms ease-out;
-        -o-transition : border-color  150ms ease-out;
-        transition : border-color 150ms ease-out;
+        opacity: 0;
+        transition: opacity 1s;
     }
     .projects-container #gallery img:hover {
         border-color: var(--red);
+    }
+    body.startAnimate {
+        #projects.visible {
+            h2 {
+                letter-spacing: 0;
+                opacity: 1;
+            }
+            p {
+                opacity: 1;
+            }
+            #gallery img {
+                opacity: 1;
+            }
+        }
     }
 }
 @media (min-width: 1000px) {
