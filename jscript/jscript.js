@@ -93,7 +93,7 @@ let cwbs = {
             });
         }, {
             //The amount of screen displayed before animated. 0 is as soon as it appears on the page. 1 is a bit. 2 is...
-            threshold: 0.4
+            threshold: 0.2
         });
 
         elements.forEach(element => {

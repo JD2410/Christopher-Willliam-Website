@@ -1,5 +1,10 @@
 @media (min-width: 768px) {
-
+    body {
+        .services-listed .card {
+            
+        }
+        
+    }
     body.startAnimate {
 
     }
