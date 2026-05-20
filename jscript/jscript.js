@@ -88,7 +88,6 @@ let cwbs = {
                     } else if (entry.target.id == 'contact') {
                         this.navProperties.currentSection = 5;
                     }
-                    document.getElementById("temp").innerHTML = cwbs.navProperties.currentSection
                     cwbs.moveUnderline(cwbs.navProperties.currentSection)
                 }
             });
