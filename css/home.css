@@ -1,7 +1,3 @@
-
-/* Base / globals */
-@import "animate.css";
-
 /* Layout */
 @import "style.css";
 @import "footer.css";
@@ -22,3 +18,6 @@
 
 /* Cookies */
 @import "cookie.css";
+
+/* Base / globals */
+@import "animate.css";

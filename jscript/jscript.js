@@ -214,8 +214,8 @@ let cwbs = {
     }
 }
 
-window.onload = function(){
+document.addEventListener('DOMContentLoaded', () => {
     cwbs.init();
     scr.init();
     document.getElementsByTagName('body')[0].classList.add('startAnimate')
-};
+});

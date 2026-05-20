@@ -1,18 +1,18 @@
 #cookie-box-container {
     position: fixed;
-    bottom: 15px;
+    bottom: -150px;
     right: 10px;
     left: 10px;
     justify-content: center;
     z-index: 90000;
     opacity: 0;
-    transition: opacity 0.25s, margin 0.5s;
+    transition: opacity 0.25s, bottom 0.5s;
     display: grid;
 }
 #cookie-box-container.show {
     transition-delay: 1s;
     opacity: 1;
-    margin-bottom: 0px;
+    bottom: 15px;
 }
 #cookie-box {
     background: var(--gradient);
