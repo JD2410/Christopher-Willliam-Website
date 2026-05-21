@@ -12,7 +12,7 @@
     }
     .contact-form-container {
         display: flex;
-        flex-direction: column-reverse;
+        flex-direction: column;
         max-width: var(--maxwidth);
 
         form {
@@ -53,8 +53,26 @@
                         justify-content: center;
                         gap: 6px;
                         line-height: 1.2rem;
+
+                        a {
+                            color: var(--red);
+                            text-decoration: none;
+
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
                     }
-                    
+                }
+                .contact-email::before {
+                    background-image: url('../images/contact/mail.svg');
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+                .contact-phone::before {
+                    background-image: url('../images/contact/phone.svg');
+                    background-repeat: no-repeat;
+                    background-position: center center;
                 }
             }
             .or {
@@ -124,19 +142,57 @@
             color: #fff;
             background-color: var(--red);
             display: flex;
-            gap: 8px;
+            justify-content: space-between;
             flex-direction: column;
             border-radius: 10px;
             margin-bottom: 20px;
 
-            h3 {
-                color: #fff;
+            .where {
+                display: grid;
+                gap: 12px;
+
+                h3 {
+                    color: #fff;
+                }
+                p {
+                    margin-bottom: 12px;
+                }
+                .location {
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+
+                    &::before {
+                        content: "";
+                        width: 25px;
+                        height: 25px;
+                        background: url('../images/contact/map-pin.svg') no-repeat center center;
+                        background-size: contain;
+                        display: block;
+                    }
+                }
+                .google-maps {
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                    color: #fff;
+                    text-decoration: none;
+                    margin-bottom: 12px;
+                    &::before {
+                        content: "";
+                        width: 25px;
+                        height: 25px;
+                        background: url('../images/contact/google.svg') no-repeat center center;
+                        background-size: contain;
+                        display: block;
+                    }
+                }
             }
         }
     }
 }
 #map {
-    height: 400px;
+    height: 250px;
     border-radius: 10px;
 }
 
