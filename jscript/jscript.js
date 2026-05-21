@@ -1,4 +1,9 @@
 let cwbs = {
+    navProperties: {
+        navWidth: [],
+        navPostionRight: [],
+        currentSection: 0,
+    },
     init: function() {
         
         this.cookiePolicy()
@@ -14,24 +19,11 @@ let cwbs = {
             cwbs.scrollAnimation();
         })
 
-        let timer = null;
-        window.addEventListener("scroll", function() {
-            cwbs.scrollAnimation();
-        })
-
         this.formScript();
         this.map();
-
-        if(window.innerWidth > 768) {
-            this.underlineMovement();
-            cwbs.scrollAnimation();
-        }
+        this.underlineMovement();
+        this.scrollAnimation();
         this.servicesRevealDescription();
-    },
-    navProperties: {
-        navWidth: [],
-        navPostionRight: [],
-        currentSection: 0,
     },
     navgationInit: () => {
         // Allows user to open the menu in mobile screen proportions
