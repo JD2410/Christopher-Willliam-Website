@@ -142,6 +142,8 @@
 
 @media (min-width: 768px) {
     #contact {
+        background: url('../images/assets/schematic-black.svg') no-repeat 70% 100%;
+        background-size: 200% auto;
         text-align: center;
         align-items: center;
         gap: 40px;
@@ -160,6 +162,7 @@
             }
         }
         .contact-form-container {
+            background-color: #fff;
             text-align: left;
             flex-direction: row;
             gap: 30px;

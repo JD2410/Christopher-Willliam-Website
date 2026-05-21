@@ -7,3 +7,10 @@
         max-width: var(--maxwidth);
     }
 }
+
+@media (min-width: 768px) {
+    #projects-why {
+        background: url('../images/assets/schematic-black.svg') no-repeat 70% 100%;
+        background-size: 200% auto;
+    }
+}

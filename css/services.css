@@ -6,7 +6,7 @@
     position: relative;
     text-align: left;
 
-    article {
+    & > div {
         max-width: var(--maxwidth);
         width: 100%;
         padding: 20px 20px 0;
@@ -72,10 +72,14 @@
     }
 }
 @media (min-width: 768px) {
+    #serivces-about {
+        background: url('../images/assets/schematic-black.svg') no-repeat 70% 100%;
+        background-size: 200% auto;
+    }
     #services{
         text-align: center;
 
-        article {
+        & > div {
             padding: 60px 20px 0
         }
         .services-opening  { 
