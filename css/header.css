@@ -64,6 +64,19 @@ header {
 }
 
 @media (min-width: 768px) {
+    .cookie-container .header-container nav a {
+        position: relative;
+    }
+    .cookie-container .header-container nav a:hover {
+        &:after {
+            content: '';
+            display: block;
+            height: 2px;
+            width: 100%;
+            background-color: var(--red);
+            position: absolute;
+        }
+    }
    
     #menu {
         display: none;

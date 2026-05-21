@@ -7,30 +7,33 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wdth,wght@0,18..144,87..112,700;1,18..144,87..112,700&family=Source+Sans+3&display=swap" rel="stylesheet" async>
-    <link rel="stylesheet" href="../css/cookie-policy.min.css">
+    <link rel="stylesheet" href="../css/cookie-policy.css">
 </head>
-<body class="cookie-container">
+<body class="cookie-container startAnimate">
     <div id="page-container">
-        <header>
-            <div class="header--container">
-                <a href="../index.html"><picture>     
+        <header class="animate-scroll visible">
+            <div class="header-container">
+                <a href="../" class="logo"><picture>     
                     <source srcset="../images/mobile-logo.svg" media="(max-width: 762px)" width="144" height="31">
                     <img src="../images/chris-william-solution-logo.svg" width="144" height="42" alt="Christopher William - Building Solutions Logo" loading="eager">
                 </picture></a>
                 <div id="menu"></div>
                 <nav id="navigation">
-                    <a href="../#">Home</a>
-                    <a href="../#services" id="servicesLink">Services</a>
-                    <a href="../#about">About</a>
-                    <a href="../#projects">Projects</a>
-                    <a href="../#contact">Contact</a>
+                    <a href="../">Home</a>
+                    <a href="../#services-section">Services</a>
+                    <a href="../#about-section">About</a>
+                    <a href="../#projects-section">Projects</a>
+                    <a href="../#why">Why Us</a>
+                    <a href="../#contact-section">Contact</a>
                 </nav>
             </div>
         </header>
         <main>
-            <section>
+            <section class="lead">
                 <h1>Cookie Policy</h1>
                 <p>This website uses cookies solely to enable the hCaptcha service on our contact form. These cookies are necessary for distinguishing between human users and bots and for protecting our website from spam and abuse.</p>
+            </section>
+            <section class="content">
                 <h2>What Are Cookies?</h2>
                 <p>Cookies are small data files that websites store on your device. They help websites remember user preferences and improve security and functionality.</p>
                 <h2>What Cookies We Use</h2>
@@ -46,17 +49,18 @@
                 <p>By continuing to use this site and submitting the contact form, you consent to the use of hCaptcha cookies. You can adjust your cookie preferences through your browser settings.</p>
             </section>
         </main>
-        <footer>
+        <footer id="footer" class="animate-scroll visible">
             <div class="footer-container">
                 <ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="../index.html#services">Services</a></li>
-                    <li><a href="../index.html#about">About</a></li>
-                    <li><a href="../index.html#projects">Projects</a></li>
-                    <li><a href="../index.html#contact">Contact</a></li>
+                    <li><a href="../">Home</a></li>
+                    <li><a href="../#services-section">Services</a></li>
+                    <li><a href="../#about-section">About</a></li>
+                    <li><a href="../#projects-section">Projects</a></li>
+                    <li><a href="../#why">Why Us</a></li>
+                    <li><a href="../#contact-section">Contact</a></li>
                     <li><a href="#">Cookie Policy</a></li>
                 </ul>
-                <div class="image-container"><img src="../images/footer-icon.svg" width="49" height="41" alt="Christopher William Logo"></div>
+                <div class="image-container"><img src="../images/footer-icon.svg" width="49" height="41" alt="Christopher William Logo" loading="lazy"></div>
                 <p>&copy; Christopher William Building Solution. All rights reserved</p>
             </div>
         </footer>

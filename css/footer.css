@@ -23,6 +23,10 @@ footer {
         padding: 10px 0;
         display: block;
         text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 } 
 @media (min-width: 768px) {

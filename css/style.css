@@ -147,32 +147,75 @@ h3 {
 .cookie-container main {
     box-sizing: border-box;
     color: var(--black);
-    padding: 0 20px;
 
-    h1 {
-        font-size: 2rem;
-        border-bottom: 3px solid var(--red);
-        padding-bottom: 6px;
+    .lead {
+        margin-top: 60px;
+        background-color: var(--grey);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        margin-top: 50px;
+        min-height: 200px;
+        padding: 20px 0;
+        background-image: url('../images/hero/white-on-black-schematic.svg');
+        background-repeat: no-repeat;
+        margin-bottom: 20px;
+
+        h1 {
+            font-size: 2rem;
+            color: #fff;
+            border-bottom: 2px solid var(--red);
+            margin-bottom: 20px;
+        }
+        p {
+            max-width: var(--maxwidth);
+            padding: 0 20px;
+            color: #fff;
+            text-align: center;
+        }
     }
-    h2 {
-        font-size: 1.3rem;
+    .content {
+        max-width: var(--maxwidth);
+        margin: auto;
+        padding: 20px;
+
+        h2 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+        p {
+            margin-bottom: 20px;
+        }
+        ul {
+            margin-bottom: 20px;
+            padding-left: 40px;
+        }
+        a {
+            margin-bottom: 20px;
+            display: block;
+        }
     }
 }
 @media (min-width: 768px) {
     .cookie-container {
-
         #page-container {
             position: relative;
-            min-height: calc(100vh - 87px);
+            min-height: calc(100vh - 60px);
+
+            .lead {
+                margin-top: 60px;
+            }
+            .content {
+                padding: 20px 20px 120px 20px;
+            }
         }
-        main {
-            max-width: var(--maxwidth);
-            margin: auto;
-        }
+        
         footer {
             position: absolute;
             bottom: 0;
-            width: calc(100% - 40px);
+            width: 100%;
         }
     }
 }
