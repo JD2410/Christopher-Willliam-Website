@@ -45,9 +45,12 @@
                     color: #fff;
                     text-decoration: none;
                     position: relative;
-                    border-bottom: 4px solid var(--red);
+                    border-bottom-width: 4px;
+                    border-bottom-style: solid;
+                    border-bottom-color: var(--red);
                     padding: 12px 0px 12px 0;
-                    font-size: 1.25rem;
+                    font-size: 1.35rem;
+                    transition: border-color 0.25s;
                 }
             }
         }
@@ -136,7 +139,7 @@
                         transition-delay: 1.15s;
                     }
                     .services::after {
-                        background: url('../images/hero/arrow.svg') no-repeat center center;
+                        background: url('../images/assets/arrow.svg') no-repeat center center;
                         content: "";
                         position: absolute;
                         display: block;
@@ -148,6 +151,7 @@
                         rotate: 0deg;
                     }
                     .services:hover {
+                        border-color: var(--red-lighter);
                         &::after {
                             rotate: 45deg;
                         }

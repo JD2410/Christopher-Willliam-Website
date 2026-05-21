@@ -1,6 +1,6 @@
 .banner {
     color: #fff;
-    background-color: var(--black);
+    background-color: var(--grey);
     display: flex;
     text-align: center;
     background-image: url('../images/schematic-white.svg');
