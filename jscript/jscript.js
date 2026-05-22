@@ -125,7 +125,7 @@ let cwbs = {
                     const formData = new FormData(form);
                     const object = Object.fromEntries(formData);
                     const json = JSON.stringify(object);
-                    cwbs.contactFormMessage("Please wait...", "info")
+                    cwbs.contactFormMessage(null, "Please wait...", "info")
 
                     fetch('https://api.web3forms.com/submit', {
                             method: 'POST',
@@ -138,7 +138,7 @@ let cwbs = {
                         .then(async (response) => {
                             let json = await response.json();
                             if (response.status == 200) {
-                                cwbs.contactFormMessage("Form submitted successfully", "success")
+                                cwbs.contactFormMessage("Form submitted successfully", "Someone will be in contact to discuss your request.", "success")
                             } else {
                                 console.log(response);
                                 cwbs.contactFormMessage(json.message, "failed")
@@ -146,7 +146,7 @@ let cwbs = {
                         })
                         .catch(error => {
                             console.log(error);
-                            cwbs.contactFormMessage("Something went wrong!", "failed")
+                            cwbs.contactFormMessage("Sorry, there was an issue submitting your request.", 'There seems to be an issue with the form. Please use the email address provided leaving the details of the project and we’ll be in contact to discuss your request.', "failed")
                         })
                         .then(function() {
                             form.reset();
@@ -158,18 +158,29 @@ let cwbs = {
             
           });
     },
-    contactFormMessage: function(message, status) {
+    contactFormMessage: function(header, message, status) {
         
         const resultMessage = document.getElementById('result-message');
         const resultCon = document.getElementById('result-container');
 
         resultCon.classList.remove("success")
         resultCon.classList.remove("info")
-        resultCon.classList.remove("failed")
-
-        resultMessage.innerHTML = message;
+        resultCon.classList.remove("failed");
         resultCon.classList.add(status);
-        resultCon.style.display = "flex";
+
+        resultMessage.innerHTML = "";
+
+        if (status != 'info') {
+            let title = document.createElement('p')
+            title.innerText = header;
+            resultMessage.appendChild(title);
+        }
+        
+        let description = document.createElement('p');
+        description.innerHTML = message;
+        resultMessage.appendChild(description);
+
+        resultCon.style.display = "grid";
 
     },
     // Loads the map
@@ -209,5 +220,6 @@ let cwbs = {
 document.addEventListener('DOMContentLoaded', () => {
     cwbs.init();
     scr.init();
+    cwbs.contactFormMessage("Sorry, there was an issue submitting your request.", 'There seems to be an issue with the form. Please use the email address provided leaving the details of the project and we’ll be in contact to discuss your request.', "info")
     document.getElementsByTagName('body')[0].classList.add('startAnimate')
 });

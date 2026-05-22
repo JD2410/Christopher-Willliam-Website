@@ -135,6 +135,51 @@
                 justify-content: space-between;
                 align-items: center;
             }
+            .contact-message {
+                border-radius: 8px;
+                padding: 16px;
+                gap: 10px;
+                grid-template-columns: 28px auto;
+                align-items: center;
+                display: none;
+
+                &:before {
+                    content: "";
+                    display: block;
+                    height: 28px;
+                    width: 28px;
+                }
+
+                #result-message p:nth-child(1) {
+                    font-weight: 500;
+                }
+            }
+            .contact-message.info {
+                background-color: #BFE2FF;
+                color: #008CFF;
+
+                &:before {
+                    background: url('../images/contact/pending.svg') no-repeat center center;
+                }
+            }
+            .contact-message.success {
+                align-items:flex-start;
+                background-color: #BFFFC1;
+                color: #0BAE10;
+
+                &:before {
+                    background: url('../images/contact/success.svg') no-repeat center center;
+                }
+            }
+            .contact-message.failed {
+                align-items:flex-start;
+                background-color: #FECDC9;
+                color: #FB3928;
+
+                &:before {
+                    background: url('../images/contact/failed.svg') no-repeat center center;
+                }
+            }
         }
         .contact-description {
             margin: 20px 0 0;
