@@ -176,16 +176,15 @@
     }
 }
 @media (min-width: 1024px) {
-    #services{
-        .services-listed {
-            display: grid;
-            grid-template-columns: calc(60% - 20px) calc(40% - 20px);
-            flex-direction: row;
-            
-            .image-holder img {
-                    max-height: unset;
-                object-position: left top;
-                }
+#services{
+    .services-listed {
+        display: grid;
+        grid-template-columns: calc(60% - 20px) calc(40% - 20px);
+        flex-direction: row;
+        
+        .image-holder img {
+                max-height: unset;
+            object-position: left top;
             }
         }
     }
